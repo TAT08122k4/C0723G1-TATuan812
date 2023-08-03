@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Form đơn giản</title>
+</head>
+<style>
+    .demo{
+        font-family: "Lucida Sans";
+    }
+</style>
+<body>
+<form action="taoformdongian.html" method="get" class="demo">
+    <h2>Oder Form</h2>
+    <p>What would u like to buy?</p>
+    <select>
+        <option value=" ">A</option>
+        <option>B(+ 0.5$)</option>
+        <option>C(+ 0.5$)</option>
+    </select>
+    <p>How many would u like to oder ?</p>
+    <input type="radio" name="selectoder"> 1 - $10<br>
+    <input type="radio" name="selectoder"> 2 - $20<br>
+    <input type="radio" name="selectoder"> 3 - $25<br>
+    <p>Name <span style="color: red">*</span></p>
+    <input type="text" placeholder="FirstName" name="firstname" size="12">
+    <input type="text" placeholder="LastName" name="lastname" size="12">
+    <p>Email</p>
+    <input type="email" placeholder="you@gmail.com" name="uremail">
+    <p>Phone Number</p>
+    <input type="text" name="numberphone" size="8"> -
+    <input type="text" name="numberphone" size="8"> -
+    <input type="text" name="numberphone" size="8">
+    <p><input type="submit" name="submit" value="Send"></p>
+</form>
+</body>
+</html>

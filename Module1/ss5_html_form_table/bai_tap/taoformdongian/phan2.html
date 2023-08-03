@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        width: 35%;
+    }
+
+    #address {
+        position: relative;
+        top: -13px;
+    }
+    .textblue{
+        color: blue;
+    }
+</style>
+<body>
+<form action="#" method="get">
+    <table border="0" cellpadding="1" cellspacing="0" style="background-color: yellow">
+        <caption style="background-color: #3FFBDC ; color: blue"><p align="left">ĐĂNG KÍ HỌC VIÊN</p></caption>
+        <tr>
+            <td style="padding-right: 0px" class="textblue" size="20">Họ và tên</td>
+            <td><input type="text" name="name" style="width: 200px"></td>
+        </tr>
+        <tr>
+            <td class="textblue">Ngày Sinh</td>
+            <td><input type="text" name="dob" style="width: 115px"></td>
+        </tr>
+        <tr>
+            <td class="textblue">Giới Tính</td>
+            <td>
+                <input type="radio" name="gender">Nam
+                <input type="radio" name="gender">Nữ
+            </td>
+        </tr>
+        <tr>
+            <td id="address" class="textblue">Địa Chỉ</td>
+            <td><input type="text" name="addres" style="height: 40px"></td>
+        </tr>
+        <tr>
+            <td class="textblue">Lớp</td>
+            <td><select name="class">
+                <optgroup label="Lớp Full-Time">
+                    <option>Lớp 1</option>
+                    <option>Lớp 2</option>
+                    <option>Lớp 3</option>
+                </optgroup>
+                    <optgroup label="Lớp Part-Time">
+                        <option>Lớp 1</option>
+                        <option>Lớp 2</option>
+                        <option>Lớp 3</option>
+                    </optgroup>
+            </select></td>
+        </tr>
+        <tr>
+            <td class="textblue">Email</td>
+            <td><input type="text" style="width: 140px"></td>
+        </tr>
+        <tr>
+            <td class="textblue">Điện Thoại</td>
+            <td><input type="text" style="width: 140px"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="submit">
+                <input type="reset" name="reset">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
