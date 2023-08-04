@@ -22,17 +22,17 @@
     <table border="0" cellpadding="1" cellspacing="0" style="background-color: yellow">
         <caption style="background-color: #3FFBDC ; color: blue"><p align="left">ĐĂNG KÍ HỌC VIÊN</p></caption>
         <tr>
-            <td style="padding-right: 0px" class="textblue" size="20">Họ và tên</td>
-            <td><input type="text" name="name" style="width: 200px"></td>
+            <label for="yourname"><td style="padding-right: 0px" class="textblue" size="20">Họ và tên</td>
+            <td><input type="text" name="name" id="yourname" style="width: 200px"></label></td>
         </tr>
         <tr>
             <td class="textblue">Ngày Sinh</td>
-            <td><input type="text" name="dob" style="width: 115px"></td>
+            <td><input type="date" name="dob" style="width: 115px"></td>
         </tr>
         <tr>
             <td class="textblue">Giới Tính</td>
             <td>
-                <input type="radio" name="gender">Nam
+                <input type="radio" name="gender" checked>Nam
                 <input type="radio" name="gender">Nữ
             </td>
         </tr>
