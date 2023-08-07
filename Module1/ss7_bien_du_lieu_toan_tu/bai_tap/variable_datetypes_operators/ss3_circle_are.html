@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="radius" placeholder="input radius">
+    <button type="button" id="calc" onclick="circleArea()">Calculator</button><br>
+    <p id="result">Diện Tích Hình Tròn Là: </p>
+
+    <script>
+       function circleArea(){
+        let radius = document.getElementById('radius').value;
+        let circleArea = radius*radius*3.14;
+        document.getElementById('result').innerHTML = "Diện Tích Hình Tròn là: " + circleArea;
+    
+       }
+    </script>
+</body>
+</html>

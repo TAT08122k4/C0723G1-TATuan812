@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="firstNumber" />
+    <input type="number" id="secondNumber" /><br />
+    <button type="button" id="plus" onclick="plus()">Addtition(+)</button>
+    <button type="button" id="minus" onclick="minus()">Subtraction(-)</button>
+    <button type="button" id="multiplication" onclick="multiplication()">
+      Multiplication(X)
+    </button>
+    <button type="button" id="division" onclick="division()">Division(/)</button
+    ><br />
+    <p id="result">Result:</p>
+    <script>
+      let calc;
+      function plus() {
+        let firstNumber = parseInt(
+          document.getElementById("firstNumber").value
+        );
+        let secondNumber = parseInt(
+          document.getElementById("secondNumber").value
+        );
+        calc = firstNumber + secondNumber;
+        document.getElementById("result").innerHTML = "Result: " + calc;
+      }
+      function minus() {
+        let firstNumber = parseInt(
+          document.getElementById("firstNumber").value
+        );
+        let secondNumber = parseInt(
+          document.getElementById("secondNumber").value
+        );
+        calc = firstNumber - secondNumber;
+        document.getElementById("result").innerHTML = "Result: " + calc;
+      }
+      function multiplication() {
+        let firstNumber = parseInt(
+          document.getElementById("firstNumber").value
+        );
+        let secondNumber = parseInt(
+          document.getElementById("secondNumber").value
+        );
+        calc = firstNumber * secondNumber;
+        document.getElementById("result").innerHTML = "Result: " + calc;
+      }
+      function division() {
+        let firstNumber = parseInt(
+          document.getElementById("firstNumber").value
+        );
+        let secondNumber = parseInt(
+          document.getElementById("secondNumber").value
+        );
+        calc = firstNumber / secondNumber;
+        document.getElementById("result").innerHTML = "Result: " + calc;
+      }
+    </script>
+  </body>
+</html>

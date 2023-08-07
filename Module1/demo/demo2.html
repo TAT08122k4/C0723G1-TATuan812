@@ -6,13 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="number" id="ly" placeholder="Nhap diem Ly">
+    <input type="number" id="hoa" placeholder="Nhap diem Hoa">
+    <input type="number" id="sinh" placeholder="Nhap diem Sinh"> <br>
+    <button id="tong" >Tinh tong</button>
+    <button id="avg">Tinh diem trung binh</button>
+    <p id="result"></p>
+<script>
+    let tong = document.getElementById('tong');
+    let Ly;
+        function sum(){
+             Ly = parseInt(document.getElementById('ly').value) ;
+            let Hoa = parseInt(document.getElementById('hoa').value);
+            let Sinh = parseInt(document.getElementById('sinh').value);
+             let tongdiem = Ly + Hoa + Sinh;
+             console.log(tongdiem);
+             document.getElementById('result').innerHTML = tongdiem;
+        }
+            tong.addEventListener("click", sum);
+</script>
 </body>
 </html>
-<script>
-    let a =5;
-    debugger
-   let b = ++a + --a - a++ + ++a;
-   console.log(a);
-   console.log(b);
-</script>

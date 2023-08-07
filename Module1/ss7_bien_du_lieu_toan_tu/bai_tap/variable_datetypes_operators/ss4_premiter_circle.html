@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="radius" placeholder="Input radius of circle">
+    <button type="button" id="calc" onclick="premiterCircle()">Calc</button>
+    <p id="result">Premiter of Circle is </p>
+    <script>
+       function premiterCircle(){
+        let radius = document.getElementById('radius').value;
+        let premiter = 2 * radius * 3.14;
+        document.getElementById('result').innerHTML = "Premiter of circle is " + " " + premiter;
+       } 
+    </script>
+</body>
+</html>

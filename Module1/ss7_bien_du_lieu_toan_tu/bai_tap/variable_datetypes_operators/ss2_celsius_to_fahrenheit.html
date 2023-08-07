@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<br>
+    <h2>Input Celsius</h2>
+    <input type="number" id="celsius"> <br>
+    <button type="button" id="convert" onclick="convertCtoF()">Convert</button><br>
+    <P id="result">ĐỘ F là:</P>
+    <script>
+     function convertCtoF(){
+        let c = document.getElementById('celsius').value;
+        let convert = (c * 1.8) + 32;
+        document.getElementById('result').innerHTML = "ĐỘ F là:" + convert;
+     }
+    </script>
+</body>
+</html>
