@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <input type="number" id="ly" placeholder="Nhap diem Ly">
-    <input type="number" id="hoa" placeholder="Nhap diem Hoa">
-    <input type="number" id="sinh" placeholder="Nhap diem Sinh"> <br>
-    <button id="tong" >Tinh tong</button>
-    <button id="avg">Tinh diem trung binh</button>
-    <p id="result"></p>
-<script>
-    let tong = document.getElementById('tong');
-    let Ly;
-        function sum(){
-             Ly = parseInt(document.getElementById('ly').value) ;
-            let Hoa = parseInt(document.getElementById('hoa').value);
-            let Sinh = parseInt(document.getElementById('sinh').value);
-             let tongdiem = Ly + Hoa + Sinh;
-             console.log(tongdiem);
-             document.getElementById('result').innerHTML = tongdiem;
-        }
-            tong.addEventListener("click", sum);
-</script>
+  <script>
+    let a = +prompt("Nhập Chiều Dài Của Hình Chữ Nhật:")
+    for(let i = 1; i <= a ; i++   ){
+      for(let j = 1; j <= i; j++){
+       document.write("*")
+      }
+      document.write('<br>')
+    }
+  </script>
 </body>
 </html>

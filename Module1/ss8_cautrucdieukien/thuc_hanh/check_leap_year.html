@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let inputYearToCheck = +prompt("Input a year to check leap year:");
+    if(inputYearToCheck % 4 == 0){
+        if(inputYearToCheck % 100 == 0){
+               if(inputYearToCheck % 400 ==0){
+                alert(inputYearToCheck + "is lear year")
+               }else{
+                alert(inputYearToCheck + " is not leap year")
+               }
+        }else{
+            alert(inputYearToCheck + " is Leap Year")
+        }
+    }else{
+        alert(inputYearToCheck + "is not leap year")
+    }
+    </script>
+</body>
+</html>

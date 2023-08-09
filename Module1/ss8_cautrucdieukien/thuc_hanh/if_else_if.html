@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let userName = prompt("Who's there?", "");
+      debugger;
+      if (userName == "Admin") {
+        let pass = prompt("enter the password plz: ");
+        if (pass == "TheMaster") {
+          alert("Chào Sếp");
+        } else if (pass == undefined) {
+          alert("Canceled");
+        } else {
+          alert("Password is wrong , idk u , who r u ? ");
+        }
+      } else if (userName == null) {
+        alert("Canceled");
+      } else {
+        alert("I don't know you");
+      }
+    </script>
+  </body>
+</html>

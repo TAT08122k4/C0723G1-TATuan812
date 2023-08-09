@@ -8,55 +8,39 @@
   <body>
     <input type="number" id="firstNumber" />
     <input type="number" id="secondNumber" /><br />
-    <button type="button" id="plus" onclick="plus()">Addtition(+)</button>
-    <button type="button" id="minus" onclick="minus()">Subtraction(-)</button>
-    <button type="button" id="multiplication" onclick="multiplication()">
-      Multiplication(X)
-    </button>
-    <button type="button" id="division" onclick="division()">Division(/)</button
+    <button type="button" id="plus" onclick="calc('add')">Addtition(+)</button>
+    <button type="button" id="minus" onclick="calc('sub')">Subtraction(-)</button>
+    <button type="button" id="multiplication" onclick="calc('mul')">Multiplication(X)</button>
+    <button type="button" id="division" onclick="calc('div')">Division(/)</button
     ><br />
     <p id="result">Result:</p>
     <script>
-      let calc;
-      function plus() {
+      let calculator;
+      function calc(opp){
         let firstNumber = parseInt(
           document.getElementById("firstNumber").value
         );
         let secondNumber = parseInt(
           document.getElementById("secondNumber").value
         );
-        calc = firstNumber + secondNumber;
-        document.getElementById("result").innerHTML = "Result: " + calc;
-      }
-      function minus() {
-        let firstNumber = parseInt(
-          document.getElementById("firstNumber").value
-        );
-        let secondNumber = parseInt(
-          document.getElementById("secondNumber").value
-        );
-        calc = firstNumber - secondNumber;
-        document.getElementById("result").innerHTML = "Result: " + calc;
-      }
-      function multiplication() {
-        let firstNumber = parseInt(
-          document.getElementById("firstNumber").value
-        );
-        let secondNumber = parseInt(
-          document.getElementById("secondNumber").value
-        );
-        calc = firstNumber * secondNumber;
-        document.getElementById("result").innerHTML = "Result: " + calc;
-      }
-      function division() {
-        let firstNumber = parseInt(
-          document.getElementById("firstNumber").value
-        );
-        let secondNumber = parseInt(
-          document.getElementById("secondNumber").value
-        );
-        calc = firstNumber / secondNumber;
-        document.getElementById("result").innerHTML = "Result: " + calc;
+        switch(opp){
+          case 'add':
+               calculator = firstNumber + secondNumber;
+               document.getElementById('result').innerHTML = "Result:" + calculator;
+               break;
+               case 'sub':
+               calculator = firstNumber - secondNumber;
+               document.getElementById('result').innerHTML = "Result:" + calculator;
+               break;
+               case 'mul':
+               calculator = firstNumber * secondNumber;
+               document.getElementById('result').innerHTML = "Result:" + calculator;
+               break;
+               case 'div':
+               calculator = firstNumber / secondNumber;
+               document.getElementById('result').innerHTML = "Result:" + calculator;
+               break;
+        }
       }
     </script>
   </body>

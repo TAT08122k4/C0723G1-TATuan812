@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tính Chỉ Số Cân Nặng</h2>
+    <input type="number" placeholder="Input Ur Weight" id="weight"> - 
+    <input type="number" placeholder="Input ur height" id="height">
+    <button type="button" onclick="calcbmi()">Calc</button><br>
+    <br>
+    <p id="result">Kết quả</p>
+    <script>
+        function calcbmi(){
+            let weight = parseInt(document.getElementById('weight').value)
+            let height = parseInt(document.getElementById('height').value)
+            let result = weight / (Math.pow(height,2))
+            if(result < 18.5){
+            document.getElementById('result').innerHTML = "Ur BMI is " + result + "Ur body is Underweight";
+            }else if (result < 25.0){
+            document.getElementById('result').innerHTML = "Ur BMI is " + result +"Ur body is Normal";
+            }else if(result < 30.0){
+                document.getElementById('result').innerHTML = "Ur BMI is " + result +"Ur body is Overweight"
+            }else{
+                document.getElementById('result').innerHTML = "Ur BMI is " + result +"Ur body is Obese"
+            }
+        }
+    </script>
+</body>
+</html>
