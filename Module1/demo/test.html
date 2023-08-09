@@ -1,66 +1,91 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tạo Form Đơn Giản</title>
+    <title>Máy Tính đơn giản</title>
 </head>
-<!--<style>-->
-<!--    table {-->
-<!--        font-family: "Lucida Sans";-->
-<!--        width: 40%;-->
-<!--    }-->
-<!--    tr , td,span{-->
-<!--        color: darkorange;-->
-<!--    }-->
-<!--</style>-->
 <body>
-<!--<form method="get" action="taoformdongian.html">-->
-<!--    <table border="0" cellpadding="1" cellspacing="0">-->
-<!--        <caption style="color: white ; background-color: darkorange">Sở Thích Của Bạn</caption>-->
-<!--        <tr>-->
-<!--            <td align="right">-->
-<!--                <span style="color: blue">Họ Và Tên</span>-->
-<!--            </td>-->
-<!--            <td colspan="3"><input type="text" name="hovaten" placeholder="Nguyễn Văn A" size="20"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td align="right">-->
-<!--                <span style="color: blue">Email</span>-->
-<!--            </td>-->
-<!--            <td colspan="3">-->
-<!--                <input type="email" name="email" placeholder="you@email.com" size="15">-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td rowspan="4" align="right">-->
-<!--                <span style="color: blue ; position: relative ; top: -20px" >Sở Thích</span>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--        <tr>-->
-<!--            <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
-<!--        <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
-<!--        <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
-<!--            <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
-<!--            <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><span><input type="checkbox" name="hobbies">Thể Thao</span></td>-->
+<form>
+    <table align="center" style="border: 5px solid black;">
+        <tr>
+            <th colspan="4"><input type="text" id="thanhtinhtoan"></th>
+        </tr>
+        <tr>
+            <th>
+                <button type="button" id="mot" onclick=" show(1)">1</button>
+            </th>
+            <th>
+                <button type="button" id="hai" onclick=" show(2)">2</button>
+            </th>
+            <th>
+                <button type="button" id="ba" onclick=" show(3)">3</button>
+            </th>
+            <th>
+                <button type="button"  onclick=" show('+')" value="+">+</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="button" id="bon" onclick=" show(4)">4</button>
+            </th>
+            <th>
+                <button type="button" id="nam" onclick=" show(5)">5</button>
+            </th>
+            <th>
+                <button type="button" id="sau" onclick=" show(6)">6</button>
+            </th>
+            <th>
+                <button type="button" onclick=" show('-')">-</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="button" id="bay" onclick=" show(7)">7</button>
+            </th>
+            <th>
+                <button type="button" id="tam" onclick=" show(8)">8</button>
+            </th>
+            <th>
+                <button type="button" id="chin" onclick=" show(9)">9</button>
+            </th>
+            <th>
+                <button type="button"  onclick=" show('*')">x</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="button" onclick=" show('')">C</button>
+            </th>
+            <th>
+                <button type="button" id="khong" onclick=" show(0)">0</button>
+            </th>
+            <th>
+                <button type="button" id="bang" onclick="tinhketqua()">=</button>
+            </th>
+            <th>
+                <button type="button"  onclick=" show('/')">/</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<script>
+function show(value){
+    document.getElementById("thanhtinhtoan").value += value;
+}
+function tinhketqua() {
+     var p = document.getElementById('thanhtinhtoan').value;
+     var q= eval(p);
+     document.getElementById("thanhtinhtoan").value = q;
+}
+</script>
+<style>
 
-<!--        </tr>-->
-<!--        </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td></td>-->
-<!--            <td colspan="3">-->
-<!--                <span><input type="submit" name="submit" value="Gửi Thông Tin"></span>-->
-<!--                <span><input type="reset" name="reset" value="Nhập Lại"></span>-->
-<!--            </td>-->
-<!--        </tr>-->
-
-<!--    </table>-->
-<!--</form>-->
+    button{
+        width: 30px;
+        height: 25px;
+        color: blue;
+    }
+</style>
 </body>
 </html>
