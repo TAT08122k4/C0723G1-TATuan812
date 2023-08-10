@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let soTienGui = +prompt("Nhập SỐ tiền gửi vô ngân hàng: ")
+        let soNgayGui = +prompt("Nhập SỐ  ngày : ")
+        let tienLai = 0;
+        if(soNgayGui > 30){
+            tienLai = soTienGui * 0.03 * (soNgayGui/365);
+        }else if(soNgayGui > 240){
+            tienLai = soTienGui * 0.05 * (soNgayGui/365);
+        }else if(soNgayGui > 365){
+            tienLai = soTienGui * 0.07 * (soNgayGui/365);
+        }else{
+            tienLai = soTienGui * 0.1 * (soNgayGui/365);
+        }
+        document.write("Tiền Lãi Sau " + soNgayGui + "Là: " + tienLai)
+    </script>
+</body>
+</html>

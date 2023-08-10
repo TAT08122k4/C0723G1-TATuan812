@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          while(isNaN(firstNumber) && isNaN(secondNumber) && isNaN(thirlyNumber)){
+            alert("Vui Lòng Nhập 3 Số:")
+            var firstNumber = +prompt("NHập Số đầu tiên:")
+            var secondNumber = +prompt("Nhập Số Thứ 2:")
+            var thirlyNumber = +prompt("Nhập Số Thứ 3:")
+        }
+        if(firstNumber > secondNumber){
+            if(firstNumber > thirlyNumber){
+            document.write(firstNumber + " Là Số Lớn Nhất")
+            }else{
+                document.write(thirlyNumber + "Là SỐ Lớn Nhất")
+            }
+
+        }else if(secondNumber > thirlyNumber){
+            document.write(secondNumber + " Là Số Lớn Nhất")
+        }else{
+            document.write(thirlyNumber + " Là Số Lớn Nhất")
+        }
+    </script>
+</body>
+</html>

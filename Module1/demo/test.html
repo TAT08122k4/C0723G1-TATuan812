@@ -55,7 +55,7 @@
         </tr>
         <tr>
             <th>
-                <button type="button" onclick=" show('')">C</button>
+                <button type="button" onclick="xoa()">C</button>
             </th>
             <th>
                 <button type="button" id="khong" onclick=" show(0)">0</button>
@@ -77,6 +77,9 @@ function tinhketqua() {
      var p = document.getElementById('thanhtinhtoan').value;
      var q= eval(p);
      document.getElementById("thanhtinhtoan").value = q;
+}
+function xoa(){
+    document.getElementById("thanhtinhtoan").value = "";
 }
 </script>
 <style>

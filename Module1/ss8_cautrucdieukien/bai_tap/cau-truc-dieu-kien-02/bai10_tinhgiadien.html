@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let thoiGianTieuThuDien = +prompt("NHập thời gian tiêu thụ điện: ")
+        let tongCongSuat = +prompt("Nhập kW")
+        let giaTien = 0;
+        let luongDienTieuThu = 0;
+        if(thoiGianTieuThuDien > 0 && tongCongSuat > 0){
+            luongDienTieuThu = thoiGianTieuThuDien * tongCongSuat;
+            giaTien = luongDienTieuThu * 1728;
+            document.write(" GIá Tiền điện tháng này là : " + giaTien + "VNĐ")
+        }else{
+            alert('Vui Lòng Nhập Số Nguyên Dương')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(isNaN(a) || a ==0 || isNaN(b) || isNaN(c)){
+           var a = +prompt("Nhap số hàng bậc 2: ");
+           var b = +prompt("Nhap số hàng bac 1: ");
+           var c = +prompt("Nhap so hang bac 0: ");
+       }
+       let delta = ( b * b ) - 4 * a * c;
+       if(delta < 0){
+           alert("Phuong trinh vo nghiem!!");
+       }else if(delta == 0){
+           x = (-b) / (2 * a);
+           alert("Phuong trinh co nghiem kep: " +x );
+       }else{
+           x1 = ((-b) + Math.sqrt(delta)) / (2*a);
+           x2 = ((-b) - Math.sqrt(delta)) / (2*a);
+           alert("Phuong trinh co 2 nghiem phan biet: " +x1 +" va " +x2);
+       }
+   </script> 
+</body>
+</html>

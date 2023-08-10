@@ -7,50 +7,50 @@
 </head>
 <body>
 <form>
-    <table>
+    <table align="center" style="border: 5px solid black;">
         <tr>
             <th colspan="4"><input type="text" id="thanhtinhtoan"></th>
         </tr>
         <tr>
             <th>
-                <button type="button" id="mot" onclick="hienthi1()">1</button>
+                <button type="button" id="mot" onclick=" show(1)">1</button>
             </th>
             <th>
-                <button type="button" id="hai" onclick="hienthi2()">2</button>
+                <button type="button" id="hai" onclick=" show(2)">2</button>
             </th>
             <th>
-                <button type="button" id="ba" onclick="hienthi3()">3</button>
+                <button type="button" id="ba" onclick=" show(3)">3</button>
             </th>
             <th>
-                <button type="button"  onclick="cong()" value="+">+</button>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <button type="button" id="bon" onclick="hienthi4()">4</button>
-            </th>
-            <th>
-                <button type="button" id="nam" onclick="hienthi5()">5</button>
-            </th>
-            <th>
-                <button type="button" id="sau" onclick="hienthi6()">6</button>
-            </th>
-            <th>
-                <button type="button" onclick="tru()">-</button>
+                <button type="button"  onclick=" show('+')" value="+">+</button>
             </th>
         </tr>
         <tr>
             <th>
-                <button type="button" id="bay" onclick="hienthi7()">7</button>
+                <button type="button" id="bon" onclick=" show(4)">4</button>
             </th>
             <th>
-                <button type="button" id="tam" onclick="hienthi8()">8</button>
+                <button type="button" id="nam" onclick=" show(5)">5</button>
             </th>
             <th>
-                <button type="button" id="chin" onclick="hienthi9()">9</button>
+                <button type="button" id="sau" onclick=" show(6)">6</button>
             </th>
             <th>
-                <button type="button"  onclick="nhan()">x</button>
+                <button type="button" onclick=" show('-')">-</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="button" id="bay" onclick=" show(7)">7</button>
+            </th>
+            <th>
+                <button type="button" id="tam" onclick=" show(8)">8</button>
+            </th>
+            <th>
+                <button type="button" id="chin" onclick=" show(9)">9</button>
+            </th>
+            <th>
+                <button type="button"  onclick=" show('*')">x</button>
             </th>
         </tr>
         <tr>
@@ -58,81 +58,32 @@
                 <button type="button" onclick="xoa()">C</button>
             </th>
             <th>
-                <button type="button" id="khong" onclick="hienthi0()">0</button>
+                <button type="button" id="khong" onclick=" show(0)">0</button>
             </th>
             <th>
                 <button type="button" id="bang" onclick="tinhketqua()">=</button>
             </th>
             <th>
-                <button type="button"  onclick="chia()">/</button>
+                <button type="button"  onclick=" show('/')">/</button>
             </th>
         </tr>
     </table>
 </form>
 <script>
-    function hienthi0() {
-        document.getElementById('thanhtinhtoan').value += 0;
-    }
-
-    function hienthi1() {
-        document.getElementById("thanhtinhtoan").value += 1;
-    }
-
-    function hienthi2() {
-        document.getElementById("thanhtinhtoan").value += 2;
-    }
-
-    function hienthi3() {
-        document.getElementById("thanhtinhtoan").value += 3;
-    }
-
-    function hienthi4() {
-        document.getElementById("thanhtinhtoan").value += 4;
-    }
-
-    function hienthi5() {
-        document.getElementById("thanhtinhtoan").value += 5;
-    }
-
-    function hienthi6() {
-        document.getElementById("thanhtinhtoan").value += 6;
-    }
-
-    function hienthi7() {
-        document.getElementById("thanhtinhtoan").value += 7;
-    }
-
-    function hienthi8() {
-        document.getElementById("thanhtinhtoan").value += 8;
-    }
-
-    function hienthi9() {
-        document.getElementById("thanhtinhtoan").value += 9;
-    }
-
-    function cong() {
-        document.getElementById("thanhtinhtoan").value += "+";
-    }
-
-    function xoa() {
-        document.getElementById("thanhtinhtoan").value = "";
-    }
-    function tru() {
-        document.getElementById("thanhtinhtoan").value += "-";
-    }
-function nhan() {
-    document.getElementById("thanhtinhtoan").value += "*";
-}
-function chia() {
-    document.getElementById("thanhtinhtoan").value += "/";
+function show(value){
+    document.getElementById("thanhtinhtoan").value += value;
 }
 function tinhketqua() {
      var p = document.getElementById('thanhtinhtoan').value;
      var q= eval(p);
      document.getElementById("thanhtinhtoan").value = q;
 }
+function xoa(){
+    document.getElementById("thanhtinhtoan").value = "";
+}
 </script>
 <style>
+
     button{
         width: 30px;
         height: 25px;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      while (isNaN(doanhSoBanHang)) {
+        var doanhSoBanHang = +prompt("Nhập doanh số bán hàng của tháng này");
+      }
+      var tienHoaHong = 0;
+      if (doanhSoBanHang >= 100000000) {
+        tienHoaHong = doanhSoBanHang * 0.05;
+      } else if (doanhSoBanHang >= 50000000) {
+        tienHoaHong = doanhSoBanHang * 0.07;
+      } else if (doanhSoBanHang >= 20000000) {
+        tienHoaHong = doanhSoBanHang * 0.010;
+      } else {
+        tienHoaHong = doanhSoBanHang * 0.015;
+      }
+      document.write("Tiền Hoa Hồng tháng này của bạn là: " + tienHoaHong.toFixed(1));
+    </script>
+  </body>
+</html>

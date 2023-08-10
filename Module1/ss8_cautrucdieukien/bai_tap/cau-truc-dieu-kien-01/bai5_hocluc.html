@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(isNaN(diemKtr) && isNaN(diemGiuaKy) && isNaN(thiCuoiKi)){
+            var diemKtr = +prompt("Nhập Điểm Tra");
+            var diemGiuaKy = +prompt("Nhập Điểm thi giữa Kỳ");
+            var thiCuoiKi = +prompt("Nhập Điểm thi cuối kì")
+        }
+        let diemTb = (diemKtr + diemGiuaKy + thiCuoiKi) / 3;
+        document.write(diemTb);
+        if(diemTb >= 8.0){
+            document.write("Học SInh Giỏi")
+        }else if(diemTb>= 6.5){
+            document.write("Học SInh Khá")
+        }else if(diemTb >= 5.0){
+            document.write("Học Sinh Trung Bình")
+        }else{
+            document.write("Học SInh Yếu")
+        }
+    </script>
+</body>
+</html>

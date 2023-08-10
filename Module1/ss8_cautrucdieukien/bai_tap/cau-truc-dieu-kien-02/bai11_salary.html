@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(isNaN(salary)){
+            var salary = +prompt("Nhập Thu Nhập Của bạn: ")
+        }
+        let tax = 0;
+        if(salary > 80000000){
+        tax = salary * 0.35 - 9850000;
+        }else if(salary > 52000000){
+            tax = salary * 0.3 - 5850000;
+        }else if(salary > 22000000){
+            tax = salary * 0.25 -  3250000;  
+        }else if (salary > 18000000 ){
+            tax = salary * 0.2 - 1650000
+        }else{
+            tax = salary *0.1 - 250000;
+        }
+        document.write("Thuế Thu nhập của bạn là: " + tax)
+    </script>
+</body>
+</html>
