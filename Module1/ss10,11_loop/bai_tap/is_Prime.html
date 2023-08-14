@@ -7,46 +7,22 @@
   </head>
   <body>
     <script>
-    //   let number = +prompt("Nhập Số lượng số nguyên tố muốn in ra");
-    //   let count = 0;
-    //   let n = 2;
-    //   while(count <= number){
-    //     if(isPrime(n)){
-    //         document.write(n + "<br>");
-    //     count++;
-    //     }
-    //     n++;
-    //   }
-    //   function isPrime(n){
-    // if(n < 2){
-    //     return false;
-    // }
-    // for(i = 2 ; i <= Math.sqrt(n); i++){
-    //     if(n % i == 0){
-    //         return false;
-    //     }
-    // }
-    // return true;
-    //   }
-    /*bài 2 */
-   
-    // let tb = +prompt("Nhấn 'OK' để hiển thị 20 số nguyên tố đầu tiên")
-    // let a = 0
-    // let b =0
-    // do {
-    //     let c= 0
-    //     for (let i = 1 ; i <= a; i++)  {
-    //         if (a % i === 0) {
-    //             c++;
-    //         }
-    //     }
-    //     if (c === 2 ) {
-    //         document.write(a + "</br>")
-    //         b++;
-    //     }
-    //     a++
-    // } while (b < 20);
-    /* bài 3 */
+    let isPrime = 0
+    let checkDu20So =0
+    do {
+        let count= 0
+        for (let i = 1 ; i <= isPrime; i++)  {
+            if (isPrime % i === 0) {
+                count++;
+            }
+        }
+        if (count === 2 ) {
+            document.write(isPrime + "</br>")
+            checkDu20So++;
+        }
+        isPrime++
+    } while (checkDu20So < 20);
+  
     
     </script>
   </body>
