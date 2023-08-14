@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="txtinput" />
+    <button type="button" id="addNewElementInArray" onclick="addNewElementInArray()">ADD</button>
+    <button type="button" id="displayElementInArray" onclick="displayElementInArray()">Display</button>
+    <p id="displayMyArray"></p>
+    <script>
+      let x = 0;
+      let myArray = Array();
+      function addNewElementInArray() {
+        myArray[x] = document.getElementById("txtinput").value;
+        alert(" Element " + myArray[x] + " Added at index " + x);
+        x++;
+        document.getElementById("txtinput").value = " ";
+      }
+      function displayElementInArray() {
+        let display = "<hr/>"
+        for(let i = 0; i < myArray.length; i++){
+        display +=  "Element " + myArray[i] + " at Index " + i + "<br>";
+        }
+        document.getElementById('displayMyArray').innerHTML = display;
+      }
+    </script>
+  </body>
+</html>
