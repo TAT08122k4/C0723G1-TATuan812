@@ -7,9 +7,10 @@
 </head>
 <body>
     <script>
-        let len = 3;
-        while(len-- ){
-            document.write(len);
+        let value = null;
+        while(value < 1 || value > 10){
+            value = +prompt("Nhập Số bất kì")
+            alert("Số Bạn Nhập Là: " + value)
         }
     </script>
 </body>

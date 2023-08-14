@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let f1 = 0;
+        let f2 = 1;
+        let f3 = 0;
+        let number = +prompt("Số Lượng số Fibonnaci bạn muốn in: ")
+        for(let i = 0; i <= number;i++ ){
+        f3 = f1 + f2;
+        document.write(f1 + "<br>")
+        f1 = f2;
+        f2 = f3;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Đoán Số Ngẫu Nhiên Từ 0 tới 10</h2>
+    <p id="randomNumber"></p>
+    <style>
+        .button {  
+            display: inline-block;  padding: 15px 25px;  font-size: 24px;  cursor: pointer;  text-align: center;  text-decoration: none;  outline: none;  color: #fff;  background-color: purple;  border: none;  border-radius: 15px;  box-shadow: 0 9px #999;}.
+            button:hover {background-color: #58257b}.button:active {  background-color: #58257b;  box-shadow: 0 5px #666;  transform: translateY(4px);}
+            </style>
+         <button class="button"  onclick="start()">Chơi</button>
+    <script >
+     function start(){
+        let guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
+        let randomNumber = Math.floor(Math.random()*10);
+        let soLanNhap = 0;
+        while(soLanNhap < 2){
+            if(guess > randomNumber){
+                alert("Số " + guess + "Này lớn hơn số ngẫu nhiên , hãy nhập lại");
+                guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
+                soLanNhap++;
+            }else if(guess < randomNumber){
+                alert("Số " + guess + "Này bé hơn số ngẫu nhiên , hãy nhập lại");
+                guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
+                soLanNhap++;
+            }else{
+                alert("Bạn Đã Đoán Đúng")
+             break;
+            }
+        }
+        document.getElementById('randomNumber').innerHTML = "Số Ngẫu Nhiên Là : " + randomNumber;
+     }
+
+    </script>
+</body>
+</html>

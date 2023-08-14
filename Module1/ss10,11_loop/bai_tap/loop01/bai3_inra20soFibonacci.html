@@ -7,9 +7,15 @@
 </head>
 <body>
     <script>
-        let len = 3;
-        while(len-- ){
-            document.write(len);
+        let f1 = 0;
+        let f2 = 1;
+        let f3 =0;
+        for(let i =0; i < 20;i++){
+            f3 = f1+f2;
+            document.write(f1 + "<br>")
+            f1 = f2;
+            f2 = f3
+       
         }
     </script>
 </body>

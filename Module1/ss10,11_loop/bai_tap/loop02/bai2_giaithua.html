@@ -7,10 +7,12 @@
 </head>
 <body>
     <script>
-        let len = 3;
-        while(len-- ){
-            document.write(len);
+        let number = +prompt("Số Giai Thừa Bạn Muốn Tính: ")
+        let result = 1;
+        for (let i = 1;i <= number;i++ ){
+         result *= i;
         }
+        document.write("Giai Thừa của số" + number + " Là " + result )
     </script>
 </body>
 </html>
