@@ -7,26 +7,28 @@
   </head>
   <body>
     <style>
-        tr:nth-child(even){
-background-color: #dddddd;
-        }
-        td:nth-child(even){
-            background-color: darkgrey;
-            color: white;
-        }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      td:nth-child(even) {
+        background-color: darkgrey;
+        color: white;
+      }
     </style>
     <script>
       let bangCuuChuong;
-      bangCuuChuong = "<table width='40%' border='1' cellspacing = '1' cellpadding = '5px'>";
-        for(let i =2;i < 10;i++ ){
-            bangCuuChuong = bangCuuChuong + "<tr>";
-                for(let j = 2;j<10;j++){
-                    bangCuuChuong = bangCuuChuong + "<td>" + j + "x" + i +"=" + i*j + "</td>";
-                }
-                bangCuuChuong = bangCuuChuong + "</tr>";
+      bangCuuChuong =
+        "<table width='40%' border='1' cellspacing = '1' cellpadding = '5px'>";
+      for (let i = 2; i < 10; i++) {
+        bangCuuChuong = bangCuuChuong + "<tr>";
+        for (let j = 2; j < 10; j++) {
+          bangCuuChuong =
+            bangCuuChuong + "<td>" + j + "x" + i + "=" + i * j + "</td>";
         }
-        bangCuuChuong = bangCuuChuong + "</table>";
-        document.write(bangCuuChuong);
+        bangCuuChuong = bangCuuChuong + "</tr>";
+      }
+      bangCuuChuong = bangCuuChuong + "</table>";
+      document.write(bangCuuChuong);
     </script>
   </body>
 </html>

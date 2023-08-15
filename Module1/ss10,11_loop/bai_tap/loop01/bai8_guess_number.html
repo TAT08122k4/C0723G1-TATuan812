@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Đoán Số Ngẫu Nhiên Từ 0 tới Khoảng Bạn Nhập</h2>
     <p id="randomNumber"></p>
     <style>
-        .button {  
-            display: inline-block;  padding: 15px 25px;  font-size: 24px;  cursor: pointer;  text-align: center;  text-decoration: none;  outline: none;  color: #fff;  background-color: purple;  border: none;  border-radius: 15px;  box-shadow: 0 9px #999;}.
-            button:hover {background-color: #58257b}.button:active {  background-color: #58257b;  box-shadow: 0 5px #666;  transform: translateY(4px);}
-            </style>
-         <button class="button"  onclick="start()">Chơi</button>
-    <script >
-     function start(){
-        let khoang = +prompt("Chọn Khoảng Số Mà Bạn Muốn Nhập")
-        let randomNumber = Math.floor(Math.random()*khoang);
+      .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: purple;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      }
+      . button:hover {
+        background-color: #58257b;
+      }
+      .button:active {
+        background-color: #58257b;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+    </style>
+    <button class="button" onclick="start()">Chơi</button>
+    <script>
+      function start() {
+        let khoang = +prompt("Chọn Khoảng Số Mà Bạn Muốn Nhập");
+        let randomNumber = Math.floor(Math.random() * khoang);
         let soLanNhap = 0;
-       do{
-        let guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
-            if(guess > randomNumber){
-                alert("Số " + guess + "Này lớn hơn số ngẫu nhiên , hãy nhập lại");
-                soLanNhap++;
-            }else if(guess < randomNumber){
-                alert("Số " + guess + "Này bé hơn số ngẫu nhiên , hãy nhập lại");
-                soLanNhap++;
-            }else{
-                alert("Bạn Đã Đoán Đúng")
-             break;
-            }
+        do {
+          let guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
+          if (guess > randomNumber) {
+            alert("Số " + guess + "Này lớn hơn số ngẫu nhiên , hãy nhập lại");
+            soLanNhap++;
+          } else if (guess < randomNumber) {
+            alert("Số " + guess + "Này bé hơn số ngẫu nhiên , hãy nhập lại");
+            soLanNhap++;
+          } else {
+            alert("Bạn Đã Đoán Đúng");
+            break;
+          }
 
-            if(soLanNhap > 2){
+          if (soLanNhap > 2) {
             alert("Bạn Đã Hết Lượt Đoán , Ngờ u N.G.U");
             break;
-            }
-        }while(true)
-        document.getElementById('randomNumber').innerHTML = "Số Ngẫu Nhiên Là : " + randomNumber;
-     }
-
+          }
+        } while (true);
+        document.getElementById("randomNumber").innerHTML =
+          "Số Ngẫu Nhiên Là : " + randomNumber;
+      }
     </script>
-</body>
+  </body>
 </html>
