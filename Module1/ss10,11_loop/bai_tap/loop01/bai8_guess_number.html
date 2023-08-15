@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Đoán Số Ngẫu Nhiên Từ 0 tới 10</h2>
+    <h2>Đoán Số Ngẫu Nhiên Từ 0 tới Khoảng Bạn Nhập</h2>
     <p id="randomNumber"></p>
     <style>
         .button {  
@@ -16,23 +16,27 @@
          <button class="button"  onclick="start()">Chơi</button>
     <script >
      function start(){
-        let guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
-        let randomNumber = Math.floor(Math.random()*10);
+        let khoang = +prompt("Chọn Khoảng Số Mà Bạn Muốn Nhập")
+        let randomNumber = Math.floor(Math.random()*khoang);
         let soLanNhap = 0;
-        while(soLanNhap < 2){
+       do{
+        let guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
             if(guess > randomNumber){
                 alert("Số " + guess + "Này lớn hơn số ngẫu nhiên , hãy nhập lại");
-                guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
                 soLanNhap++;
             }else if(guess < randomNumber){
                 alert("Số " + guess + "Này bé hơn số ngẫu nhiên , hãy nhập lại");
-                guess = +prompt("Hãy Nhập Con SỐ Bạn Đoán:");
                 soLanNhap++;
             }else{
                 alert("Bạn Đã Đoán Đúng")
              break;
             }
-        }
+
+            if(soLanNhap > 2){
+            alert("Bạn Đã Hết Lượt Đoán , Ngờ u N.G.U");
+            break;
+            }
+        }while(true)
         document.getElementById('randomNumber').innerHTML = "Số Ngẫu Nhiên Là : " + randomNumber;
      }
 
