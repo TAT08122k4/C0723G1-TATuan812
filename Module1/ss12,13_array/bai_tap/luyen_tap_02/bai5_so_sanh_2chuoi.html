@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>  
+        let doDaiMang1 = +prompt("Nhập Độ Dài Của Mảng 1 :")      
+        let doDaiMang2 = +prompt("Nhập Độ Dài Của Mảng 2 :")      
+        let string1 = [];
+        let string2 = [];
+        let flag = true;
+        for(let i = 0 ; i < doDaiMang1 ; i++){
+            string1[i] = prompt('Nhập Chuỗi Ký Tự của mảng 1 ở vị trí ' + i)
+        }
+        document.write("Chuỗi Thứ Nhất " + string1)
+        document.write("<br>")
+        for(let i = 0 ; i < doDaiMang2 ; i++){
+            string2[i] = prompt('Nhập Chuỗi Ký Tự của mảng 2 ở vị trí ' + i)
+        }
+        document.write("Chuỗi Thứ Hai " + string2)
+        document.write("<br>")
+        for(i = 0 ; i < doDaiMang1;i++){
+            if(string1[i] !== string2[i]){
+                flag = false
+            }
+        }
+        if(flag){
+            document.write("2 chuỗi giống nhau")
+        }else{
+            document.write("2 chuỗi khác nhau")
+        }
+        
+    </script>
+</body>
+</html>

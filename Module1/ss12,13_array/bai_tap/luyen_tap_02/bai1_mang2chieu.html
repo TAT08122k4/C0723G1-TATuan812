@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let row = +prompt("Nhập Dòng: ");
+      let col = +prompt("Nhập Cột: ");
+
+      let arr2d = new Array(row);
+      for (let row = 0; row < arr2d.length; row++) {
+        arr2d[row] = new Array(col);
+        for (let col = 0; col < arr2d[row].length; col++) {
+          arr2d[row][col] = Math.floor(Math.random() * 30);
+        }
+      }
+
+      for (row = 0; row < arr2d.length; row++) {
+        document.write("row " + row + "<br>");
+        for (col = 0; col < arr2d[row].length; col++) {
+          document.write(arr2d[row][col] + "<br>");
+        }
+      }
+    </script>
+  </body>
+</html>

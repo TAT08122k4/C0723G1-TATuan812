@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      for (let i = 0; i < 4; i++) {
+        arr[i] = +prompt("Nhập Element của mảng : ");
+      }
+      document.write("Mảng Chưa Xoá : " + arr )
+      let check = +prompt("Nhập Số Bạn Muốn Kiểm Tra: ")
+      let index = 0;
+      for(let i = 0 ; i<10 ; i++){
+        if(check == arr[i]){
+         for(j = i ;j < arr.length;j++){
+            arr[j] = arr[j + 1]
+         }
+         arr[arr.length - 1] = 0;
+         i--;
+        }
+      }
+      document.write("Mảng Sau Khi Xoá : " + arr);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuấn</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      let doDai = +prompt("Nhap Do Dai Cua Mang");
+      for (let i = 0; i <= doDai - 1; i++) {
+        arr[i] = +prompt("Nhap cac phan tu cua mang: ");
+      }
+      document.write("Mảng chưa đảo ngược" + arr);
+      document.write("<br>");
+      let first = 0;
+      let last = arr.length - 1;
+      let temp = 0;
+      while (first < last) {
+        temp = arr[first];
+        arr[first] = arr[last];
+        arr[last] = temp;
+        first++;
+        last--;
+      }
+      document.write("Mảng Sau Khi Đảo Ngược " + arr);
+    </script>
+  </body>
+</html>

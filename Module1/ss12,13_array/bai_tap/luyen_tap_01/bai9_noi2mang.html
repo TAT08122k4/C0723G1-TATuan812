@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let doDaiMangA = +prompt("Nhập Độ Dài Của Mảng A:");
+      let arrA = [];
+      for (let i = 0; i < doDaiMangA; i++) {
+        arrA[i] = +prompt("Nhập Phần Tử Thứ " + i + " Của Mảng A");
+      }
+      document.write("Mảng A là : " + arrA + "<br>");
+      let doDaiMangB = +prompt("Nhập Độ Dài Mảng B:");
+      let arrB = [];
+      for (let i = 0; i < doDaiMangB; i++) {
+        arrB[i] = +prompt("Nhập Phần Tử Thứ " + i + " Của Mảng B");
+      }
+      document.write("Mảng B là : " + arrB + "<br>");
+      let arrC = new Array(doDaiMangA + doDaiMangB);
+      for (let i = 0; i < doDaiMangA; i++) {
+        arrC[i] = arrA[i];
+      }
+      let count = 0;
+      for (let i = doDaiMangA; i < arrC.length; i++) {
+        arrC[i] = arrB[count];
+        count++;
+      }
+      document.write("Mảng C là: " + arrC);
+    </script>
+  </body>
+</html>

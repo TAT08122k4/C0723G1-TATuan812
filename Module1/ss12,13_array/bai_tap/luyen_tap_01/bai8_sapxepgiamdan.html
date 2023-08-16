@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      for (let i = 0; i < 10; i++) {
+        arr[i] = +prompt("Nhập Phần Tử Thứ  " + i);
+      }
+      let first = 0;
+      document.write("Mảng Lúc Chưa sắp xếp : " + arr + "<br>");
+      for (i = 0; i < arr.length; i++) {
+        for (j = i; j < arr.length; j++) {
+          if (arr[i] < arr[j]) {
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }
+        }
+      }
+      document.write("Mảng Sau Khi Được Sắp Xếp Giảm Dần:" + arr);
+    </script>
+  </body>
+</html>

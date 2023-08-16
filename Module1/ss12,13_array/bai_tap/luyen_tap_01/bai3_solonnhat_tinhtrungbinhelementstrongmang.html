@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuấn</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      let result = 0;
+      for (let i = 0; i < 10; i++) {
+        arr[i] = +prompt("Nhập Phần Tử Thứ " + i);
+        result += arr[i];
+      }
+      document.write(arr);
+      document.write("<br>");
+      document.write(
+        "Trung bình các phần tử trong mảng là : " + result / arr.length
+      );
+      document.write("<br>");
+
+      let max = arr[0];
+      for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+        }
+      }
+      document.write("Số Lớn Nhất Trong Mảng : " + max);
+    </script>
+  </body>
+</html>
