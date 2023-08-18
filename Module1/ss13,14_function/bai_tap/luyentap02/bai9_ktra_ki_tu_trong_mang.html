@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkKiTu(arr){
+           let check = prompt("Nhập kí tự bạn muốn tìm kiếm")
+           let count = 0
+           for ( let i = 0; i < arr.length; i++){
+             if(check == arr[i]){
+               count++
+             }
+           }
+           if(count == 0){
+            count = -1
+           }
+           return document.write("Số Lần xuất hiện của " + check + " là " + count + ' Lần')
+        } 
+        let arr = [];
+        for(let i = 0; i < 5 ; i++){
+            arr[i] = prompt("Nhập các kí tự bất kì");
+        }
+        checkKiTu(arr)
+    </script>
+</body>
+</html>

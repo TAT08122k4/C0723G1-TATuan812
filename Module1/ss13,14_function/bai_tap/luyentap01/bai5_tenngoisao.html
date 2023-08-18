@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script>
+      let famousPeople = [
+        "Polaris",
+        "Aldebaran",
+        "Deneb",
+        "Vega",
+        "Altair",
+        "Dubhe",
+        "Regulus",
+      ];
+      let start = [
+        "Ursa Minor",
+        "Tarurus",
+        "Cygnus",
+        "Lyra",
+        "Aquila",
+        "Ursa Major",
+        "Leo",
+      ];
+      let search = prompt("Nhập Tên ngôi sao bạn muốn tìm kiếm: ");
+      function searchFamousPeople(search) {
+        // let flag = false;
+        // for (let i = 0; i < famousPeople.length; i++) {
+        //   do {
+        //     if (search == famousPeople[i]) {
+        //       flag = true;
+        //       return (document.getElementById("result").innerHTML = start[i]);
+        //     }
+        //   } while (flag == true);
+        // }
+        // if (flag == false) {
+        //   document.getElementById("result").innerHTML = "Không tìm thấy";
+        // }
+        /* C2 */
+        let notFound = "Không tìm thấy";
+        for (let i = 0; i < famousPeople.length; i++) {
+          if (search === famousPeople[i]) {
+            document.getElementById("result").innerHTML = start[i];
+            break;
+          } else {
+            document.getElementById("result").innerHTML = notFound;
+          }
+        }
+      }
+      searchFamousPeople(search);
+    </script>
+  </body>
+</html>

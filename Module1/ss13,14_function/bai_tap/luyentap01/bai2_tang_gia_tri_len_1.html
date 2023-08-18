@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuấn Dz Bo DOi</title>
+  </head>
+  <body>
+    <input oninput="incrementNumber(this.value)" />
+    <div id="result"></div>
+    <script>
+      function incrementNumber(x) {
+        ++x;
+        document.getElementById("result").innerHTML = x;
+      }
+    </script>
+  </body>
+</html>
