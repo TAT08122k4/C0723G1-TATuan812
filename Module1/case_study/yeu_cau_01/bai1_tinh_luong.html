@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let salary = prompt("Nhập Lương của bạn: ");
+        let salaryAfterTax = 0;
+        if(!isNaN(salary)){
+            if(salary >= 15000000){
+             salaryAfterTax = salary - salary  *  0.2;
+
+            }else if(salary >= 7000000){
+                salaryAfterTax = salary - salary  * 0.1;
+            }else{
+                salaryAfterTax = salary - salary * 0.05;
+            }
+            document.write(" Lương Tháng Này CỦa Bạn Là " + salary + " Lương Sau Thuế Là " + salaryAfterTax)
+        }else{
+            document.write("Yêu Cầu nhập số")
+        }
+    </script>
+</body>
+</html>

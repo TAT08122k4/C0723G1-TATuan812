@@ -11,13 +11,15 @@
         let temp = a;
         a = b;
         b = temp;
-        return document.write("a = " + a + "b = " + b);
+        return [a,b]
+        // return document.write("a = " + a + "b = " + b);
       }
       let a = +prompt("Nhập Số a :");
       let b = +prompt("Nhập Số b :");
       document.write("a =" + a + "b =" + b + "<br>");
-      document.write("Hàm Sau Khi ĐỔi" + "<br>")
-      swap(a, b);
+      document.write("Hàm Sau Khi ĐỔi" + "<br>");
+      [a,b] = swap(a,b)
+      document.write("a = " + a + " b = " + b)
     </script>
   </body>
 </html>

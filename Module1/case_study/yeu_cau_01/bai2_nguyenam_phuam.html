@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let check
+      do {
+         check = prompt("Nhập Kí Tự Bạn Muốn Kiểm Tra: ");
+        if (isNaN(check) && check.length == 1) {
+          break;
+        } else {
+          alert("Vui Lòng Nhập 1 kí tự chữ và không để rỗng");
+        }
+      } while (true);
+      switch (check) {
+        case "u":
+        case "e":
+        case "o":
+        case "a":
+        case "i":
+        case "U":
+        case "E":
+        case "O":
+        case "A":
+        case "I":
+          alert(check + " là Một nguyên âm");
+          break;
+        case "Q":
+        case "W":
+        case "R":
+        case "T":
+        case "Y":
+        case "P":
+        case "S":
+        case "D":
+        case "F":
+        case "G":
+        case "H":
+        case "J":
+        case "K":
+        case "L":
+        case "Z":
+        case "X":
+        case "C":
+        case "V":
+        case "B":
+        case "N":
+        case "M":
+        case "q":
+        case "w":
+        case "r":
+        case "t":
+        case "y":
+        case "p":
+        case "s":
+        case "d":
+        case "f":
+        case "g":
+        case "h":
+        case "j":
+        case "k":
+        case "l":
+        case "z":
+        case "x":
+        case "c":
+        case "v":
+        case "b":
+        case "n":
+        case "m":
+          alert(check + " Là Một Kí tự phụ âm");
+          break;
+        default:
+          alert("Bạn Vừa Nhập Một Kí Tự đặc biệt");
+          break;
+      }
+    </script>
+  </body>
+</html>
