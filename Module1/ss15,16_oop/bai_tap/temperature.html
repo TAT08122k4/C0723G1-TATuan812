@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Temperature{
+            constructor(doC){
+                if(doC > -273){
+                    this.doC = doC;
+                }else{
+                    alert("ĐỘ C phải lớn hơn -273 độ: ")
+                }
+            }
+            cToF(){
+                return document.write(this.doC + " Độ C Sang Độ F Là " + this.doC * 1.8 + 32);
+            }
+            cToKevin(){
+                return document.write(this.doC + " Độ C Sang Độ Kevin Là " +  this.doC + 273.15);  
+            }
+        }
+        let temperature = new Temperature(25);
+        temperature.cToF();
+        document.write("</br>")
+        temperature.cToKevin();
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuấn Dz Bo Doi</title>
+  </head>
+  <body>
+    <script>
+      var memory = [];
+      class SmartPhone {
+        constructor(battery, status) {
+          this.battery = battery;
+          this.status = status;
+        }
+        getBattery() {
+          return this.battery;
+        }
+        getStatus() {
+          return this.status;
+        }
+        setBattery(newBattery) {
+          this.battery = newBattery;
+        }
+        setStatus(newStatus) {
+          this.status = newStatus;
+        }
+        turnOn(){
+            this.status = true;
+        }
+        turnOff(){
+            this.status = false;
+        }
+        checkBattery() {
+          if (this.battery <= 0) {
+            this.status = false;
+          } else {
+            this.status = true;
+          }
+        }
+        checkStatus() {
+          if (this.status == true) {
+            console.log("Điện Thoại Đang Bật");
+          } else {
+            console.log("Điện Thoại Đang Tắt");
+          }
+        }
+        chargingBattery() {
+          if (this.battery <= 100) {
+            console.log(
+              "Điện Thoại Đang Sạc Hiện tại Đang " + this.battery + "%"
+            );
+            this.battery++;
+          } else if (this.battery == 100) {
+            console.log("Điện Thoại Đầy Pin");
+          }
+        }
+        typingMessage(message) {
+          this.checkBattery();
+          if (this.status == true) {
+            memory.push(message);
+            console.log(memory);
+          }
+          this.battery--;
+          console.log("Pin hiện Tại : " + this.battery + "%");
+        }
+        inbox() {
+          this.checkBattery();
+          if (this.status == true) {
+            for (let i = 0; i < memory.length; i++) {
+              console.log("Hộp Thư Đến Có " + memory.length);
+              console.log("Pin hiện Tại : " + this.battery + "%");
+              break;
+            }
+          }
+          this.battery--;
+        }
+        sent() {
+          this.checkBattery();
+          if (this.status == true) {
+            for (let i = 0; i < memory.length; i++) {
+              console.log("Thư Đã Gửi Có " + memory.length);
+              console.log("Pin hiện Tại : " + this.battery + "%");
+            }
+          }
+          this.battery--;
+        }
+        showSent() {
+          this.checkBattery();
+          if (this.status == true) {
+            for (let i = 0; i < memory.length; i++) {
+              console.log("Hộp thư gửi " + i + "." + memory[i]);
+              console.log("Pin hiện Tại : " + this.battery + "%");
+            }
+          }
+          this.battery--;
+        }
+        showInbox() {
+          this.checkBattery();
+          if (this.status == true) {
+            for (let i = 0; i < memory.length; i++) {
+              console.log("Hộp Thư Đến " + i + "." + memory[i]);
+              console.log("Pin hiện Tại : " + this.battery + "%");
+            }
+          }
+          this.battery--;
+        }
+      }
+      let nokia = new SmartPhone(3, true);
+      let iphone = new SmartPhone(12, true);
+      nokia.typingMessage("Hieu ngu nhu bo`");
+      nokia.typingMessage("Hieu ngu2");
+      nokia.typingMessage("Hieu ngu3");
+      nokia.checkStatus();
+      iphone.checkStatus();
+      iphone.inbox();
+      nokia.showSent();
+      nokia.typingMessage("Hieu ngu4");
+      nokia.inbox();
+      nokia.showInbox();
+      nokia.checkStatus();
+      nokia.chargingBattery();
+      nokia.checkBattery();
+      nokia.checkStatus();
+    </script>
+  </body>
+</html>
