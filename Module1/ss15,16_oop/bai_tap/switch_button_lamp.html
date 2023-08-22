@@ -1,0 +1,60 @@
+// Công tắc và bóng đèn
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuan Dz Bo Doi</title>
+  </head>
+  <body>
+    <script>
+      class ElectricLamp {
+        constructor(status) {
+          this.status = status;
+        }
+        turnOff() {
+          console.log("Đèn Đã tắt");
+        }
+        turnOn() {
+          console.log("Đèn Đã bật");
+        }
+      }
+      class SwitchButton {
+        constructor(status, lamp) {
+          this.status = status;
+          this.lamp = lamp;
+        }
+        connectToLamp(electricLamp) {
+          this.lamp = electricLamp;
+          this.status = true;
+          console.log("Đã Kết Nối Với Đèn:");
+        }
+        switchOff() {
+          if (this.status === true && this.lamp !== null) {
+            this.lamp.turnOff();
+          } else {
+            console.log("CÔng tắc Chưa kết nối với bóng đèn");
+          }
+        }
+        switchOn() {
+          if (this.status === true && this.lamp !== null) {
+            this.lamp.turnOn();
+          } else {
+            console.log("CÔng tắc Chưa kết nối với bóng đèn");
+          }
+        }
+      }
+      let electricLamp1 = new ElectricLamp(true);
+      let switchbutton1 = new SwitchButton(false, electricLamp1);
+      for (let i = 0; i < 3; i++) {
+        switchbutton1.switchOn();
+        switchbutton1.switchOff();
+      }
+      switchbutton1.connectToLamp(electricLamp1);
+      for (let i = 0; i < 10; i++) {
+        switchbutton1.switchOn();
+        switchbutton1.switchOff();
+      }
+    </script>
+  </body>
+</html>

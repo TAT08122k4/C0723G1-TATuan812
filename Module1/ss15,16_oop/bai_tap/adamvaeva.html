@@ -1,22 +1,94 @@
+// Adam Và Eva
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuan Dz Bo Doi</title>
+  </head>
+  <body>
     <script>
-        class Human{
-            constructor(name,gender,weight){
-                
-            }
-            isMale(){
-                if
-            }
+      class Apple {
+        constructor(weightApple) {
+          weightApple = 10;
+          this.weightApple = weightApple;
         }
-        let human1 = new Human("adam",false,78)
-
+        isEmpty() {
+          if (this.weightApple <= 0) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+        decrease() {
+          if (this.weightApple > 0 ) {
+            this.weightApple--;
+          }
+        }
+        getWeight() {
+          return console.log(this.weightApple);
+        }
+      }
+      class Human {
+        constructor(name, gender, weightHuman) {
+          this.name = name;
+          this.gender = gender;
+          this.weightHuman = weightHuman;
+        }
+        isMale() {
+          if (this.name == "Adam") {
+            return (this.gender = true);
+          } else {
+            return (this.gender = false);
+          }
+        }
+        setGender(newGender) {
+          this.gender = newGender;
+        }
+        checkApple(apple) {
+          if (apple.isEmpty() === true) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        eat(apple) {
+          if (apple.isEmpty()) {
+            apple.decrease();
+            this.weightHuman++;
+          } else {
+            console.log("Táo Đã Hết Bạn Không Thể Ăn Được");
+          }
+        }
+        say(string) {
+          return console.log(this.name + " is saying " + string);
+        }
+        getName() {
+          return this.name;
+        }
+        setName(newName) {
+          return (this.name = newName);
+        }
+        getWeight() {
+          return this.weightHuman;
+        }
+        setWeight(newWeight) {
+          return (this.weightHuman = newWeight);
+        }
+      }
+      let human1 = new Human("Adam", false, 70);
+      let human2 = new Human("Eva", false, 44);
+      let apple1 = new Apple(7);
+      human1.checkApple(apple1);
+      console.log("Cân Nặng trc Khi Ăn của " + human1.getName() + " Là " +  human1.getWeight());
+      apple1.getWeight();
+      for (let i = 0; i < 12; i++) {
+        human1.eat(apple1);
+      }
+      apple1.getWeight();
+      human2.eat(apple1);
+      console.log("Cân Nặng Sau Khi Ăn của  "+  human1.getName() + " là " + human1.getWeight())
+      console.log(human1.isMale())
     </script>
-</body>
+  </body>
 </html>

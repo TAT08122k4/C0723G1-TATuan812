@@ -1,0 +1,155 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script>
+      class Hero {
+        constructor(image, top, left, size, speed) {
+          this.image = image;
+          this.top = top;
+          this.left = left;
+          this.size = size;
+          this.speed = speed;
+        }
+        getHeroElement() {
+          return (
+            '<img width="' +
+            this.size +
+            '"' +
+            ' height="' +
+            this.size +
+            '"' +
+            ' src="' +
+            this.image +
+            '"' +
+            ' style="top: ' +
+            this.top +
+            "px; left:" +
+            this.left +
+            'px;position:absolute;" />'
+          );
+        }
+        moveRight() {
+          this.left += this.speed;
+          console.log("ok: " + this.left);
+        }
+        moveLeft() {
+          this.left -= this.speed;
+          console.log("ok: " + this.left);
+        }
+        moveUp() {
+            this.top -= this.speed;
+            console.log("Ok" + this.top)
+        }
+        moveDown(){
+            this.top += this.speed;
+            console.log("Ok" + this.top)
+        }
+      }
+      var hero = new Hero(
+        "https://media.tenor.com/G2LpcHLFIIkAAAAi/ami-fat-cat-ami-cat.gif",
+        20,
+        30,
+        200,
+        200
+      );
+      function start() {
+        if (hero.left < window.innerWidth - hero.size && hero.top < window.innerHeight - hero.size) {
+          hero.moveRight();
+        }else if(hero.left > window.innerWidth - hero.size && hero.top < window.innerHeight - hero.size){
+            hero.moveDown();
+        }else if(hero.left > window.innerWidth - hero.size && hero.top > window.innerHeight - hero.size ){
+            hero.moveLeft();
+        }else if(hero.top > window.innerHeight - hero.size && hero.left > window.innerWidth - hero.size  ){
+            hero.moveUp();
+        }
+        document.getElementById("game").innerHTML = hero.getHeroElement();
+        setTimeout(start, 500);
+      }
+      start();
+    </script>
+  </body>
+</html>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "game"></div>
+  <script>
+    function Hero(image, top, left, size, speed, direction) {
+    this.image = image;
+    this.top = top;
+    this.left = left;
+    this.size = size;
+    this.speed = speed;
+    this.direction = direction
+    this.getHeroElement = function () {
+        return '<img width="' + this.size + '"' +
+            ' height="' + this.size + '"' +
+            ' src="' + this.image + '"' +
+            ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+    }
+    this.moveRight = function () {
+        this.left += this.speed;
+        console.log('ok: ' + this.left);
+    }
+    this.moveBottom = function () {
+        this.top += this.speed;
+        console.log('ok: ' + this.top)
+    }
+    this.moveLeft = function () {
+        this.left -= this.speed;
+    }
+    this.moveTop = function () {
+        this.top -= this.speed;
+    }
+}
+var hero = new Hero('https://media.tenor.com/G2LpcHLFIIkAAAAi/ami-fat-cat-ami-cat.gif', 20, 20, 200, 100, "right");
+function start() {
+    if (hero.direction === "right") {
+        if (hero.left < window.innerWidth - hero.size) {
+            hero.moveRight();
+        } else {
+            hero.direction = "bottom"
+        }
+    }
+    if (hero.direction === "bottom") {
+        if (hero.top < window.innerHeight - hero.size - 100) {
+            hero.moveBottom();
+        } else {
+            hero.direction = "left"
+        }
+    }
+    if (hero.direction === "left") {
+        if (hero.left > 20) {
+            hero.moveLeft()
+        } else {
+            hero.direction = "top"
+        }
+    }
+    if (hero.direction === "top") {
+        if (hero.top > 20) {
+            hero.moveTop()
+        } else {
+            hero.direction = "right"
+        }
+    }
+    document.getElementById('game').innerHTML = hero.getHeroElement();
+    setTimeout(start, 500)
+}
+start()
+  </script>
+</body>
+</html>
+
+
