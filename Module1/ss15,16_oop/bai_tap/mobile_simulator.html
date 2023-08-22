@@ -26,17 +26,21 @@
         setStatus(newStatus) {
           this.status = newStatus;
         }
-        turnOn(){
-            this.status = true;
+        turnOn() {
+          this.status = true;
         }
-        turnOff(){
-            this.status = false;
+        turnOff() {
+          this.status = false;
         }
         checkBattery() {
-          if (this.battery <= 0) {
-            this.status = false;
-          } else {
-            this.status = true;
+          if (this.status == true) {
+            if (this.battery <= 0) {
+              this.status = false;
+            } else {
+              this.status = true;
+            }
+          }else{
+            console.log("Điện Thoại Đang Tắt Không Thể Kiểm tra")
           }
         }
         checkStatus() {
@@ -48,60 +52,54 @@
         }
         chargingBattery() {
           if (this.battery <= 100) {
-            console.log(
-              "Điện Thoại Đang Sạc Hiện tại Đang " + this.battery + "%"
-            );
+            this.checkBattery();
             this.battery++;
           } else if (this.battery == 100) {
             console.log("Điện Thoại Đầy Pin");
           }
         }
         typingMessage(message) {
-          this.checkBattery();
           if (this.status == true) {
             memory.push(message);
             console.log(memory);
           }
           this.battery--;
-          console.log("Pin hiện Tại : " + this.battery + "%");
+          this.checkBattery();
         }
         inbox() {
           this.checkBattery();
           if (this.status == true) {
             for (let i = 0; i < memory.length; i++) {
               console.log("Hộp Thư Đến Có " + memory.length);
-              console.log("Pin hiện Tại : " + this.battery + "%");
+              this.checkBattery();
               break;
             }
           }
           this.battery--;
         }
         sent() {
-          this.checkBattery();
           if (this.status == true) {
             for (let i = 0; i < memory.length; i++) {
               console.log("Thư Đã Gửi Có " + memory.length);
-              console.log("Pin hiện Tại : " + this.battery + "%");
+              this.checkBattery();
             }
           }
           this.battery--;
         }
         showSent() {
-          this.checkBattery();
           if (this.status == true) {
             for (let i = 0; i < memory.length; i++) {
               console.log("Hộp thư gửi " + i + "." + memory[i]);
-              console.log("Pin hiện Tại : " + this.battery + "%");
+              this.checkBattery();
             }
           }
           this.battery--;
         }
         showInbox() {
-          this.checkBattery();
           if (this.status == true) {
             for (let i = 0; i < memory.length; i++) {
               console.log("Hộp Thư Đến " + i + "." + memory[i]);
-              console.log("Pin hiện Tại : " + this.battery + "%");
+              this.checkBattery();
             }
           }
           this.battery--;
