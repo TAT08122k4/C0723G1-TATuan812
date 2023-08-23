@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ol>
+      <h2>Menu</h2>
+      <li>Cafe : 15000VNĐ</li>
+      <li>Cam Vắt : 25000VNĐ</li>
+      <li>Nước Ép cà rốt : 20000VNĐ</li>
+      <li>Nước Ép Cà Chua : 20000VNĐ</li>
+      <li>Nước Lọc : 8000VNĐ</li>
+      <li>Nước Dừa : 23000VNĐ</li>
+      <li>Để thoát chương trình</li>
+    </ol>
+    <script>
+      do {
+        let soThuTu = [1, 2, 3, 4, 5, 6];
+        let price = [15000, 25000, 20000, 20000, 8000, 23000];
+        let chose = +prompt("chọn Đồ Uống bạn Muốn");
+        let tongTien = 0;
+        let soLuong = +prompt("Số Lượng Bạn Muốn Mua Là : ");
+        if (
+          chose == 1 ||
+          chose == 2 ||
+          chose == 3 ||
+          chose == 4 ||
+          chose == 5 ||
+          chose == 6
+        ) {
+          tongTien += price[chose];
+        }
+        if (chose >= 7) {
+          let cancel = confirm("Bạn Có Muốn thoát menu ko ? ");
+          if (cancel == true) {
+            break;
+          }
+        }
+      } while (true);
+      tongTien = tongTien * soLuong;
+      alert("Tổng tiền hiện tại của bạn là:" + tongTien);
+    </script>
+  </body>
+</html>

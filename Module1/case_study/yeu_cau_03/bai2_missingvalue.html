@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arrA = [7, 2, 5, 3, 5, 3];
+      var arrB = [7, 2, 5, 4, 6, 3, 5, 3, 6,6,6,6];
+      document.write("Mảng Thứ Nhất: " + arrA);
+      document.write("<br>");
+      document.write("Mảng Thứ Hai: " + arrB);
+      let missingValue = [];
+      for (let i = 0; i < arrB.length; i++) {
+        if (arrA.indexOf(arrB[i]) == -1 && missingValue.indexOf(arrB[i]) == -1) {
+          missingValue.push(arrB[i]);
+        }
+      }
+      document.write("<br>");
+      document.write("Missing Value: " + missingValue);
+    </script>
+  </body>
+</html>

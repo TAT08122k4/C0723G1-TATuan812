@@ -7,17 +7,30 @@
   </head>
   <body>
     <script>
-      let h = +prompt("Nhập Chiều cao của hình tam giác");
-      for (let i = 0; i < h; i++) {
-        for (let j = h; j >= 0; j--) {
-             if(j > i){
-               document.write("&nbsp")
-             }else{
-               document.write("*")
-             }
+      // Cách 1: tư duy đỉnh cao 
+      // let h = +prompt("Nhập Chiều cao của hình tam giác");
+      // for (let i = 0; i < h; i++) {
+      //   for (let j = h; j >= 0; j--) {
+      //        if(j > i){
+      //          document.write("&nbsp")
+      //        }else{
+      //          document.write("*")
+      //        }
+      //   }
+      //   i++;
+      //  document.write("<br>")
+      // }
+      // Cách 2: Làm Lại mất ôg trong lớp Blame quá 
+      let rectangle = "";
+      let h = +prompt("Nhập Chiều Cao Của Hình Tam Giác: ");
+      for (let k = 1; k < h; k++) {
+        for (let j = 1; j < h - k; j++) {
+          document.write("0")
         }
-        i++;
-       document.write("<br>")
+        for (let i = 1; i <= 2 * k - 1; i++) {
+          document.write("*")
+        }
+        document.write("<br>")
       }
     </script>
   </body>

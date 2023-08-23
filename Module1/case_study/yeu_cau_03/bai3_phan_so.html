@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var numerators = [5,2,5];
+        var denominators = [6,3,4];
+        let max = numerators[0] / denominators[0]
+        let count = 0;
+        for(let i = 1;i < numerators.length;i++){
+            let maxTemp = numerators[i] / denominators[i]
+            if(max < maxTemp){
+                max = maxTemp
+                count = i;
+            }
+
+        }
+        document.write("Phân SỐ Lớn Nhất Là: " + numerators[count] + " / " + denominators[count]);
+        document.write("<br>")
+        document.write("Tại Vị trí index: " + count)
+      
+
+    </script>
+</body>
+</html>

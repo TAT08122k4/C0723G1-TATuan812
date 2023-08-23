@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let h = +prompt("Chiều Cao Của Hình Tam Giác Là ")
+      let n = 5;
+      let m = 5;
+      for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= 9; j++) {
+          if (j === m || j === n || i === 5) {
+            document.write("*");
+          } else {
+            document.write("&nbsp&nbsp");
+          }
+        }
+        m--;
+        n++;
+        document.write("</br>");
+      }
     </script>
-</body>
+  </body>
 </html>
