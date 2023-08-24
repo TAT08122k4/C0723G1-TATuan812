@@ -10,6 +10,7 @@
         let check
       do {
          check = prompt("Nhập Kí Tự Bạn Muốn Kiểm Tra: ");
+        check = check.toLowerCase();
         if (isNaN(check) && check.length == 1) {
           break;
         } else {
@@ -21,35 +22,8 @@
         case "e":
         case "o":
         case "a":
-        case "i":
-        case "U":
-        case "E":
-        case "O":
-        case "A":
-        case "I":
           alert(check + " là Một nguyên âm");
           break;
-        case "Q":
-        case "W":
-        case "R":
-        case "T":
-        case "Y":
-        case "P":
-        case "S":
-        case "D":
-        case "F":
-        case "G":
-        case "H":
-        case "J":
-        case "K":
-        case "L":
-        case "Z":
-        case "X":
-        case "C":
-        case "V":
-        case "B":
-        case "N":
-        case "M":
         case "q":
         case "w":
         case "r":

@@ -2,11 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .menu {
+            width: 70%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .menu ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+
+        .menu li {
+            margin-bottom: 5px;
+        }
+
+        .choice-form {
+            width: 70%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .choice-form h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .choice-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .choice-form input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .choice-form button {
+            display: block;
+            margin-top: 10px;
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+
+        .result {
+            width: 70%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <script>    
-    </script>
+<h1>Tuan Tran - Coffee Shop</h1>
+<div class="menu">
+    <h2>Danh sách các loại thức uống:</h2>
+    <ul>
+        <li>1. Cafe</li>
+        <li>2. Cam vắt</li>
+        <li>3. Nước ép cà rốt</li>
+        <li>4. Nước ép cà chua</li>
+        <li>5. Nước lọc</li>
+        <li>6. Nước dừa</li>
+    </ul>
+</div>
+
+<div class="choice-form">
+    <h2>Đặt hàng</h2>
+    <form id="order-form">
+        <label for="drink-choice">Chọn thức uống:</label>
+        <input type="number" name="drink-choice" id="drink-choice" min="1" max="6" required>
+        <label for="quantity">Số lượng:</label>
+        <input type="number" name="quantity" id="quantity" min="1" required>
+        <button type="submit">Thêm vào giỏ hàng</button>
+    </form>
+</div>
+
+<div class="result">
+    <h2>Giỏ hàng của bạn</h2>
+    <p id="order-summary">Không có món nào trong giỏ hàng</p>
+    <p id="total">Tổng giá trị đơn hàng: 0 đồng</p>
+</div>
+
+<script>
+    let menu = {
+        drinks: [
+            { name: 'Cafe', price: 30000, },
+            { name: 'Cam vắt', price: 25000 },
+            { name: 'Nước ép cà rốt', price: 35000 },
+            { name: 'Nước ép cà chua', price: 40000 },
+            { name: 'Nước lọc', price: 10000 },
+            { name: 'Nước dừa', price: 20000 },
+        ]
+    }
+
+    // Lấy form và các trường input trong form
+    const orderForm = document.getElementById('order-form');
+    const drinkChoiceInput = document.getElementById('drink-choice');
+    const quantityInput = document.getElementById('quantity');
+
+    // Lấy p để hiển thị giỏ hàng và tổng giá trị đơn hàng
+    const orderSummary = document.getElementById('order-summary');
+    const total = document.getElementById('total');
+
+    // Khởi tạo giỏ hàng
+    let cart = {};
+
+    // Xử lý sự kiện submit form
+    orderForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // loại bỏ sự kiện mặc định của form
+
+        // Lấy giá trị của các trường input
+        const drinkChoice = parseInt(drinkChoiceInput.value);
+        const quantity = parseInt(quantityInput.value);
+
+        // Kiểm tra đầu vào hợp lệ
+        if (drinkChoice >= 1 && drinkChoice <= 6 && quantity >= 1) {
+            // Lấy thông tin thức uống được chọn
+            const drink = menu.drinks[drinkChoice - 1];
+
+            // Thêm món vào giỏ hàng hoặc cập nhật số lượng nếu món đã có trong giỏ hàng
+            if (cart.hasOwnProperty(drinkChoice)) {
+                cart[drinkChoice].quantity += quantity;
+            } else {
+                cart[drinkChoice] = {
+                    name: drink.name,
+                    price: drink.price,
+                    quantity: quantity
+                }
+            }
+
+            // Cập nhật hiển thị giỏ hàng và tổng giá trị đơn hàng
+            let orderSummaryHTML = '';
+            let totalValue = 0;
+            for (const key in cart) {
+                const item = cart[key];
+                orderSummaryHTML += `${item.name} x ${item.quantity}: ${item.quantity * item.price} đồng<br>`;
+                totalValue += item.quantity * item.price;
+            }
+
+            orderSummary.innerHTML = orderSummaryHTML;
+            total.innerHTML = `Tổng giá trị đơn hàng: ${totalValue} đồng`
+
+            // Reset form
+            orderForm.reset();
+        }
+    });
+</script>
 </body>
 </html>

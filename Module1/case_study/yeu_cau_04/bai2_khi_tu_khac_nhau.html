@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let string = prompt("Nhập Vào Một Chuỗi: ");
+        let newString = string.split("")
+        let arr = [];
+        for(let i = 0;i < newString.length;i++){
+            if(arr.indexOf(newString[i]) === -1){
+                arr.push(newString[i]);
+            }
+        }
+        document.write("Có " + arr.length + " Kí Tự Khác Nhau Là " + arr)
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let randomString = prompt("Nhập vào Một Xâu Kí Tự: ");
+      function fixString(string){
+        let arr = [];
+        let arrNew = [];
+        let fixString = "";
+        let newString = string.split(" ");
+        for (let i = 0; i < newString.length; i++) {
+          if(newString[i] != ""){
+            let firstCharacter = newString[i].charAt(0).toUpperCase();
+            let subCharacter = newString[i].substring(1).toLowerCase();
+            fixString = firstCharacter + subCharacter;
+            arrNew.push(fixString);
+            console.log(arrNew);
+          }
+         
+      }  
+      console.log(arrNew.join(" "));
+      }
+      fixString(randomString)
+      
+
+        </script>
+  </body>
+</html>
