@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="addNewStudent()">Thêm Sinh Viên</button>
+    <button onclick="editStudent()">Sửa Sinh Viên</button>
+    <button onclick="deleteStudent()">Xoá Sinh Viên</button>
+    <div id="showStudentList"></div>
+    <script>
+      class Students {
+        constructor(maSV, name, className, mail, dOB, module) {
+          this.maSV = maSV;
+          this.name = name;
+          this.className = className;
+          this.mail = mail;
+          this.dOB = dOB;
+          this.module = module;
+        }
+      }
+      let studentsList = [
+        new Students(1001, "Trần Anh Tuấn", "C0723G1", "tuan", "08/12/2004", 2),
+        new Students(1002, "Phạm Thanh Hữu", "C0823G1", "Huu", "13/01/1998", 1),
+        new Students(
+          1003,
+          "Nguyễn Tất Quyền",
+          "C0823G1",
+          "Quyen",
+          "17/01/2001",
+          1
+        ),
+      ];
+      function displayStudent(student) {
+        let table = `<table border = 1 cellspacing = 0 cellpadding = 5px>
+              <thead>
+                  <tr>
+                      <th>Mã Sinh Viên</th>
+                      <th>Tên</th>
+                      <th>Lớp</th>
+                      <th>Email</th>
+                      <th>Date</th>
+                      <th>Module</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+              `;
+        for (let i = 0; i < studentsList.length; i++) {
+          table +=
+            `<tr>` +
+            "<td>" +
+            "HV-" +
+            student[i].maSV +
+            "</td>" +
+            "<td>" +
+            student[i].name +
+            "</td>" +
+            "<td>" +
+            student[i].className +
+            "</td>" +
+            "<td>" +
+            student[i].mail +
+            "@gmail.com" +
+            "</td>" +
+            "<td>" +
+            student[i].dOB +
+            "</td>" +
+            "<td>" +
+            student[i].module +
+            "</td>" +
+            `</tr>`;
+        }
+        table += `</tbody> </table>`;
+        document.getElementById("showStudentList").innerHTML = table;
+      }
+      displayStudent(studentsList);
+
+      function addNewStudent() {
+        let newCode;
+        let newName;
+        let newClassName;
+        let newMail;
+        let newDOB;
+        let newModule;
+
+        do {
+          newCode = +prompt("Nhập Id của bạn: ");
+          let count = 0;
+          for (let i = 0; i < studentsList.length; i++) {
+            if (newCode != studentsList[i].maSV) {
+            }
+          }
+          if (!isNaN(newCode) && newCode > 999 && newCode < 10000) {
+            break;
+          } else {
+            alert("vui Lòng nhập lại");
+          }
+        } while (true);
+        do {
+          newName = prompt("Nhập Tên:");
+          if (newName.length < 50 && newName.length > 1) {
+            break;
+          } else {
+            alert("vui Lòng nhập cm mày lại");
+          }
+        } while (true);
+        newClassName = prompt("Nhập tên lớp");
+        newMail = prompt("Nhập email");
+        do {
+          let temp = prompt("Ngày/tháng/năm sinh: ");
+          temp = temp.split("/");
+          if (temp[0] <= 31 && temp[1] <= 12 && temp[2] <= 2023) {
+            temp = temp.join("/");
+            newDOB = temp;
+            break;
+          } else {
+            alert("Nhập lại");
+          }
+        } while (true);
+        do {
+          newModule = +prompt("Nhập Module của bạn:");
+          if (!isNaN(newModule) && newModule >= 1 && newModule <= 6) {
+            break;
+          } else {
+            alert("nhập cmm lại");
+          }
+        } while (true);
+        studentsList.push(
+          new Students(
+            newCode,
+            newName,
+            newClassName,
+            newMail,
+            newDOB,
+            newModule
+          )
+        );
+        displayStudent(studentsList);
+      }
+      function editStudent() {
+          let findId = +prompt("Nhập ID Học Sinh Bạn Muốn Sửa: ");
+          let flag = false
+          for (let i = 0; i < studentsList.length; i++) {
+            if (findId == studentsList[i].maSV) {
+                flag = true;
+              break;
+            }
+          }
+          if(flag == false ){
+            alert("Không Tìm Thấy Mã Sv Bạn Muốn Sửa: ");
+          }
+
+        do {
+          let newIdStudentInEdit = +prompt("Nhập Lại Id bạn muốn Sửa");
+          if (
+            !isNaN(newIdStudentInEdit) &&
+            newIdStudentInEdit > 999 &&
+            newIdStudentInEdit < 10000
+          ) {
+            for (let i = 0; i < studentsList.length; i++) {
+              if (newIdStudentInEdit !== studentsList[i].maSV) {
+                studentsList[i].maSV = newIdStudentInEdit;
+                break;
+              }
+            }
+          }
+        } while (true);
+        do {
+          let newNameInEdit = prompt("Nhập Tên:");
+          for (let i = 0; i < studentsList.length; i++) {
+            if (isNaN(newNameInEdit) && newNameInEdit.length < 50) {
+              studentsList[i].name = newNameInEdit;
+              break;
+            } else {
+              alert("Tên Không được số là dưới 50 kí tự");
+            }
+          }
+        } while (true);
+        for (let i = 0; i < studentsList.length; i++) {
+          studentsList[i].className = prompt("Nhập Tên Lớp: ");
+          studentsList[i].mail = prompt("Nhập Mail:");
+          studentsList[i].dOB = +prompt("Nhập Đại ĐI");
+          studentsList[i].module = +prompt("Nhập Đại ĐI");
+        }
+        displayStudent(studentsList);
+      }
+    </script>
+  </body>
+</html>

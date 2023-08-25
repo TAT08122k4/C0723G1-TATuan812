@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isPrime(num) {
+        if(num < 2){
+            return false;
+        }
+        for (let i = 2; i < num; i++) {
+          if (num % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+      let arrIsPrime = [];
+      let row = +prompt("Nhập Hàng Của Ma trận: ");
+      let col = +prompt("Nhập Cột CỦa Ma Trận");
+      let arr1 = [];
+      for (let i = 0; i < row; i++) {
+        arr1[i] = [];
+      }
+      for (let i = 0; i < row; i++) {
+        for (let j = 0; j < col; j++) {
+          arr1[i][j] = Math.floor(Math.random() * 100);
+          document.write(arr1[i][j] + ",");
+          if (isPrime(arr1[i][j])) {
+            arrIsPrime.push(arr1[i][j]);
+          }
+        }
+        document.write("<br>");
+      }
+     
+     for(let i = 0;i < arrIsPrime.length;i++){
+         document.write(arrIsPrime[i] + ',')
+     }
+
+      document.write("Có " + arrIsPrime.length + " số Nguyên tố trong Mảng");
+
+    </script>
+  </body>
+</html>

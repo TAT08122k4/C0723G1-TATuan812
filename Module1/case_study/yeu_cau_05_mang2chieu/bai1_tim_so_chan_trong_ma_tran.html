@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let row = +prompt("NHập Số Hàng Của Ma Trận");
+      let col = +prompt("Nhập Số Cột của Ma trận");
+      let arr = [];
+      let arr2 = [];
+      for (let i = 0; i < row; i++) {
+        arr[i] = [];
+      }
+      for (let i = 0; i < row; i++) {
+        for (let j = 0; j < col; j++) {
+          arr[i][j] = Math.floor(Math.random() * 20);
+          document.write(arr[i][j] + "<br>");
+          if (arr[i][j] % 2 == 0) {
+            arr2.push(arr[i][j]);
+          }
+        }
+      }
+      let result = 0;
+      for (let i = 0; i < arr2.length; i++) {
+        result += arr2[i];
+      }
+      document.write("Tổng Các Số Chẵn trong ma trận là: " + result);
+    </script>
+  </body>
+</html>

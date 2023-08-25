@@ -9,14 +9,27 @@
     <script>
       let string1 = "aabcc";
       let string2 = "adcaa";
+      newString1 = string1.split("");
+      newString2 = string2.split("");
+      let arr1 = [];
+      let arr2 = [];
       let count = 0;
-      for (let i = 0; i < string1.length; i++) {
-        debugger
-        if (string1[i].indexOf(string2) === 1) {
-          count++;
-        }
+      let a = ""
+      for(let i = 0;i< newString1.length;i++){
+          arr1[i] = newString1[i];
       }
-      document.write("Có " + count + " Kí tự Chung");
+      for(i = 0;i< newString1.length;i++){
+          arr2[i] = newString2[i];
+      }
+      for (let i = 0; i < newString1.length; i++) {
+         for(let j = 0; j < newString2.length;j++){
+          if(arr1[i] === arr2[j]){
+            a += arr1.splice(i,1)
+             arr2.splice(j,1);
+          }
+         }
+      }
+      document.write("Có " + a.length + " Kí tự Giống Nhau")
     </script>
   </body>
 </html>
