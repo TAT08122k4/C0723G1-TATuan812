@@ -5,10 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #35424a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Button Styles */
+    button {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s,
+        color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      color: black;
+    }
+
+    /* Styling individual buttons */
+    #addButton {
+      background-color: #2ecc71;
+    }
+
+    #editButton {
+      background-color: #e67e22;
+    }
+
+    #deleteButton {
+      background-color: #e74c3c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #e0e0e0;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #35424a;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
   <body>
-    <button onclick="addNewStudent()">Thêm Sinh Viên</button>
-    <button onclick="editStudent()">Sửa Sinh Viên</button>
-    <button onclick="deleteStudent()">Xoá Sinh Viên</button>
+    <button class="actionButton" id="addButton" onclick="addNewStudent()">
+      Thêm Sinh Viên
+    </button>
+    <button class="actionButton" id="editButton" onclick="editStudent()">
+      Sửa Sinh Viên
+    </button>
+    <button class="actionButton" id="deleteButton" onclick="deleteStudent()">
+      Xoá Sinh Viên
+    </button>
     <div id="showStudentList"></div>
     <script>
       class Students {
@@ -19,6 +116,42 @@
           this.mail = mail;
           this.dOB = dOB;
           this.module = module;
+        }
+        getMaSv() {
+          return this.maSV;
+        }
+        getName() {
+          return this.name;
+        }
+        getClassName() {
+          return this.className;
+        }
+        getMail() {
+          return this.mail;
+        }
+        getDOB() {
+          return this.dOB;
+        }
+        getModule() {
+          return this.module;
+        }
+        setMaSv(newId) {
+          if (newId > 999 && newId < 10000) {
+            return (this.maSV = newId);
+          } else {
+            alert("Mã Học Sinh Phải từ 1000 -> 9999");
+          }
+        }
+        setModule() {
+          do {
+            let newModule = +prompt("Nhập Module từ 1 -> 6");
+            if (newModule > 0 && newModule < 7) {
+              return (this.module = newModule);
+            } else {
+              alert("Nhập Module từ 1 -> 6");
+              newModule = +prompt("Nhập lại từ 1 -> 6");
+            }
+          } while (true);
         }
       }
       let studentsList = [
@@ -89,8 +222,14 @@
           newCode = +prompt("Nhập Id của bạn: ");
           let count = 0;
           for (let i = 0; i < studentsList.length; i++) {
-            if (newCode != studentsList[i].maSV) {
+            if (newCode == studentsList[i].maSV) {
+              alert("Mã Sinh Viên Đã Tồn tại");
+              count++;
+              break;
             }
+          }
+          if (count == 1) {
+            continue;
           }
           if (!isNaN(newCode) && newCode > 999 && newCode < 10000) {
             break;
@@ -140,52 +279,81 @@
         displayStudent(studentsList);
       }
       function editStudent() {
-          let findId = +prompt("Nhập ID Học Sinh Bạn Muốn Sửa: ");
-          let flag = false
-          for (let i = 0; i < studentsList.length; i++) {
-            if (findId == studentsList[i].maSV) {
-                flag = true;
-              break;
-            }
-          }
-          if(flag == false ){
-            alert("Không Tìm Thấy Mã Sv Bạn Muốn Sửa: ");
-          }
-
-        do {
-          let newIdStudentInEdit = +prompt("Nhập Lại Id bạn muốn Sửa");
-          if (
-            !isNaN(newIdStudentInEdit) &&
-            newIdStudentInEdit > 999 &&
-            newIdStudentInEdit < 10000
-          ) {
-            for (let i = 0; i < studentsList.length; i++) {
-              if (newIdStudentInEdit !== studentsList[i].maSV) {
-                studentsList[i].maSV = newIdStudentInEdit;
-                break;
-              }
-            }
-          }
-        } while (true);
-        do {
-          let newNameInEdit = prompt("Nhập Tên:");
-          for (let i = 0; i < studentsList.length; i++) {
-            if (isNaN(newNameInEdit) && newNameInEdit.length < 50) {
-              studentsList[i].name = newNameInEdit;
-              break;
-            } else {
-              alert("Tên Không được số là dưới 50 kí tự");
-            }
-          }
-        } while (true);
+        let student = new Students();
+        let editId = checkInputNumber("Mã Sv");
+        let flag = false;
         for (let i = 0; i < studentsList.length; i++) {
-          studentsList[i].className = prompt("Nhập Tên Lớp: ");
-          studentsList[i].mail = prompt("Nhập Mail:");
-          studentsList[i].dOB = +prompt("Nhập Đại ĐI");
-          studentsList[i].module = +prompt("Nhập Đại ĐI");
+          if (editId == studentsList[i].maSV) {
+            let editName = checkInputString("Tên Sv");
+            studentsList[i].name = editName;
+            let editClassName = prompt("Nhập Tên Lớp");
+            studentsList[i].className = editClassName;
+            let editMail = prompt("Nhập Mail");
+            studentsList[i].mail = editMail;
+            let editDob = checkInputNumber("Nhập Date");
+            studentsList[i].dOB = editDob;
+            student.setModule();
+            flag = true;
+          }
+        }
+        if (!flag) {
+          alert("Không Tìm Thấy ID Học Sinh Bạn Muốn Xoá");
         }
         displayStudent(studentsList);
       }
+      function checkInputNumber(checkInput) {
+        let input = +checkInputRequired(checkInput);
+        while (true) {
+          if (!isNaN(input)) {
+            return input;
+          } else {
+            alert("Bạn Phải Nhập Chữ Số");
+            input = +checkInputRequired(checkInput);
+          }
+        }
+      }
+      function checkInputRequired(checkInput) {
+        let input = prompt(`Nhập ${checkInput}`);
+        while (true) {
+          if (input != null && input !== undefined) {
+            return input;
+          } else {
+            alert("Không được để trống:");
+            input = prompt(`Nhập ${checkInput}`);
+          }
+        }
+      }
+      function checkInputString(inputString) {
+        let input = checkInputRequired(inputString);
+        let pattern = /^[\p{L}\s'-]{1,50}$/u;
+        while (true) {
+          if (pattern.test(input)) {
+            return input;
+          } else {
+            alert(`${inputString} + Phải Nhập Chữ Cái`);
+            input = checkInputRequired(inputString);
+          }
+        }
+      }
+      function deleteStudent() {
+        let findIdWannaDelete = +prompt("Nhập ID Học Sinh Mà Bạn Muốn Xoá: ");
+        let flag = false;
+        for (let i = 0; i < studentsList.length; i++) {
+          if (findIdWannaDelete == studentsList[i].maSV) {
+            flag = true;
+            let confirm1 = confirm("Bạn Có Chắc Chắn Muốn Xoá Hay Không ? ");
+            if (confirm1 == true) {
+              studentsList.splice(i, 1);
+              break;
+            }
+          }
+        }
+        if (!flag) {
+          alert("Không tìm thấy mã sv muốn xoá");
+        }
+        displayStudent(studentsList);
+      }
+      function checkDOB() {}
     </script>
   </body>
 </html>
