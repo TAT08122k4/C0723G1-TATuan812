@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+       function compareTriplets(a, b) {
+      let alice = 0;
+      let bob = 0 ;
+      for(i = 0 ; i < a.length;i++){
+        if(a[i] > b[i]){
+            alice++
+        }else if(a[i] < b[i]){
+            bob++
+        }
+      }
+      return console.log(`${alice} + " " + ${bob} `)
+      }
+      compareTriplets([3,2,1],[1,2,3])
+    </script>
+  </body>
+</html>

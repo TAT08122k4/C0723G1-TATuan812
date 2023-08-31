@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkArr(arr){
+            let flag = true
+            for(let i = arr.length/2 , j = 0  ; i < arr.length,j < arr.length /2 ; i++,j++){
+                   if(Math.pow(arr[j],2) != arr[i]){
+                    flag = false;
+                   }else{
+                    flag = true;
+                   }
+            }
+            return console.log(flag)
+        }
+        checkArr([1,2,3,1,4,9])
+    
+    </script>
+</body>
+</html>

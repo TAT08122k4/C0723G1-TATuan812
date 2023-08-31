@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <button onclick="addNewStudent()"></button>
+    <button onclick="editStudent()"></button>
+    <button onclick="deleteStudent()"></button>
+    <div id="tableStudent"></div>
     <script>
-      let a = prompt("nhâpkk")
-      let pattern = /^[\p{L}\s'-]{1,50}$/u;
+      class Student{
+        constructor(id,name,className,Dob,module){
+           this.id = id;
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

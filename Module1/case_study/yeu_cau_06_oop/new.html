@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý học viên</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            opacity: 0.8;
+        }
+
+        .form-container {
+            border-radius: 5px;
+            background-color: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .form-container p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-container input[type="submit"],
+        .form-container input[type="button"] {
+            margin-top: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal .form-container {
+            margin-top: 10%;
+            max-width: 500px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 700px) {
+            .modal .form-container {
+                margin-top: 25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<h1>Quản lý học viên</h1>
+<div>
+    <button onclick="addNewStudent()">Thêm mới học viên</button>
+    <button onclick="editInfoStudent()">Sửa thông tin học viên</button>
+    <button onclick="deleteInfo()">Xóa thông tin học viên</button>
+</div>
+<div id="studentTable"></div>
+<div id="myModal" class="modal">
+    <div class="form-container">
+        <span class="close">&times;</span>
+        <h2 id="modalHeader"></h2>
+        <form id="modalForm"></form>
+    </div>
+</div>
+<script>
+    class student {
+        constructor(id, name, className, email, birthDay, module) {
+            this.id = id;
+            this.name = name;
+            this.className = className;
+            this.email = email;
+            this.birthDay = birthDay;
+            this.module = module;
+        }
+    }
+
+    let student1 = new student(160397, "Đình Chính", "CO723G1", "chinhhdde160397@gmail.com", "01/07/2002", 1);
+    let student2 = new student(160398, "Khánh Nam", "CO723G1", "khanhnam.h99@gmail.com", "02/07/2003", 2);
+    let student3 = new student(160399, "Kiều Anh", "CO723G1", "loockin.ka@gmail.com", "22/10/2004", 3);
+    let studentList = [student1, student2, student3];
+
+    function setStudentTable(array) {
+
+        let table = "<table>" +
+            "<tr>" +
+            "<th>Mã học viên</th>" +
+            "<th>Tên</th>" +
+            "<th>Tên lớp</th>" +
+            "<th>Email</th>" +
+            "<th>Ngày sinh</th>" +
+            "<th>Module</th>" +
+            "</tr>"
+        for (let i = 0; i < array.length; i++) {
+            table +=
+                "<tr>" +
+                "<td>" + "HV-" + array[i].id + "</td>" +
+                "<td>" + array[i].name + "</td>" +
+                "<td>" + array[i].className + "</td>" +
+                "<td>" + array[i].email + "</td>" +
+                "<td>" + array[i].birthDay + "</td>" +
+                "<td>" + "Module:" + array[i].module + "</td>" +
+                "</tr>"
+        }
+        table += "</table>";
+        document.getElementById("studentTable").innerHTML = table;
+    }
+
+    function addNewStudent() {
+        let modalHeader = "Thêm mới học viên";
+        let modalForm = `
+                <label for="id">Mã học viên:</label>
+                <input type="text" name="id" id="id" pattern="HV-\d{4}" title="Mã học viên phải có định dạng HV-XXXX (với XXXX là 4 chữ số)" required>
+
+                <label for="name">Họ và tên:</label>
+                <input type="text" name="name" id="name" maxlength="50" required>
+
+                <label for="className">Tên lớp:</label>
+                <input type="text" name="className" id="className" required>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="birthDay">Ngày sinh:</label>
+                <input type="text" name="birthDay" id="birthDay" pattern="\d{2}\/\d{2}\/\d{4}" title="Ngày sinh phải có định dạng dd/mm/yyyy" required>
+
+                <label for="module">Module:</label>
+                <input type="number" name="module" id="module" min="1" max="6" required>
+
+                <input type="submit" value="Thêm mới" onclick="addStudent()">
+            `;
+        openModal(modalHeader, modalForm);
+    }
+
+    function editInfoStudent() {
+        let modalHeader = "Sửa thông tin học viên";
+        let modalForm = `
+                <label for="id">Mã học viên:</label>
+                <input type="text" name="id" id="id" pattern="HV-\d{4}" title="Mã học viên phải có định dạng HV-XXXX (với XXXX là 4 chữ số)" required>
+
+                <input type="submit" value="Tìm kiếm" onclick="findStudentById(event);">
+
+                <label for="name">Họ và tên:</label>
+                <input type="text" name="name" id="name" maxlength="50">
+
+                <label for="className">Tên lớp:</label>
+                <input type="text" name="className" id="className">
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+
+                <label for="birthDay">Ngày sinh:</label>
+                <input type="text" name="birthDay" id="birthDay" pattern="\d{2}\/\d{2}\/\d{4}" title="Ngày sinh phải có định dạng dd/mm/yyyy">
+
+                <label for="module">Module:</label>
+                <input type="number" name="module" id="module" min="1" max="6">
+
+                <input type="submit" value="Cập nhật" onclick="updateStudent()">
+            `;
+        openModal(modalHeader, modalForm);
+    }
+
+    function deleteInfo() {
+        let modalHeader = "Xóa thông tin học viên";
+        let modalForm = `
+                <label for="id">Mã học viên:</label>
+                <input type="text" name="id" id="id" pattern="HV-\d{4}" title="Mã học viên phải có định dạng HV-XXXX (với XXXX là 4 chữ số)" required>
+
+                <input type="submit" value="Tìm kiếm" onclick="findStudentById(event)">
+
+                <p>Bạn có chắc chắn muốn xóa học viên này không?</p>
+
+                <input type="submit" value="Xóa" onclick="deleteStudent()">
+            `;
+        openModal(modalHeader, modalForm);
+    }
+
+    function openModal(modalHeader, modalForm) {
+        document.getElementById("modalHeader").innerHTML = modalHeader;
+        document.getElementById("modalForm").innerHTML = modalForm;
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+        document.getElementById("modalForm").reset();
+    }
+
+    window.onclick = function (event) {
+        if (event.target === document.getElementById("myModal")) {
+            closeModal();
+        }
+    }
+
+    function findStudentById(event) {
+        event.preventDefault();
+        let id = document.getElementById("id").value;
+        let student = studentList.find(student => student.id === id);
+        if (!student) {
+            alert("Không tìm thấy học viên");
+        } else {
+            editId = id;
+            document.getElementById("name").value = student.name;
+            document.getElementById("className").value = student.className;
+            document.getElementById("email").value = student.email;
+            let birthDayStr = student.birthDay.split("/");
+            let birthDay = `${birthDayStr[2]}-${birthDayStr[1]}-${birthDayStr[0]}`;
+            document.getElementById("birthDay").value = birthDay;
+            document.getElementById("module").value = student.module;
+        }
+    }
+
+    function addStudent() {
+        let newId = document.getElementById("id").value;
+        let newName = document.getElementById("name").value;
+        let newClassName = document.getElementById("className").value;
+        let newEmail = document.getElementById("email").value;
+        let birthDayStr = document.getElementById("birthDay").value.split("/");
+        let newBirthDay = `${birthDayStr[2]}-${birthDayStr[1]}-${birthDayStr[0]}`;
+        let newModule = document.getElementById("module").value;
+        let newStudent = new student(newId, newName, newClassName, newEmail, newBirthDay, newModule);
+        studentList.push(newStudent);
+        closeModal();
+        setStudentTable(studentList);
+    }
+
+    function updateStudent() {
+        let index = studentList.findIndex(student => student.id === editId);
+        if (index !== -1) {
+            studentList[index].name = document.getElementById("name").value;
+            studentList[index].className = document.getElementById("className").value;
+            studentList[index].email = document.getElementById("email").value;
+            let birthDayStr = document.getElementById("birthDay").value.split("/");
+            let newBirthDay = `${birthDayStr[2]}-${birthDayStr[1]}-${birthDayStr[0]}`;
+            studentList[index].birthDay = newBirthDay;
+            studentList[index].module = document.getElementById("module").value;
+            closeModal();
+            setStudentTable(studentList);
+        } else {
+            alert("Không tìm thấy học viên để cập nhật");
+        }
+    }
+
+    function deleteStudent() {
+        let id = document.getElementById("id").value;
+        let index = studentList.findIndex(student => student.id === id);
+        if (index !== -1) {
+            let flag = confirm("Bạn có chắc chắn muốn xóa học viên này không?");
+            if (flag) {
+                studentList.splice(index, 1);
+                closeModal();
+                setStudentTable(studentList);
+            } else {
+                alert("Bạn không xóa học viên");
+            }
+        } else {
+            alert("Không tìm thấy học viên để xóa");
+        }
+    }
+
+    setStudentTable(studentList);
+</script>
+</body>
+</html>

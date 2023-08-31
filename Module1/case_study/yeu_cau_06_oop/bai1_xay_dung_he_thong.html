@@ -255,7 +255,7 @@
             newDOB = temp;
             break;
           } else {
-            alert("Nhập lại");
+            alert("Nhập lại ngày tháng năm: ");
           }
         } while (true);
         do {
@@ -290,8 +290,17 @@
             studentsList[i].className = editClassName;
             let editMail = prompt("Nhập Mail");
             studentsList[i].mail = editMail;
-            let editDob = checkInputNumber("Nhập Date");
-            studentsList[i].dOB = editDob;
+            do {
+              let editDob = prompt("Nhập Ngày/tháng/năm sinh");
+              editDob = editDob.split("/");
+              if (editDob[0] <= 31 && editDob[1] <= 12 && editDob[2] <= 2023) {
+                editDob = editDob.join("/");
+                studentsList[i].dOB = editDob;
+                break;
+              } else {
+                alert("Nhập Lại Ngày Tháng Năm Sinh: ");
+              }
+            } while (true);
             student.setModule();
             flag = true;
           }

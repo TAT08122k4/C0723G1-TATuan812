@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #35424a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Button Styles */
+    button {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s,
+        color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      color: black;
+    }
+
+    /* Styling individual buttons */
+    #addButton {
+      background-color: #2ecc71;
+    }
+
+    #editButton {
+      background-color: #e67e22;
+    }
+
+    #deleteButton {
+      background-color: #e74c3c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #e0e0e0;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #35424a;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+  <body>
+    <button class="actionButton" id="addButton" onclick="addNewPhone()">
+      Thêm Sinh Viên
+    </button>
+    <button class="actionButton" id="editButton" onclick="editPhone()">
+      Sửa Sinh Viên
+    </button>
+    <button class="actionButton" id="deleteButton" onclick="deletePhone()">
+      Xoá Sinh Viên
+    </button>
+    <div id="phoneTable"></div>
+    <script>
+      class Phone {
+        constructor(id, name, brand, dob) {
+          this.id = id;
+          this.name = name;
+          this.brand = brand;
+          this.dob = dob;
+        }
+        getId() {
+          return this.id;
+        }
+        getName() {
+          return this.id;
+        }
+        getBrand() {
+          return this.id;
+        }
+        getDOB() {
+          return this.id;
+        }
+        setId(newId) {
+          if (!isNaN(newId) && newId > 999 && newId < 10000) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        setName(newName) {
+          if (isNaN(newName)) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        setBrand(newBrand) {
+          if (isNaN(newBrand)) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        setDOB(newDob) {
+          newDob = newDob.split("/");
+          if (newDob[0] <= 31 && newDob[1] <= 12 && newDob[2] <= 2023) {
+            newDob = newDob.join("/");
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+      let phoneList = [];
+      let phone1 = new Phone(1001, "Iphone 14 Pro Max", "Apple", "6/6/2022");
+      let phone2 = new Phone(1002, "ReadMi12", "Xiaomi", "4/8/2020");
+      let phone3 = new Phone(1003, "SamsungS21", "SamSung", "4/8/2020");
+      phoneList = [phone1, phone2, phone3];
+
+      function displayTable() {
+        let phoneTable = `<table>
+                <tr> <th> Mã Sản Phẩm</th>
+                    <th> Tên Sản Phẩm </th>
+                    <th> Hãng</th>
+                    <th>Ngày/Tháng/Năm Sản Xuất</th>
+                    </tr>
+                `;
+        for (let i = 0; i < phoneList.length; i++) {
+          phoneTable +=
+            `<tr>` +
+            "<td>" +
+            "ID-" +
+            phoneList[i].id +
+            "</td>" +
+            "<td>" +
+            phoneList[i].name +
+            "</td>" +
+            "<td>" +
+            phoneList[i].brand +
+            "</td>" +
+            "<td>" +
+            phoneList[i].dob +
+            "</td>" +
+            `</tr>`;
+        }
+        phoneTable += `</table>`;
+        document.getElementById("phoneTable").innerHTML = phoneTable;
+      }
+      displayTable();
+      function checkInputRequired(inputSth) {
+        let input = prompt(`Nhập ${inputSth}`);
+        while (true) {
+          if (input != null && input != undefined && input != "") {
+            return input;
+          } else {
+            alert(`${inputSth} Không được để trống`);
+            input = prompt(`Nhập ${inputSth}`);
+          }
+        }
+      }
+      function deletePhone() {
+        let idDelete = checkInputRequired("Id Muốn Xoá");
+        let flag = false;
+        for (let i = 0; i < phoneList.length; i++) {
+          if (idDelete == phoneList[i].id) {
+            flag = true;
+            let confirm1 = confirm(
+              `Bạn Có Chắc Muốn Xoá ${phoneList[i].name} Không ?`
+            );
+            if (confirm1 === true) {
+              phoneList.splice(i, 1);
+              break;
+            }
+          }
+        }
+        if (!flag) {
+          alert(`Không tìm thấy id bạn muốn Này`);
+        }
+        displayTable();
+      }
+      function addNewPhone() {
+        let newPhone = new Phone();
+        let newId = +checkInputRequired("ID Mới");
+        let flag = false;
+        for (let i = 0; i < phoneList.length; i++) {
+          if (newId == phoneList[i].id) {
+            return alert("Id Này Đã Tồn Tại");
+          }
+        }
+        do {
+          if (newPhone.setId(newId)) {
+            break;
+          } else {
+            alert("Nhập Id Có 4 số");
+            return;
+          }
+        } while (true);
+        let newName;
+        do {
+          newName = checkInputRequired("Tên Mới:");
+          if (newPhone.setName(newName)) {
+            break;
+          } else {
+            alert("Nhập kí tự or chuỗi kí tự cho tên");
+          }
+        } while (true);
+        let newBrand;
+        do {
+          newBrand = checkInputRequired("Hãng Mới:");
+          if (newPhone.setBrand(newBrand)) {
+            break;
+          } else {
+            alert("Nhập kí tự or chuỗi kí tự cho Hãng");
+          }
+        } while (true);
+        let newDOB;
+        do {
+          newDOB = checkInputRequired("Ngày/Tháng/Năm Mới:");
+          if (newPhone.setDOB(newDOB)) {
+            break;
+          } else {
+            alert("Nhập kí tự Số Theo Định Dạng VD:08/12/2004");
+          }
+        } while (true);
+        phoneList.push(new Phone(newId, newName, newBrand, newDOB));
+        displayTable();
+      }
+
+      function editPhone() {
+        let flag = false;
+        do {
+          let editId = +checkInputRequired("Id Ban Muon Sua");
+          for (let i = 0; i < phoneList.length; i++) {
+            if (phoneList[i].setId(editId) && editId == phoneList[i].id) {
+              phoneList[i].id = editId
+              flag = true;
+              let newName;
+              do {
+                newName = checkInputRequired("Tên Ban Sua:");
+                if (phoneList[i].setName(newName)) {
+                  phoneList[i].name = newName
+                  break;
+                } else {
+                  alert("Nhập kí tự or chuỗi kí tự cho tên");
+                }
+              } while (true);
+              let newBrand;
+              do {
+                newBrand = checkInputRequired("Hãng Sua:");
+                if (phoneList[i].setBrand(newBrand)) {
+                  phoneList[i].brand = newBrand
+                  break;
+                } else {
+                  alert("Nhập kí tự or chuỗi kí tự cho Hãng");
+                }
+              } while (true);
+              let newDOB;
+              do {
+                newDOB = checkInputRequired("Ngày/Tháng/Năm Ban Muon Sua:");
+                if (phoneList[i].setDOB(newDOB)) {
+                  phoneList[i].dob = newDOB
+                  break;
+                } else {
+                  alert("Nhập kí tự Số Theo Định Dạng VD:08/12/2004");
+                }
+              } while (true);
+            }
+          }
+          if (!flag) {
+          alert("Khong tim thay id ban muon xoa");
+          return;
+        } 
+
+        
+         displayTable();
+      }while (!flag);
+    }
+    </script>
+  </body>
+</html>
