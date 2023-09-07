@@ -9,14 +9,16 @@ public class DeleteElement {
         int lengthOfArr = sc.nextInt();
         int[] arr = new int[lengthOfArr];
         for (int i = 0; i < lengthOfArr; i++) {
-            System.out.println("Input Element in " + i + "Index");
+            System.out.println("Input Element in " + i + " Index");
             arr[i] = sc.nextInt();
         }
         System.out.println("Input element u wanna delete:");
+        String indexDelete = " ";
         int deleteElement = sc.nextInt();
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == deleteElement) {
                 arr[i] = 0;
+                indexDelete += i + " ";
             }
         }
         for (int i = 0; i < arr.length - 1; i++) {
@@ -31,5 +33,6 @@ public class DeleteElement {
         for (int arrAfterDelete : arr) {
             System.out.println(arrAfterDelete);
         }
+        System.out.print("element delete in index: " + indexDelete);
     }
 }
