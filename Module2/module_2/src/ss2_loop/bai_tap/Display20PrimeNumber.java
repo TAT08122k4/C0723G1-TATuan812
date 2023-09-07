@@ -6,7 +6,7 @@ public class Display20PrimeNumber {
         int num = 2;
         while (count <= 20) {
             int countPrime = 0;
-            for (int i = 2; i < num; i++) {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
                 if (num % i == 0) {
                     countPrime++;
                 }

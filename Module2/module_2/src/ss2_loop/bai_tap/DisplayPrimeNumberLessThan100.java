@@ -5,7 +5,7 @@ public class DisplayPrimeNumberLessThan100 {
         int num = 2;
         while (num < 100){
             int countPrime = 0;
-            for (int i = 2; i < num; i++) {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
              if (num % i ==0){
                  countPrime++;
              }

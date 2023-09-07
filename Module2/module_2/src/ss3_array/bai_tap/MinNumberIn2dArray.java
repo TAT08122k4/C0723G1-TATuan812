@@ -2,7 +2,7 @@ package ss3_array.bai_tap;
 
 import java.util.Scanner;
 
-public class MaxNumberIn2dArray {
+public class MinNumberIn2dArray {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input Row of 2d Array:");
@@ -16,11 +16,11 @@ public class MaxNumberIn2dArray {
                 matrix[i][j] = sc.nextInt();
             }
         }
-        double max = matrix[0][0];
+        double min = matrix[0][0];
         for (int i = 0; i < row ; i++) {
             for (int j = 0; j < col; j++) {
-                if (max < matrix[i][j]){
-                    max = matrix[i][j];
+                if (min > matrix[i][j]){
+                    min = matrix[i][j];
                 }
             }
         }
@@ -28,8 +28,8 @@ public class MaxNumberIn2dArray {
         for (double[] arr: matrix){
             System.out.print(arr + "\t");
         }
-        System.out.println("Max Element is: ");
-        System.out.print(max);
+        System.out.println("Min Element is: ");
+        System.out.print(min);
 
     }
 }
