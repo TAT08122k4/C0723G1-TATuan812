@@ -12,10 +12,10 @@ public class SumInCol {
         System.out.println("Input Col u wanna calc sum: ");
         int colSum = sc.nextInt();
         int sumCol = 0;
-        for (int i = 0; i < matrix.length ; i++) {
-            for (int j = 0; j < matrix.length ; j++) {
-                if (colSum == j){
-             sumCol += matrix[i][colSum];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (colSum == j) {
+                    sumCol += matrix[i][colSum];
                 }
             }
         }

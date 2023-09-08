@@ -24,12 +24,7 @@ public class MaxNumberIn2dArray {
                 }
             }
         }
-        System.out.println("MaTrix Is  ");
-        for (double[] arr: matrix){
-            System.out.print(arr + "\t");
-        }
-        System.out.println("Max Element is: ");
+        System.out.print("Max Element is: ");
         System.out.print(max);
-
     }
 }
