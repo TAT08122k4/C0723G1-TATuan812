@@ -16,7 +16,7 @@ public class QuadraticEquation {
 
     public double getDiscriminant() {
         double delta;
-        return delta = b * 2 - 4 * a * c;
+        return delta = b * b - 4 * a * c;
     }
     public double getRoot(){
         return -b / (2 * a);
@@ -25,7 +25,7 @@ public class QuadraticEquation {
     public double getRoot1() {
         if (getDiscriminant() > 0) {
             System.out.println("Equation has 2 solutions");
-            return (-b + Math.pow((b * b - 4 * a * c), (1 / 2))) / 2 * a;
+            return (-b + Math.sqrt((b * b - 4 * a * c))) / 2 * a;
         } else if (getDiscriminant() == 0){
             System.out.println("Equation has a double solution");
             return getRoot();
@@ -37,7 +37,7 @@ public class QuadraticEquation {
     public double getRoot2() {
         if (getDiscriminant() > 0) {
             System.out.println("Equation has 2 solutions");
-            return (-b - Math.pow((b * b - 4 * a * c), (1 / 2))) / 2 * a;
+            return (-b - Math.sqrt((b * b - 4 * a * c))) / 2 * a;
         } else if (getDiscriminant() == 0){
             System.out.println("Equation has a double solution");
             return getRoot();

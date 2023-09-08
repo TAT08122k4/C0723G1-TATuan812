@@ -15,7 +15,6 @@ public class TestQuadraticEquation {
         if(a != 0){
             System.out.println(quadraticEquation.getRoot1());
             System.out.println(quadraticEquation.getRoot2());
-
         }else {
             System.out.println("Plzz enter a number other than 0");
         }
