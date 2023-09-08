@@ -13,11 +13,7 @@ public class SumInCol {
         int colSum = sc.nextInt();
         int sumCol = 0;
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                if (colSum == j) {
-                    sumCol += matrix[i][colSum];
-                }
-            }
+           sumCol += matrix[i][colSum];
         }
         System.out.println("Sum of Col " + colSum + " Is : " + sumCol);
 
