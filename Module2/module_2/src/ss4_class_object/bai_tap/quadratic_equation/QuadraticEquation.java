@@ -10,7 +10,8 @@ public class QuadraticEquation {
         this.b = b;
         this.c = c;
     }
-    public QuadraticEquation(){
+
+    public QuadraticEquation() {
 
     }
 
@@ -18,33 +19,17 @@ public class QuadraticEquation {
         double delta;
         return delta = b * b - 4 * a * c;
     }
-    public double getRoot(){
+
+    public double getRoot() {
         return -b / (2 * a);
     }
 
     public double getRoot1() {
-        if (getDiscriminant() > 0) {
-            System.out.println("Equation has 2 solutions");
-            return (-b + Math.sqrt((b * b - 4 * a * c))) / 2 * a;
-        } else if (getDiscriminant() == 0){
-            System.out.println("Equation has a double solution");
-            return getRoot();
-        }else {
-            System.out.println("The equation has no roots");
-            return 0;
-        }
+        return (-b + Math.sqrt((b * b - 4 * a * c))) / (2 * a);
     }
+
     public double getRoot2() {
-        if (getDiscriminant() > 0) {
-            System.out.println("Equation has 2 solutions");
-            return (-b - Math.sqrt((b * b - 4 * a * c))) / 2 * a;
-        } else if (getDiscriminant() == 0){
-            System.out.println("Equation has a double solution");
-            return getRoot();
-        }else {
-            System.out.println("The equation has no roots");
-            return 0;
-        }
+        return (-b - Math.sqrt((b * b - 4 * a * c))) / (2 * a);
     }
 
     public double getA() {

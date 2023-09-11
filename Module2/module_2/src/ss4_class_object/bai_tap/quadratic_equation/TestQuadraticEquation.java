@@ -13,8 +13,16 @@ public class TestQuadraticEquation {
         double c = sc.nextDouble();
         QuadraticEquation quadraticEquation = new QuadraticEquation(a,b,c);
         if(a != 0){
-            System.out.println(quadraticEquation.getRoot1());
-            System.out.println(quadraticEquation.getRoot2());
+            if(quadraticEquation.getDiscriminant() > 0){
+                System.out.println("Equation has 2 solutions");
+                System.out.println(quadraticEquation.getRoot1());
+                System.out.println(quadraticEquation.getRoot2());
+            } else if (quadraticEquation.getDiscriminant() == 0) {
+                System.out.println("Equation has a double solution");
+                System.out.println(quadraticEquation.getRoot1());
+            }else {
+                System.out.println("The equation has no roots ");
+            }
         }else {
             System.out.println("Plzz enter a number other than 0");
         }

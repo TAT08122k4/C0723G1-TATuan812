@@ -13,7 +13,7 @@ public class TestStopWatch {
         TestStopWatch arrTest = new TestStopWatch();
         arrTest.sort(arr);
         watch.stop();
-        System.out.println("Time to Run is : " + "\t" + watch.getElapsedTime());
+        System.out.println("Time to Run is : " + "\t" + watch.getElapsedTime() + "ms");
     }
 
     void sort(int arr[]) {
