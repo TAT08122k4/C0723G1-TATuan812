@@ -6,19 +6,9 @@ public class Student {
 
     public Student() {
     }
-
-    protected String getName() {
-        return name;
-    }
-
      void setName(String name) {
         this.name = name;
     }
-
-     String getNameClass() {
-        return nameClass;
-    }
-
      void setNameClass(String nameClass) {
         this.nameClass = nameClass;
     }

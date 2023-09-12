@@ -7,7 +7,7 @@ public class TestStudent {
         System.out.println(student.getNameClass());
         student.setName("Hieu");
         student.setNameClass("C08");
-        System.out.println(student.getName());
+        System.out.println(student.name);
         System.out.println(student.getNameClass());
     }
 }
