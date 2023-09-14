@@ -46,5 +46,6 @@ public Shape(){
 
     @Override
     public void resize(double percent) {
+
     }
 }
