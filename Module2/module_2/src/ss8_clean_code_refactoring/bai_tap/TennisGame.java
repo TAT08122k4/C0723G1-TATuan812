@@ -35,17 +35,17 @@ public class TennisGame {
         return score;
     }
 
-    public static String checkPlayerWin(int scoreOfPlayer1, int scoreOfPlayer2) {
+    public static String checkPlayerWin(String player1 , String player2 , int scoreOfPlayer1, int scoreOfPlayer2) {
         if (scoreOfPlayer1 >= 4 || scoreOfPlayer2 >= 4) {
             int minusResult = scoreOfPlayer1 - scoreOfPlayer2;
             if (minusResult == 1) {
-                score = "Advantage player1";
+                score = "Advantage for " + player1   ;
             } else if (minusResult == -1) {
-                score = "Advantage player2";
+                score = "Advantage for " + player2 ;
             } else if (minusResult >= 2) {
-                score = "Win for player1";
+                score = "Win for " + player1 ;
             } else {
-                score = "Win for player2";
+                score = "Win for " + player2;
             }
         }
         return score;
