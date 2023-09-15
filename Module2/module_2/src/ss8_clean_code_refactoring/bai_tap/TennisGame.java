@@ -9,21 +9,22 @@ public class TennisGame {
     private static final String FIFTEEN = "Fifteen";
     private static final String THIRTY = "Thirty";
     private static final String FORTY = "Forty";
+    private static final String ALL = "-All";
 
     public static String checkScore(int scoreOfPlayer1, int scoreOfPlayer2) {
         if (scoreOfPlayer1 == scoreOfPlayer2) {
             switch (scoreOfPlayer1) {
                 case 0:
-                    score = LOVE + "-All";
+                    score = LOVE + ALL;
                     break;
                 case 1:
-                    score = FIFTEEN + "-All";
+                    score = FIFTEEN + ALL;
                     break;
                 case 2:
-                    score = THIRTY + "-All";
+                    score = THIRTY + ALL;
                     break;
                 case 3:
-                    score = FORTY + "-All";
+                    score = FORTY + ALL;
                     break;
                 default:
                     score = "Deuce";

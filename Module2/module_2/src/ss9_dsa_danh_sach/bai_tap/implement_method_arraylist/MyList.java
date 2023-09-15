@@ -8,7 +8,15 @@ public class MyList<E> {
     public MyList (){
     }
     public MyList(int capacity){
+     elements = new Object[capacity];
+    }
+    void add(int index , E element){
 
+    }
+    void ensureCapacity(int minCapacity){
+        if(size >= elements.length){
+
+        }
     }
 
 }
