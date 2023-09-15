@@ -1,6 +1,7 @@
 package ss8_clean_code_refactoring.bai_tap;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TennisGame {
     private static String score;
@@ -44,7 +45,10 @@ public class TennisGame {
                 score = "Advantage for " + player2 ;
             } else if (minusResult >= 2) {
                 score = "Win for " + player1 ;
-            } else {
+            }else if (minusResult == 0){
+                checkScore(scoreOfPlayer1,scoreOfPlayer2);
+            }
+            else {
                 score = "Win for " + player2;
             }
         }
@@ -82,9 +86,19 @@ public class TennisGame {
     }
 
     public static void main(String[] args) {
-        System.out.println(TennisGame.checkScore(3, 3));
-        System.out.println(TennisGame.checkPlayerWin(6, 4));
-        System.out.println(TennisGame.displayScore(2, 3));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Score of Player 1:");
+        int scoreOfPlayer1 = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter Score of Player 2:");
+        int scoreOfPlayer2 = Integer.parseInt(sc.nextLine());
+        if (scoreOfPlayer1 >= 4 && scoreOfPlayer2 >= 4){
+            System.out.println(TennisGame.checkPlayerWin("Tuan","Tuan",scoreOfPlayer1, scoreOfPlayer2));
+        }else if (scoreOfPlayer1 == scoreOfPlayer2){
+            System.out.println(TennisGame.checkScore(scoreOfPlayer1, scoreOfPlayer2));
+        }else {
+            System.out.println(TennisGame.displayScore(scoreOfPlayer1, scoreOfPlayer2));
+        }
+
     }
 
 }
