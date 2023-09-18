@@ -1,4 +1,4 @@
-package ss10_stack_queue.bai_tap.chuyen_doi_he_thap_phan;
+package ss10_stack_queue.bai_tap;
 
 import java.util.Scanner;
 import java.util.Stack;

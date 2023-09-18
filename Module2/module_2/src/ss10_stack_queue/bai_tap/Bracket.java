@@ -1,4 +1,4 @@
-package ss10_stack_queue;
+package ss10_stack_queue.bai_tap;
 
 import java.util.Stack;
 
