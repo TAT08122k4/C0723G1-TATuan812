@@ -14,7 +14,7 @@ public class MyList<E> {
     public MyList(int capacity){
      elements = new Object[capacity];
     }
-    void add(int index , E element){
+    public void add(int index , E element){
      if (index < 0|| index > size){
          throw new IndexOutOfBoundsException();
      } else if(index== size){
@@ -27,17 +27,14 @@ public class MyList<E> {
          size++;
      }
     }
-    boolean add(E element){
+    public boolean add(E element){
         if (size >= elements.length){
             return false;
         }
         elements[size++] = element;
         return true;
     }
-    int length(){
-        return elements.length;
-    }
-    int size(){
+    public int size(){
         return size;
     }
     E get(int i){
@@ -46,36 +43,39 @@ public class MyList<E> {
         }
         return (E) elements[i];
     }
-    boolean isEmpty(){
+    public boolean isEmpty(){
         if (size == 0){
             return true;
         }
         return false;
     }
-   protected Object clone(){
+    public Object clone(){
         Object[] newArr = new Object[size];
         for (int i = 0; i < size(); i++) {
             newArr[i] = elements[i];
         }
         return newArr;
     }
-    E remove(int index){
+    public E remove(int index){
+        E temp = (E) elements[index];
+        if (index < 0||index > size){
+            throw new IndexOutOfBoundsException();
+        }
         for (int i = index; i < size() ; i++) {
             elements[i] = elements[i + 1];
         }
         size--;
-        return (E) elements[index];
-
+        return temp;
     }
-    void clear (){
+    public void clear (){
         for (int i = 0; i <= size(); i++) {
           elements[i] = null;
         }
         size = 0;
     }
-    int indexOf(E o){
+    public int indexOf(E o){
         for (int i = 0; i < size(); i++) {
-            if (o == elements[i]){
+            if (o.equals(elements[i])){
                 return i;
             }
         }
@@ -83,16 +83,16 @@ public class MyList<E> {
 
     }
 
-    boolean contains(E o){
+    public boolean contains(E o){
         for (int i = 0; i < size(); i++) {
-            if(o==elements[i]){
+            if(o.equals(elements[i])){
                 return true;
             }
         }
         return false;
 
     }
-    void ensureCapacity(){
+    public void ensureCapacity(){
            elements = new Object[elements.length + elements.length/2];
     }
 

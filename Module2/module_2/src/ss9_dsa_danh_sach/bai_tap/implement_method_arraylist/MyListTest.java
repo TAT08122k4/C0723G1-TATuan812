@@ -16,14 +16,14 @@ public class MyListTest {
         myList.add(101);
         myList.add(102);
         myList.add(3,103);
-        for (int i = 0; i <= myList.length(); i++) {
+        for (int i = 0; i <= myList.size(); i++) {
             System.out.println(myList.get(i));
         }
         System.out.println(myList.contains(3));
 
         Object[] e = (Object[]) myList.clone();
         System.out.println(Arrays.toString(e));
-        myList.remove(5);
+        System.out.println(myList.remove(5));
         Object[] e1 = (Object[]) myList.clone();
         System.out.println(Arrays.toString(e1));
         myList.clear();
