@@ -6,13 +6,13 @@ import java.util.Objects;
 
 public abstract class Transport {
  private int bienKiemSoat;
- private String tenHangSanXuat;
+ private HangSanXuat tenHangSanXuat;
  private int namSanXuat;
  private String chuSoHuu;
 
- public Transport(int bienKiemSoat, String tenHangSanXuat, int namSanXuat, String chuSoHuu) {
+ public Transport(int bienKiemSoat,HangSanXuat hangSanXuat, int namSanXuat, String chuSoHuu) {
   this.bienKiemSoat = bienKiemSoat;
-  this.tenHangSanXuat = tenHangSanXuat;
+  this.tenHangSanXuat = hangSanXuat;
   this.namSanXuat = namSanXuat;
   this.chuSoHuu = chuSoHuu;
  }
@@ -34,11 +34,11 @@ public abstract class Transport {
   this.bienKiemSoat = bienKiemSoat;
  }
 
- public String getTenHangSanXuat() {
+ public HangSanXuat getTenHangSanXuat() {
   return tenHangSanXuat;
  }
 
- public void setTenHangSanXuat(String tenHangSanXuat) {
+ public void setTenHangSanXuat(HangSanXuat tenHangSanXuat) {
   this.tenHangSanXuat = tenHangSanXuat;
  }
 

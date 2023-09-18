@@ -4,7 +4,7 @@ public class Oto extends Transport{
     private int soChoNgoi;
     private String kieuXe;
 
-    public Oto(int bienKiemSoat, String tenHangSanXuat, int namSanXuat, String chuSoHuu, int soChoNgoi, String kieuXe) {
+    public Oto(int bienKiemSoat, HangSanXuat tenHangSanXuat, int namSanXuat, String chuSoHuu, int soChoNgoi, String kieuXe) {
         super(bienKiemSoat, tenHangSanXuat, namSanXuat, chuSoHuu);
         this.soChoNgoi = soChoNgoi;
         this.kieuXe = kieuXe;

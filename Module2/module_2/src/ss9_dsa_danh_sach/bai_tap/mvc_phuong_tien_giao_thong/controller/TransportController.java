@@ -16,15 +16,20 @@ public class TransportController {
 
     public void runPrograming(){
         int chon = Integer.parseInt(sc.nextLine());
-        int chonLoaiXe = Integer.parseInt(sc.nextLine());
+        int chonLoaiXe;
         do {
             transportManagerView.displayMenu();
             switch (chon){
                 case 1:
                     do {
+                        System.out.println("Nhập Hãng Xe:");
+                        chonLoaiXe = Integer.parseInt(sc.nextLine());
                         switch (chonLoaiXe){
                             case 1:
-
+                                xeMayService.createTransport(transportManagerView.hienThiXeMay());
+                                break;
+                            case 2:
+                                
                         }
 
                     }while (chonLoaiXe >= 5 || chonLoaiXe <= 0);
