@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface IService<E>{
     List<E> getList();
-    void them(E e);
-    boolean xoa(int bienKiemSoat);
-    List<E> hienThi();
-    E timKiem(int bienKiemSoat);
+    void them();
+    boolean xoa();
+    void hienThi();
+    void timKiem();
 }

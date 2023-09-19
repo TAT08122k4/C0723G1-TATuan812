@@ -12,6 +12,15 @@ public class XeMay extends PhuongTienGiaoThong{
         this.congSuat = congSuat;
     }
 
+    public XeMay(int bienKiemSoat, int namSanXuat, String hangSanXuat, String choSoHuu) {
+        super(bienKiemSoat, namSanXuat, hangSanXuat, choSoHuu);
+    }
+
+    @Override
+    public int getBienKiemSoat() {
+        return super.getBienKiemSoat();
+    }
+
     public int getCongSuat() {
         return congSuat;
     }
@@ -22,8 +31,6 @@ public class XeMay extends PhuongTienGiaoThong{
 
     @Override
     public String toString() {
-        return "XeMay{" +
-                "congSuat=" + congSuat +
-                '}';
+        return super.toString() + "Công Suất: " + this.congSuat;
     }
 }

@@ -11,6 +11,11 @@ public class XeTai extends PhuongTienGiaoThong{
         this.trongTai = trongTai;
     }
 
+    @Override
+    public int getBienKiemSoat() {
+        return super.getBienKiemSoat();
+    }
+
     public int getTrongTai() {
         return trongTai;
     }
@@ -21,8 +26,6 @@ public class XeTai extends PhuongTienGiaoThong{
 
     @Override
     public String toString() {
-        return "XeTai{" +
-                "trongTai=" + trongTai +
-                '}';
+        return super.toString() + "Trọng Tải: " + this.trongTai;
     }
 }
