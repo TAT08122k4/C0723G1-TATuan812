@@ -4,17 +4,17 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class HeThapPhan {
-    public String chuyenDoiHeThapPhan(int num) {
+    public String chuyenDoiHeThapPhan(int so) {
         Stack stack = new Stack();
         String soNhiPhan = "";
         int soDu;
-        for (int i = 0; i < num; ) {
-            soDu = num % 2;
+        for (int i = 0; i < so; ) {
+            soDu = so % 2;
             stack.push(soDu);
-            num = num / 2;
+            so = so / 2;
         }
-        int lengthOfStack = stack.size();
-        for (int i = 0; i < lengthOfStack; i++) {
+        int chieuDaiCuaStack = stack.size();
+        for (int i = 0; i < chieuDaiCuaStack; i++) {
             soNhiPhan += stack.pop();
         }
         return soNhiPhan;
@@ -24,8 +24,8 @@ public class HeThapPhan {
         HeThapPhan heThapPhan = new HeThapPhan();
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập Số bạn Muốn tính nhị phân của số đó");
-        int num = sc.nextInt();
-        System.out.println("Số Nhị Phân Của Số " + num + " là:" );
-        System.out.println(heThapPhan.chuyenDoiHeThapPhan(num));
+        int so = sc.nextInt();
+        System.out.println("Số Nhị Phân Của Số " + so + " là:" );
+        System.out.println(heThapPhan.chuyenDoiHeThapPhan(so));
     }
 }
