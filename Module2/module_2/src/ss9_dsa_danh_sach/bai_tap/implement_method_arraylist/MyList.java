@@ -17,7 +17,7 @@ public class MyList<E> {
     public void add(int index , E element){
      if (index < 0|| index > size){
          throw new IndexOutOfBoundsException();
-     } else if(index== size){
+     } else if(size == elements.length){
          ensureCapacity();
      } else {
          for (int i = size; i >= index; i--) {
