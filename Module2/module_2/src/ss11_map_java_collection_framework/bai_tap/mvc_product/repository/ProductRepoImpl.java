@@ -10,32 +10,30 @@ import java.util.Scanner;
 public class ProductRepoImpl implements IProductRepo {
     Scanner sc = new Scanner(System.in);
     private static List<Product> productList = new ArrayList<>();
+
     static {
-       productList.add(new Product("1","Iphone",5));
-       productList.add(new Product("2","SamSung",4));
+        productList.add(new Product("1", "Iphone", 5));
+        productList.add(new Product("2", "SamSung", 4));
     }
+
     @Override
     public void add(Product product) {
         productList.add(product);
     }
 
     @Override
-    public void update(String id) {
-        for (Product product:productList){
-            if (product.getId().equals(id)){
-                System.out.println("Nhập tên Mới Cho sản phẩm");
-                product.setName(sc.nextLine());
-                System.out.println("Nhập Giá tiền mới cho sản phẩm");
-                product.setPrice(Integer.parseInt(sc.nextLine()));
-                return;
-            }
-        }
-        System.out.println("Không tìm thấy ID của sản phẩm!");
+    public void update(Product product) {
+      for(Product value: productList) {
+          if(value.getId().equals(product.getId())) {
+              value.setName(product.getName());
+              value.setPrice(product.getPrice());
+          }
+      }
     }
 
     @Override
     public void remove(Product product) {
-      productList.remove(product);
+        productList.remove(product);
     }
 
     @Override
@@ -45,8 +43,8 @@ public class ProductRepoImpl implements IProductRepo {
 
     @Override
     public Product search(String name) {
-        for (Product product:productList) {
-            if (product.getName().equals(name)){
+        for (Product product : productList) {
+            if (product.getName().equals(name)) {
                 return product;
             }
         }
@@ -56,11 +54,11 @@ public class ProductRepoImpl implements IProductRepo {
     @Override
     public List<Product> sortDown() {
         productList.sort(((o1, o2) -> {
-            if (o1.getPrice() < o2.getPrice()){
+            if (o1.getPrice() < o2.getPrice()) {
                 return -1;
-            }else if (o1.getPrice() == o2.getPrice()){
+            } else if (o1.getPrice() == o2.getPrice()) {
                 return 0;
-            }else {
+            } else {
                 return 1;
             }
         }));
@@ -70,14 +68,22 @@ public class ProductRepoImpl implements IProductRepo {
     @Override
     public List<Product> sortUp() {
         productList.sort(((o1, o2) -> {
-            if (o1.getPrice() > o2.getPrice()){
+            if (o1.getPrice() > o2.getPrice()) {
                 return 1;
-            }else if (o1.getPrice() == o2.getPrice()){
+            } else if (o1.getPrice() == o2.getPrice()) {
                 return 0;
-            }else {
+            } else {
                 return -1;
             }
         }));
         return productList;
+    }
+    public boolean checkId(String id){
+        for (Product product: productList) {
+            if (id.equals(product.getId())){
+                return true;
+            }
+        }
+        return false;
     }
 }

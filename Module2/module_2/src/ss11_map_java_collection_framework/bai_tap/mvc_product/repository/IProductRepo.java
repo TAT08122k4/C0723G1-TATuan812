@@ -7,10 +7,11 @@ import java.util.List;
 
 public interface IProductRepo {
       void add(Product product);
-      void update(String id);
+      void update(Product product);
       void remove(Product product);
       List<Product> display();
       Product search(String name);
       List<Product> sortDown();
       List<Product> sortUp();
+      boolean checkId(String id);
 }

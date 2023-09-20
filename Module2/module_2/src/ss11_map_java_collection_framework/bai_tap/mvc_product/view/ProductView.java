@@ -12,7 +12,7 @@ public class ProductView {
         System.out.println("6. Sắp Xếp Sản Phẩm Tăng dần , giảm dần ");
         System.out.println("Mời chọn chức năng : ");
     }
-    public void sapXep(){
+    public void sort(){
         System.out.println("1.Sắp xếp theo Giảm dần");
         System.out.println("2.Sắp xếp theo Tăng dần");
     }

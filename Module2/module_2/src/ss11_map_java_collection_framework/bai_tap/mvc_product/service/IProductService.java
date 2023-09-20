@@ -7,10 +7,11 @@ import java.util.List;
 
 public interface IProductService {
     void add(Product product);
-    void update();
+    void update(Product product);
     void remove();
     void display();
     void search();
     List<Product> sortDown();
     List<Product> sortUp();
+    void checkId(String id);
 }

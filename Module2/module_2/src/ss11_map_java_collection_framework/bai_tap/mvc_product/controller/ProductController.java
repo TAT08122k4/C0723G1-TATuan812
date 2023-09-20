@@ -6,6 +6,8 @@ import ss11_map_java_collection_framework.bai_tap.mvc_product.repository.Product
 import ss11_map_java_collection_framework.bai_tap.mvc_product.service.ProductServiceImpl;
 import ss11_map_java_collection_framework.bai_tap.mvc_product.view.ProductView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductController {
@@ -32,7 +34,20 @@ public class ProductController {
                     productService.add(product1);
                     break;
                 case 2:
-                    productService.update();
+                    System.out.println("Nhập id bạn muốn sửa");
+                    String idEdit = sc.nextLine();
+                    if (productRepo.checkId(idEdit)){
+                        Product product2 = new Product();
+                        product2.setId(idEdit);
+                        System.out.println("Nhập tên Mới Cho sản phẩm");
+                        product2.setName(sc.nextLine());
+                        System.out.println("Nhập Giá tiền mới cho sản phẩm");
+                        product2.setPrice(Integer.parseInt(sc.nextLine()));
+
+                        productService.update(product2);
+                    }else {
+                        System.out.println("Không tìm thấy id bạn muốn sửa");
+                    }
                     break;
                 case 3:
                     productService.remove();
@@ -44,7 +59,7 @@ public class ProductController {
                     productService.search();
                     break;
                 case 6:
-                    productView.sapXep();
+                    productView.sort();
                     System.out.println("chọn kiểu sắp xếp mà bạn muốn");
                     int selectSort = Integer.parseInt(sc.nextLine());
                    if (selectSort == 1){

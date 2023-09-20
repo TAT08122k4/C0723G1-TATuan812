@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class ProductServiceImpl implements IProductService {
    Scanner sc = new Scanner(System.in);
+   List<Product> productList = new ArrayList<>();
     private static ProductRepoImpl productRepo = new ProductRepoImpl();
     @Override
     public void add(Product product) {
@@ -17,10 +18,8 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void update() {
-        System.out.println("Nhập id của sản phẩm bạn muốn sửa");
-        String idUpdate = sc.nextLine();
-        productRepo.update(idUpdate);
+    public void update(Product product) {
+        productRepo.update(product);
     }
 
     @Override
@@ -61,6 +60,7 @@ public class ProductServiceImpl implements IProductService {
     public List<Product> sortUp(){
         return productRepo.sortUp();
     }
-
-
+    public void checkId(String id){
+      productRepo.checkId(id);
+    }
 }
