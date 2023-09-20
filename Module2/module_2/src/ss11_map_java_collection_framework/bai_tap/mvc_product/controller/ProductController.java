@@ -48,9 +48,9 @@ public class ProductController {
                     System.out.println("chọn kiểu sắp xếp mà bạn muốn");
                     int selectSort = Integer.parseInt(sc.nextLine());
                    if (selectSort == 1){
-                       productRepo.sortUp();
+                       System.out.println(productRepo.sortUp());
                    }else if (selectSort == 2){
-                       productRepo.sortDown();
+                       System.out.println(productRepo.sortDown());
                    }else {
                        System.out.println("Chỉ Chọn 1 or 2");
                    }

@@ -55,19 +55,12 @@ public class ProductServiceImpl implements IProductService {
         System.out.println(productRepo.search(nameFindout));
 
     }
-    public void sort(){
-
+    public List<Product> sortDown(){
+        return productRepo.sortDown();
     }
-//    public int compare(Product o1, Product o2) {
-//        System.out.println("chọn cách sắp xếp bạn muốn thử:");
-//        int selectSort = Integer.parseInt(sc.nextLine());
-//        if (o1.getPrice() < o2.getPrice()){
-//            return -1;
-//        }else if (o1.getPrice() < o2.getPrice()){
-//            return 0;
-//        }else {
-//            return 1;
-//        }
-//    }
+    public List<Product> sortUp(){
+        return productRepo.sortUp();
+    }
+
 
 }

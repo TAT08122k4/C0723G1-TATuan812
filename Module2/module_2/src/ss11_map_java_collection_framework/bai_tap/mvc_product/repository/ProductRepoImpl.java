@@ -54,9 +54,7 @@ public class ProductRepoImpl implements IProductRepo {
     }
 
     @Override
-    public ArrayList<Product> sortDown() {
-        // phương thức này tham khảo nhưng ko chạy đc =))))))) e fix sau ạ <3
-        ArrayList<Product> sortDown = new ArrayList<>();
+    public List<Product> sortDown() {
         productList.sort(((o1, o2) -> {
             if (o1.getPrice() < o2.getPrice()){
                 return -1;
@@ -66,16 +64,11 @@ public class ProductRepoImpl implements IProductRepo {
                 return 1;
             }
         }));
-        for (Product product : productList){
-            sortDown.add(product);
-        }
-        return sortDown;
+        return productList;
     }
 
     @Override
-    public ArrayList<Product> sortUp() {
-        // phương thức này tham khảo nhưng ko chạy đc =))))))) e fix sau ạ <3
-        ArrayList<Product> sortUp = new ArrayList<>();
+    public List<Product> sortUp() {
         productList.sort(((o1, o2) -> {
             if (o1.getPrice() > o2.getPrice()){
                 return 1;
@@ -85,9 +78,6 @@ public class ProductRepoImpl implements IProductRepo {
                 return -1;
             }
         }));
-        for (Product product : productList){
-            sortUp.add(product);
-        }
-        return sortUp;
+        return productList;
     }
 }

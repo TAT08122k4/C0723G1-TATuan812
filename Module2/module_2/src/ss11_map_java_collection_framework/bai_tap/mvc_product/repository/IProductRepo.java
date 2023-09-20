@@ -11,6 +11,6 @@ public interface IProductRepo {
       void remove(Product product);
       List<Product> display();
       Product search(String name);
-      ArrayList<Product> sortDown();
-      ArrayList<Product> sortUp();
+      List<Product> sortDown();
+      List<Product> sortUp();
 }
