@@ -43,7 +43,6 @@ public class ProductController {
                         product2.setName(sc.nextLine());
                         System.out.println("Nhập Giá tiền mới cho sản phẩm");
                         product2.setPrice(Integer.parseInt(sc.nextLine()));
-
                         productService.update(product2);
                     }else {
                         System.out.println("Không tìm thấy id bạn muốn sửa");
