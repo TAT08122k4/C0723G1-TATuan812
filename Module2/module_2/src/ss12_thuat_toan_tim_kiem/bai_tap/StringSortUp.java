@@ -1,8 +1,6 @@
-package ss12_thuat_toan_sap_xep.bai_tap;
+package ss12_thuat_toan_tim_kiem.bai_tap;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class StringSortUp {

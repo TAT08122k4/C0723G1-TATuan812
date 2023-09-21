@@ -1,9 +1,7 @@
-package ss12_thuat_toan_sap_xep.bai_tap;
+package ss12_thuat_toan_tim_kiem.bai_tap;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class BinaryTreeSearch {
     static int binarySearch(int[] arr, int left, int right, int value) {

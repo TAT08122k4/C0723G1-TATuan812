@@ -1,4 +1,4 @@
-package ss12_thuat_toan_sap_xep.thuc_hanh;
+package ss12_thuat_toan_tim_kiem.thuc_hanh;
 
 public class BinarySearch {
     static int binarySearch(int[] list, int x) {
