@@ -39,6 +39,7 @@ public class Triangle {
     public void setC(double c) {
         this.c = c;
     }
+
     @Override
     public String toString() {
         return "Triangle{" +
@@ -54,15 +55,12 @@ public class Triangle {
         double b;
         double c;
         Triangle triangle = new Triangle();
-        IllegalTriangleExceptionTest illegalTriangleExceptionTest = new IllegalTriangleExceptionTest();
         do {
-            System.out.println("Nhập cạnh a:");
-            a = Double.parseDouble(sc.nextLine());
-            System.out.println("Nhập cạnh b:");
-            b = Double.parseDouble(sc.nextLine());
-            System.out.println("Nhập cạnh c:");
-            c = Double.parseDouble(sc.nextLine());
-            if (illegalTriangleExceptionTest.checkTriangle(a, b, c)) {
+            a = IllegalTriangleExceptionTest.inputEdge("a");
+            b = IllegalTriangleExceptionTest.inputEdge("b");
+            c = IllegalTriangleExceptionTest.inputEdge("c");
+
+            if (IllegalTriangleExceptionTest.checkTriangle(a, b, c)) {
                 triangle.setA(a);
                 triangle.setB(b);
                 triangle.setC(c);

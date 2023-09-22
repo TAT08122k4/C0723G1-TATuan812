@@ -3,10 +3,10 @@ package ss15_exception.bai_tap.lllegalTriangleException;
 import java.util.Scanner;
 
 public class IllegalTriangleExceptionTest extends Exception {
-    static Scanner sc = new Scanner(System.in);
-    static boolean checkTriangle(double a, double b, double c) {
+     static Scanner sc = new Scanner(System.in);
+    public static boolean checkTriangle(double a, double b, double c) {
             try {
-                if (a <= 0 || b <= 0 || c <= 0 || a + c <= b || a + b <= c || b + c <= a) {
+                if (a + c <= b || a + b <= c || b + c <= a) {
                     throw new ArithmeticException();
                 }
             } catch (ArithmeticException e) {
@@ -14,5 +14,27 @@ public class IllegalTriangleExceptionTest extends Exception {
                 return false;
             }
             return true;
+    }
+    public static boolean checkEdge(double num) {
+        try {
+            if (num <= 0) {
+                throw new ArithmeticException();
+            }
+        } catch (ArithmeticException e) {
+            System.err.println("Nhập Cạnh > 0");
+            return false;
+        }
+        return true;
+    }
+    public static double inputEdge( String edge){
+        double num= 0;
+        do {
+            System.out.println("Nhập Cạnh " + edge);
+            num = Double.parseDouble(sc.nextLine());
+            if (checkEdge(num)){
+                break;
+            }
+        } while (true);
+        return num;
     }
 }
