@@ -26,11 +26,15 @@ public class IllegalTriangleExceptionTest extends Exception {
         }
         return true;
     }
-    public static double inputEdge( String edge){
+    public static double inputEdge(String edge){
         double num= 0;
         do {
-            System.out.println("Nhập Cạnh " + edge);
-            num = Double.parseDouble(sc.nextLine());
+            try {
+                System.out.println("Nhập Cạnh " + edge);
+                num = Double.parseDouble(sc.nextLine());
+            }catch (NumberFormatException e){
+                System.err.println("Chỉ Nhập số kiểu int");
+            }
             if (checkEdge(num)){
                 break;
             }

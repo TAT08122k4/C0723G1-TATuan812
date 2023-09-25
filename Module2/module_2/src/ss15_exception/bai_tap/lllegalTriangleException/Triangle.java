@@ -59,7 +59,6 @@ public class Triangle {
             a = IllegalTriangleExceptionTest.inputEdge("a");
             b = IllegalTriangleExceptionTest.inputEdge("b");
             c = IllegalTriangleExceptionTest.inputEdge("c");
-
             if (IllegalTriangleExceptionTest.checkTriangle(a, b, c)) {
                 triangle.setA(a);
                 triangle.setB(b);
