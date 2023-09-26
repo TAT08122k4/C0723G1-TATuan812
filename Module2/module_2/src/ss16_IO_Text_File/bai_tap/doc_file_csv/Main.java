@@ -21,10 +21,20 @@ public class Main {
             while ((str = br.readLine()) != null) {
                 country.add(str);
             }
-            br.close();
-            fileReader.close();
+            return country;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (fileReader != null) {
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return country;
     }

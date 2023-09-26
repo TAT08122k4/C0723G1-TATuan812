@@ -9,6 +9,7 @@ public class CopyFile {
     private static final String FILE_NGUON = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\data.txt";
     List<String> strings = new ArrayList<>();
 
+    BufferedReader bufferedReader = null;
 
     public List<String> readFileText(String filePath) {
         try {
@@ -18,28 +19,48 @@ public class CopyFile {
                 System.err.println("Tập nguồn ko tồn tại");
                 throw new FileNotFoundException();
             }
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            bufferedReader = new BufferedReader(new FileReader(file));
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
                 strings.add(line);
             }
-            bufferedReader.close();
+            return strings;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return strings;
     }
 
     public void writeFile(String filePath) {
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
         try {
-            FileWriter fileWriter = new FileWriter(filePath, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            fileWriter = new FileWriter(filePath, true);
+            bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < strings.size(); i++) {
                 bufferedWriter.write(strings.get(i) + "\n");
             }
-            bufferedWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (fileWriter != null) {
+                    fileWriter.close();
+                }
+                if (bufferedWriter != null) {
+                    bufferedWriter.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
