@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class ProductView {
     Scanner sc = new Scanner(System.in);
+    ProductController productController = new ProductController();
 
     public void dipslayMenu() {
         System.out.println("==Manager Product Menu==");
@@ -38,6 +39,56 @@ public class ProductView {
         System.out.println("Input des Product");
         String des = sc.nextLine();
         return new Product(id, name, price, brand, des);
+    }
 
+    public int choose() {
+        dipslayMenu();
+        int choose = 0;
+
+        do {
+            try {
+                System.out.println("Choose 1->4");
+                choose = Integer.parseInt(sc.nextLine());
+                if (choose == 4) {
+                    System.exit(1);
+                }
+                if (choose < 1 || choose > 4) {
+                    System.out.println("plzz enter ur choosen 1->4");
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Only enter Numbers");
+            }
+
+        } while (choose < 1 || choose > 4);
+        return choose;
+    }
+
+    public int inputId() {
+        System.out.println("Enter Id u wanna find:");
+        return Integer.parseInt(sc.nextLine());
+    }
+
+    public void managePrograming() {
+        int choose = 0;
+        do {
+            choose = choose();
+            switch (choose) {
+                case 1:
+                    productController.addProduct(inputProduct());
+                    break;
+                case 2:
+                    List<Product> products = productController.displayProduct();
+                    for (Product product : products) {
+                        System.out.println(product);
+                    }
+                    break;
+                case 3:
+                    System.out.println(productController.searchProduct(inputId()));
+                    break;
+                default:
+                    System.out.println("Only choose 1->4");
+                    break;
+            }
+        } while (choose > 4);
     }
 }
