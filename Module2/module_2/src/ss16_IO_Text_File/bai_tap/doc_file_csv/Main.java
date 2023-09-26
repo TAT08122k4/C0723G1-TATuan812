@@ -32,8 +32,9 @@ public class Main {
     public static List<Country> readCountries(String pathFile) {
         List<Country> countries = new ArrayList<>();
         List<String> strings = readFile(pathFile);
+        String[] temp;
         for (String str : strings) {
-            String[] temp = str.split(",");
+            temp = str.split(",");
             countries.add(new Country(Integer.parseInt(temp[0]), temp[1], temp[2]));
         }
         return countries;
@@ -41,7 +42,7 @@ public class Main {
 
     public static void main(String[] args) {
         List<Country> countries = Main.readCountries("E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\doc_file_csv\\country.csv");
-        for (Country country: countries) {
+        for (Country country : countries) {
             System.out.println(country);
         }
     }
