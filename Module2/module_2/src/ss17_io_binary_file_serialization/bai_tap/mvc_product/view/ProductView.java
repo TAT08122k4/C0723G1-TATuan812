@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductView {
-    Scanner sc = new Scanner(System.in);
-    ProductController productController = new ProductController();
+    private Scanner sc = new Scanner(System.in);
+    private ProductController productController = new ProductController();
 
     public void dipslayMenu() {
         System.out.println("==Manager Product Menu==");

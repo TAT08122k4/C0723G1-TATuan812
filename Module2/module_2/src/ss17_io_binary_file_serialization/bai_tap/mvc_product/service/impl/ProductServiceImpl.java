@@ -7,7 +7,7 @@ import ss17_io_binary_file_serialization.bai_tap.mvc_product.service.IService;
 import java.util.List;
 
 public class ProductServiceImpl implements IService {
-    ProductRepoImpl productRepo = new ProductRepoImpl();
+    private ProductRepoImpl productRepo = new ProductRepoImpl();
     @Override
     public List<Product> displayProduct() {
         return productRepo.displayProduct();

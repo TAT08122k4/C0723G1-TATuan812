@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductController {
-    ProductServiceImpl productService = new ProductServiceImpl();
-    ProductView productView = new ProductView();
-    Scanner sc = new Scanner(System.in);
-    Product product = null;
+    private ProductServiceImpl productService = new ProductServiceImpl();
+//    private ProductView productView = new ProductView();
+    private Scanner sc = new Scanner(System.in);
+    private Product product = null;
 
     public void addProduct(Product product){
         productService.addProduct(product);

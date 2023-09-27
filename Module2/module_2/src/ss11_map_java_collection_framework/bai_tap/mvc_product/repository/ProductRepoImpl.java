@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductRepoImpl implements IProductRepo {
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
     private static List<Product> productList = new ArrayList<>();
 
     static {

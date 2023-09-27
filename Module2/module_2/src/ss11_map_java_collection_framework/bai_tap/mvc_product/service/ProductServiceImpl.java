@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductServiceImpl implements IProductService {
-   Scanner sc = new Scanner(System.in);
-   List<Product> productList = new ArrayList<>();
+   private Scanner sc = new Scanner(System.in);
+   private List<Product> productList = new ArrayList<>();
     private static ProductRepoImpl productRepo = new ProductRepoImpl();
     @Override
     public void add(Product product) {
