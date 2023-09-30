@@ -4,14 +4,14 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractClassUtil <O> implements IIOFileByteStream<O> {
+public abstract class AbstractClassUtil<O> implements IIOFileByteStream<O> {
     public void writeFile(String pathname, List<O> data) {
         File file = null;
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
             file = new File(pathname);
-            if (!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
 
@@ -33,6 +33,7 @@ public abstract class AbstractClassUtil <O> implements IIOFileByteStream<O> {
             }
         }
     }
+
     public List<O> readFile(String pathname) {
         File file = null;
         FileInputStream fileInputStream = null;
@@ -40,18 +41,26 @@ public abstract class AbstractClassUtil <O> implements IIOFileByteStream<O> {
         List<String> strings = new ArrayList<>();
         try {
             file = new File(pathname);
+            if (!file.exists()) {
+                return new ArrayList<>();
+            }
             fileInputStream = new FileInputStream(file);
             objectInputStream = new ObjectInputStream(fileInputStream);
             return (List<O>) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.err.println("!Erorr");;
         } finally {
             try {
-                fileInputStream.close();
-                objectInputStream.close();
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+                if (objectInputStream != null) {
+                    objectInputStream.close();
+                }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.err.println("!Error");
             }
         }
+        return new ArrayList<>();
     }
 }

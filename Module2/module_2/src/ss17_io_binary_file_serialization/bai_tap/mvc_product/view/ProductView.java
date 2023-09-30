@@ -89,6 +89,6 @@ public class ProductView {
                     System.out.println("Only choose 1->4");
                     break;
             }
-        } while (choose > 4);
+        } while (true);
     }
 }

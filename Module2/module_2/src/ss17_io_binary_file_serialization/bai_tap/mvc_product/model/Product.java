@@ -1,6 +1,8 @@
 package ss17_io_binary_file_serialization.bai_tap.mvc_product.model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int id;
     private String name;
     private int price;
