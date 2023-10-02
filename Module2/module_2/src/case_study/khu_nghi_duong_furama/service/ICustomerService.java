@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface ICustomerService extends IFuramaService<Customer>{
     @Override
-    List<Customer> hienThi();
+    List<Customer> display();
 
     @Override
-    void them(Customer customer);
+    void add(Customer customer);
 
     @Override
-    void sua(Customer customer);
-    void delete(Customer customer);
-    void search(Customer customer);
+    void edit(Customer customer);
+    void delete(String id);
+    Customer search(String id);
 }

@@ -1,18 +1,20 @@
 package case_study.khu_nghi_duong_furama.model.person;
 
-public class Employee extends Person{
+public class Employee extends Person {
     private String academicLevel;
-        private String position;
-    private float salary;
-    public Employee(){}
+    private String position;
+    private String salary;
 
-    public Employee(String academicLevel, String position, float salary) {
+    public Employee() {
+    }
+
+    public Employee(String academicLevel, String position, String salary) {
         this.academicLevel = academicLevel;
         this.position = position;
         this.salary = salary;
     }
 
-    public Employee(String id, String name, String dOB, String gender, int soCMND, int phoneNumbers, String email, String academicLevel, String position, float salary) {
+    public Employee(String id, String name, String dOB, String gender, String soCMND, String phoneNumbers, String email, String academicLevel, String position, String salary) {
         super(id, name, dOB, gender, soCMND, phoneNumbers, email);
         this.academicLevel = academicLevel;
         this.position = position;
@@ -35,11 +37,11 @@ public class Employee extends Person{
         this.position = position;
     }
 
-    public float getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
@@ -53,9 +55,9 @@ public class Employee extends Person{
                 ", name='" + getName() + '\'' +
                 ", dOB='" + getdOB() + '\'' +
                 ", gender='" + getGender() + '\'' +
-                ", IndentityCardNumber=" + getIdentityCardNumber()+
+                ", IndentityCardNumber=" + getIdentityCardNumber() +
                 ", phoneNumbers=" + getPhoneNumbers() +
                 ", email='" + getEmail() + '\'' +
-                '}';
+                '}'+"\n";
     }
 }

@@ -4,5 +4,6 @@ import java.util.List;
 
 public interface IFuramaRepo<E> {
     void add(E e);
-    List<String> display();
+    List<E> display();
+    boolean checkId(String id);
 }

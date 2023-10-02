@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface IEmployeeService extends IFuramaService<Employee>{
     @Override
-    List<Employee> hienThi();
+    List<Employee> display();
 
     @Override
-    void them(Employee employee);
+    void add(Employee employee);
 
     @Override
-    void sua(Employee employee);
-    void xoa(Employee employee);
-    void search(Employee employee);
+    void edit(Employee employee);
+    boolean delete(String id);
+    Employee search(String id);
 }

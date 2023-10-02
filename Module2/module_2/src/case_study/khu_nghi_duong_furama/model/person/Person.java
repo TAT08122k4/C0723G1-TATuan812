@@ -5,14 +5,14 @@ public abstract class Person {
     private String name;
     private String dOB;
     private String gender;
-    private int identityCardNumber;
-    private int phoneNumbers;
+    private String identityCardNumber;
+    private String phoneNumbers;
     private String email;
 
     public Person() {
     }
 
-    public Person(String id, String name, String dOB, String gender, int identityCardNumber, int phoneNumbers, String email) {
+    public Person(String id, String name, String dOB, String gender, String identityCardNumber, String phoneNumbers, String email) {
         this.id = id;
         this.name = name;
         this.dOB = dOB;
@@ -54,19 +54,19 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public int getIdentityCardNumber() {
+    public String getIdentityCardNumber() {
         return identityCardNumber;
     }
 
-    public void setIdentityCardNumber(int identityCardNumber) {
+    public void setIdentityCardNumber(String identityCardNumber) {
         this.identityCardNumber = identityCardNumber;
     }
 
-    public int getPhoneNumbers() {
+    public String getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public void setPhoneNumbers(int phoneNumbers) {
+    public void setPhoneNumbers(String phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
 

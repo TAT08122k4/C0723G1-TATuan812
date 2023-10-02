@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface ICoSoService extends IFuramaService<Furama> {
     @Override
-    List<Furama> hienThi();
+    List<Furama> display();
 
     @Override
-    void them(Furama furama);
+    void add(Furama furama);
 
     @Override
-    void sua(Furama furama);
+    void edit(Furama furama);
     List<Furama> hienBaoTri();
 }

@@ -39,20 +39,26 @@ public class ReadAndWrite {
         }
         return strings;
     }
-    public static void writeFile(String pathName,List<String> strings) throws IOException {
+    public static void writeFile(String pathName,List<String> strings) {
+        FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-             bufferedWriter = new BufferedWriter(new FileWriter(pathName));
+            fileWriter = new FileWriter(pathName);
+             bufferedWriter = new BufferedWriter(fileWriter);
             for (String str : strings){
                 bufferedWriter.write(str);
                 bufferedWriter.newLine();
             }
         }catch (Exception e){
             System.err.println("Lỗi Viết file");
-        }finally {
+        }finally {try {
             if(bufferedWriter != null){
                 bufferedWriter.close();
             }
+        }catch (IOException e){
+            System.err.println("Lỗi đọc file");
+        }
+
         }
     }
 }
