@@ -14,5 +14,5 @@ public interface ICustomerService extends IFuramaService<Customer>{
     @Override
     void edit(Customer customer);
     void delete(String id);
-    Customer search(String id);
+    List<Customer> search(String name);
 }

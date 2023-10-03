@@ -14,5 +14,5 @@ public interface IEmployeeService extends IFuramaService<Employee>{
     @Override
     void edit(Employee employee);
     boolean delete(String id);
-    Employee search(String id);
+    Employee search(String name);
 }

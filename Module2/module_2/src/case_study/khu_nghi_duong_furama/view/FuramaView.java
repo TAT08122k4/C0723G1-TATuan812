@@ -1,6 +1,8 @@
 package case_study.khu_nghi_duong_furama.view;
 
+import case_study.khu_nghi_duong_furama.controller.CustomerController;
 import case_study.khu_nghi_duong_furama.controller.EmployeeController;
+import case_study.khu_nghi_duong_furama.model.person.Customer;
 import case_study.khu_nghi_duong_furama.model.person.Employee;
 import case_study.khu_nghi_duong_furama.repository.impl.EmployeeRepoImpl;
 import case_study.khu_nghi_duong_furama.utils.Regex;
@@ -13,6 +15,7 @@ public class FuramaView {
     Scanner sc = new Scanner(System.in);
     EmployeeController employeeController = new EmployeeController();
     EmployeeRepoImpl employeeRepo = new EmployeeRepoImpl();
+    CustomerController customerController = new CustomerController();
 
     public void runProgramming() {
         int choose;
@@ -20,7 +23,7 @@ public class FuramaView {
             hienThiMenuChinh();
             try {
                 do {
-                    System.out.println("Chọn Menu Quản Lý mà bạn muốn");
+                    System.out.println("Enter Management u wanna choose");
                     choose = Integer.parseInt(sc.nextLine());
                     switch (choose) {
                         case 1:
@@ -54,12 +57,12 @@ public class FuramaView {
 
     public void hienThiMenuChinh() {
         System.out.println("==Menu==");
-        System.out.println("1.Quản Lý Nhân Viên");
-        System.out.println("2.Quản Lý Khách Hàng");
-        System.out.println("3.Quản Lý Cơ Sở");
-        System.out.println("4.Quản Lý Booking");
-        System.out.println("5.Quản lý Khuyến Mãi");
-        System.out.println("6.Thoát");
+        System.out.println("1.Employee Management");
+        System.out.println("2.Customer Management");
+        System.out.println("3.Facility Management");
+        System.out.println("4.Booking Management");
+        System.out.println("5.Promotion Management");
+        System.out.println("6.Exit");
     }
 
     // cái này và view của nhân viên
@@ -67,14 +70,14 @@ public class FuramaView {
         int choose;
         do {
             try {
-                System.out.println("==Quản Lý Nhân viên==");
-                System.out.println("1. Hiển Thị Danh Sách Nhân Viên");
-                System.out.println("2. Thêm Mới Nhân Viên");
-                System.out.println("3. Sửa thông tin nhân viên");
-                System.out.println("4. Xoá Nhân Viên");
-                System.out.println("5. Tìm Kiếm Nhân Viên Bằng Tên");
-                System.out.println("6. Quay Lại Menu Chính");
-                System.out.println("Chọn Chức năng ở quản lý nhân viên");
+                System.out.println("==Menu Employee==");
+                System.out.println("1. Display List Employee");
+                System.out.println("2. Add Employee");
+                System.out.println("3. Edit Employee");
+                System.out.println("4. Delete Employee");
+                System.out.println("5. Search Name Employee");
+                System.out.println("6. Return Main Manu");
+                System.out.println("Enter 1 -> 6");
                 choose = Integer.parseInt(sc.nextLine());
                 String findId = null;
                 String deleteId = null;
@@ -89,36 +92,37 @@ public class FuramaView {
                         employeeController.edit(editEmployee(inputIdEdit()));
                         break;
                     case 4:
-                        System.out.println("Nhập Id Bạn muốn xoá");
+                        System.out.println("Enter id u wanna delete");
                         deleteId = sc.nextLine();
                         employeeController.delete(deleteId);
                         break;
                     case 5:
-                        System.out.println("Nhập Id bạn muốn tìm kiếm");
+                        System.out.println("Enter Id u wanna find out");
                         findId = sc.nextLine();
                         employeeController.search(findId);
                         break;
                     case 6:
-                       return;
+                        return;
                     default:
                         break;
                 }
             } catch (NumberFormatException e) {
-                System.err.println("Vui lòng nhập số");
+                System.err.println("Please Enter the numbers");
             }
         } while (true);
     }
-    public Employee editEmployee(String id){
+
+    public Employee editEmployee(String id) {
         int choosenEdit = 0;
         String name = null;
-        String dob= null;
+        String dob = null;
         String gender = null;
-        String indentityCardNumbers= null;
-        String phoneNumbers= null;
-        String email= null;
-        String academiclevel= null;
-        String position= null;
-        String salary= null;
+        String indentityCardNumbers = null;
+        String phoneNumbers = null;
+        String email = null;
+        String academiclevel = null;
+        String position = null;
+        String salary = null;
         Employee employee = null;
         do {
             System.out.println("Enter wat is the information u wanna edit:");
@@ -134,60 +138,59 @@ public class FuramaView {
             System.out.println("10.Exit");
             System.out.println("Enter wat infor u wanna change:");
             choosenEdit = Integer.parseInt(sc.nextLine());
-                    switch (choosenEdit){
-                        case 1:
-                            name = inputName();
-                            break;
-                        case 2:
-                            dob = inputDOB();
-                            break;
-                        case 3:
-                            gender = inputGender();
-                            break;
-                        case 4:
-                            indentityCardNumbers = inputIndentityCard();
-                            break;
-                        case 5:
-                            phoneNumbers = inputPhone();
-                            break;
-                        case 6:
-                            email = inputEmail();
-                            break;
-                        case 7:
-                            academiclevel = inputAcademicLevel();
-                            break;
-                        case 8:
-                            position = inputPosition();
-                            break;
-                        case 9:
-                            salary = inputSalary();
-                            break;
-                        default:
-                            break;
-                    }
-        }while (choosenEdit > 0 && choosenEdit < 10);
-        return new Employee(id,name,dob,gender,indentityCardNumbers,phoneNumbers,email,academiclevel,position, salary);
+            switch (choosenEdit) {
+                case 1:
+                    name = inputName();
+                    break;
+                case 2:
+                    dob = inputDOB();
+                    break;
+                case 3:
+                    gender = inputGender();
+                    break;
+                case 4:
+                    indentityCardNumbers = inputIndentityCard();
+                    break;
+                case 5:
+                    phoneNumbers = inputPhone();
+                    break;
+                case 6:
+                    email = inputEmail();
+                    break;
+                case 7:
+                    academiclevel = inputAcademicLevel();
+                    break;
+                case 8:
+                    position = inputPosition();
+                    break;
+                case 9:
+                    salary = inputSalary();
+                    break;
+                default:
+                    break;
+            }
+        } while (choosenEdit > 0 && choosenEdit < 10);
+        return new Employee(id, name, dob, gender, indentityCardNumbers, phoneNumbers, email, academiclevel, position, salary);
     }
-    public boolean checkId(String id){
+
+    public boolean checkId(String id) {
         List<Employee> employeeList = employeeController.display();
-        for (Employee employee : employeeList){
-            if (employee.getId().equals(id)){
-                System.out.println("Id này đã tồn tại");
+        for (Employee employee : employeeList) {
+            if (employee.getId().equals(id)) {
+                System.out.println("Id already exists");
                 return false;
             }
         }
         return true;
     }
+
     public String inputIdEdit() {
         String id = null;
         do {
             System.out.println("Enter Id Of Employee");
             id = sc.nextLine();
-            if (!Regex.checkRegexId(id)){
-                System.err.println("Vui lòng nhập đúng định dạng Id");
-            }
-            if (!checkId(id)){
-                System.err.println("ID không tồn tại");
+            if (!Regex.checkRegexId(id)) {
+                System.err.println("Please enter the correct format Id NV-YYYY");
             }
         } while (!Regex.checkRegexId(id) || checkId(id));
         return id;
@@ -196,22 +199,22 @@ public class FuramaView {
     public String inputId() {
         String id = null;
         do {
-            System.out.println("Enter Id Of Employee");
+            System.out.println("Enter Id Of Employee (NV-XXXX)");
             id = sc.nextLine();
-            if (!Regex.checkRegexId(id)){
-                System.err.println("Vui lòng nhập đúng định dạng Id");
+            if (!Regex.checkRegexId(id)) {
+                System.err.println("Please enter the correct format Id NV-XXXX");
             }
-        } while (!Regex.checkRegexId(id) ||!checkId(id));
+        } while (!Regex.checkRegexId(id) || !checkId(id));
         return id;
     }
 
     public String inputName() {
         String name = null;
         do {
-            System.out.println("Enter Name Of Employee");
+            System.out.println("Enter Name Of Employee (Trần Anh Tuấn)");
             name = sc.nextLine();
-            if (!Regex.checkRegexName(name)){
-                System.err.println("Vui lòng nhập đúng định dạng Name");
+            if (!Regex.checkRegexName(name)) {
+                System.err.println("Please enter the correct format Name");
             }
         } while (!Regex.checkRegexName(name));
         return name;
@@ -220,22 +223,29 @@ public class FuramaView {
     public String inputDOB() {
         String doB = null;
         do {
-            System.out.println("Enter Dob Of Employee");
+            System.out.println("Enter Dob Of Employee dd/mm/yyyy");
             doB = sc.nextLine();
-            if (!Regex.checkRegexDOB(doB)){
-                System.err.println("Vui lòng nhập đúng định dạng Dob");
+            if (!Regex.checkRegexDOB(doB)) {
+                System.err.println("Please enter the correct format Dob dd/mm/yyyy");
+            } else {
+                if (!Regex.is18YearsOld(doB)){
+                    System.err.println("Your Age must large than 18");
+                } else {
+                    break;
+                }
             }
-        } while (!Regex.checkRegexDOB(doB));
+
+        } while (true);
         return doB;
     }
 
     public String inputGender() {
         String gender = null;
         do {
-            System.out.println("Enter Gender Of Employee");
+            System.out.println("Enter Gender Of Employee Male/Female");
             gender = sc.nextLine();
-            if (!Regex.checkRegexGender(gender)){
-                System.err.println("Vui lòng nhập đúng định dạng Gender");
+            if (!Regex.checkRegexGender(gender)) {
+                System.err.println("Please enter the correct format Gender");
             }
         } while (!Regex.checkRegexGender(gender));
         return gender;
@@ -244,10 +254,10 @@ public class FuramaView {
     public String inputIndentityCard() {
         String indentityCard = null;
         do {
-            System.out.println("Enter indentityCard Of Employee");
+            System.out.println("Enter indentityCard Of Employee xxxxxxxxxx");
             indentityCard = sc.nextLine();
-            if (!Regex.checkRegexIndentitycardnumber(indentityCard)){
-                System.err.println("Vui lòng nhập đúng định dạng IndentityCard");
+            if (!Regex.checkRegexIndentitycardnumber(indentityCard)) {
+                System.err.println("Please enter the correct format IndentityCard");
             }
         } while (!Regex.checkRegexIndentitycardnumber(indentityCard));
         return indentityCard;
@@ -256,10 +266,10 @@ public class FuramaView {
     public String inputPhone() {
         String phone = null;
         do {
-            System.out.println("Enter Phone Of Employee");
+            System.out.println("Enter Phone Of Employee 0xxxxxxxxxx");
             phone = sc.nextLine();
-            if (!Regex.checkPhoneNumbers(phone)){
-                System.err.println("Nhập đúng định dạng số điện thoại");
+            if (!Regex.checkPhoneNumbers(phone)) {
+                System.err.println("Please enter the correct format Phone numbers");
             }
         } while (!Regex.checkPhoneNumbers(phone));
         return phone;
@@ -268,10 +278,10 @@ public class FuramaView {
     public String inputEmail() {
         String email = null;
         do {
-            System.out.println("Enter Email Of Employee");
+            System.out.println("Enter Email Of Employee tuan@gmail.com");
             email = sc.nextLine();
-            if (!Regex.checkEmail(email)){
-                System.err.println("Vui lòng nhập đúng định dạng Email");
+            if (!Regex.checkEmail(email)) {
+                System.err.println("Please enter the correct format Email");
             }
         } while (!Regex.checkEmail(email));
         return email;
@@ -280,10 +290,10 @@ public class FuramaView {
     public String inputAcademicLevel() {
         String academicLevel = null;
         do {
-            System.out.println("Enter academicLevel Of Employee");
+            System.out.println("Enter academicLevel Of Employee (Intermediate Level|College|University)");
             academicLevel = sc.nextLine();
-            if (!Regex.checkAcademicLevel(academicLevel)){
-                System.err.println("Vui lòng nhập đúng định dạng AcademicLevel");
+            if (!Regex.checkAcademicLevel(academicLevel)) {
+                System.err.println("Please enter the correct format AcademicLevel");
             }
         } while (!Regex.checkAcademicLevel(academicLevel));
         return academicLevel;
@@ -292,10 +302,10 @@ public class FuramaView {
     public String inputPosition() {
         String position = null;
         do {
-            System.out.println("Enter Position Of Employee");
+            System.out.println("Enter Position Of Employee (Receptionist|Serve|Expert|Supervisor|Manager|Direction)");
             position = sc.nextLine();
-            if (!Regex.checkPosition(position)){
-                System.err.println("Vui lòng nhập đúng định dạng Position");
+            if (!Regex.checkPosition(position)) {
+                System.err.println("Please enter the correct format Position");
             }
         } while (!Regex.checkPosition(position));
         return position;
@@ -304,10 +314,10 @@ public class FuramaView {
     public String inputSalary() {
         String salary = null;
         do {
-            System.out.println("Enter Salary Of Employee");
+            System.out.println("Enter Salary Of Employee (The first number is non-zero 1-9xxxxxxx)");
             salary = sc.nextLine();
-            if (!Regex.checkSalary(salary)){
-                System.err.println("Vui lòng nhập đúng định dạng Salary");
+            if (!Regex.checkSalary(salary)) {
+                System.err.println("Please enter the correct format Salary");
             }
         } while (!Regex.checkSalary(salary));
         return salary;
@@ -318,16 +328,158 @@ public class FuramaView {
     }
 
 
-    // cái này là view của khách hàng
+    // cái này là view của khách hàng ================================================================
     public void menuCustomer() {
-        System.out.println("==Quản Lý Khách Hàng==");
-        System.out.println("1. Hiển Thị Danh Sách Khách Hàng");
-        System.out.println("2. Thêm Mới Khách Hàng");
-        System.out.println("3. Sửa thông tin Khách Hàng");
-        System.out.println("4. Xoá Khách Hàng");
-        System.out.println("5. Tìm Kiếm Khách Hàng Bằng Tên");
-        System.out.println("6. Quay Lại Menu Chính");
+        int chosse = 0;
+        do {
+            try {
+                System.out.println("==Customer Management==");
+                System.out.println("1. Display list customers");
+                System.out.println("2. Add new customer");
+                System.out.println("3. Edit customer");
+                System.out.println("4. Delete customer");
+                System.out.println("5. Search by name customer");
+                System.out.println("6. Return main menu");
+                System.out.println("Enter 1->6");
+                chosse = Integer.parseInt(sc.nextLine());
+                switch (chosse) {
+                    case 1:
+                        System.out.println(customerController.display());
+                        break;
+                    case 2:
+                        customerController.add(addCustomer());
+                        break;
+                    case 3:
+                        customerController.edit(editCustomer(inputIdCustomer()));
+                        break;
+                    case 4:
+                        customerController.delete(inputIdCustomer());
+                        break;
+                    case 5:
+                        System.out.println(customerController.search(inputName()));
+                        break;
+                    case 6:
+                        return;
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Enter Integer Numbers plzzz");
+            }
+        } while (true);
+
     }
+
+    public Customer editCustomer(String id) {
+        int choosenEdit = 0;
+        String name = null;
+        String dob = null;
+        String gender = null;
+        String indentityCardNumbers = null;
+        String phoneNumbers = null;
+        String email = null;
+        String typeOfCustomer = null;
+        String address = null;
+        Employee employee = null;
+        do {
+            System.out.println("Enter wat is the information u wanna edit:");
+            System.out.println("1.Name");
+            System.out.println("2.Dob");
+            System.out.println("3.Gender");
+            System.out.println("4.IndentityCardNumbers");
+            System.out.println("5.Phone Numbers");
+            System.out.println("6.Email");
+            System.out.println("7.Type Of Customer");
+            System.out.println("8.Address");
+            System.out.println("9.Exit");
+            System.out.println("Enter wat infor u wanna change:");
+            choosenEdit = Integer.parseInt(sc.nextLine());
+            switch (choosenEdit) {
+                case 1:
+                    name = inputName();
+                    break;
+                case 2:
+                    dob = inputDOB();
+                    break;
+                case 3:
+                    gender = inputGender();
+                    break;
+                case 4:
+                    indentityCardNumbers = inputIndentityCard();
+                    break;
+                case 5:
+                    phoneNumbers = inputPhone();
+                    break;
+                case 6:
+                    email = inputEmail();
+                    break;
+                case 7:
+                    typeOfCustomer = inputTypeOfCustomer();
+                    break;
+                case 8:
+                    address = inputPosition();
+                    break;
+                default:
+                    break;
+            }
+        } while (choosenEdit > 0 && choosenEdit < 10);
+        return new Customer(id, name, dob, gender, indentityCardNumbers, phoneNumbers, email, typeOfCustomer, address);
+    }
+
+    public String inputIdCustomer() {
+        String id = null;
+        do {
+            System.out.println("Enter Id (KH-xxxx)");
+            id = sc.nextLine();
+            if (!Regex.checkCustomerId(id)) {
+                System.err.println("Plz enter corret format Id (KH-xxxx)");
+            }
+        } while (!Regex.checkCustomerId(id));
+        return id;
+    }
+
+    public String inputTypeOfCustomer() {
+        String typeOfCustomer = null;
+        int choose = 0;
+        do {
+            System.out.println("1.Diamond");
+            System.out.println("2.Platinum");
+            System.out.println("3.Gold");
+            System.out.println("4.Silver");
+            System.out.println("5.Member");
+            System.out.println("plzz enter 1->5");
+            try {
+                choose = Integer.parseInt(sc.nextLine());
+                if (choose == 1) {
+                    typeOfCustomer = "Diamond";
+                } else if (choose == 2) {
+                    typeOfCustomer = "Platinum";
+                } else if (choose == 3) {
+                    typeOfCustomer = "Gold";
+                } else if (choose == 4) {
+                    typeOfCustomer = "Silver";
+                } else if (choose == 5) {
+                    typeOfCustomer = "Member";
+                }
+
+
+            } catch (NumberFormatException e) {
+                System.err.println("plzz enter Integer Number");
+            }
+        } while (choose < 1 || choose > 5);
+        return typeOfCustomer;
+    }
+
+    public String inputAddress() {
+        System.out.println("Enter Customer's Address");
+        String address = null;
+        return address = sc.nextLine();
+    }
+
+    public Customer addCustomer() {
+        return new Customer(inputIdCustomer(), inputName(), inputDOB(), inputGender(), inputIndentityCard(), inputPhone(), inputEmail(), inputTypeOfCustomer(), inputAddress());
+    }
+
+
+    // ================================== Kết thúc phần Customer============================================
 
     public void menuFacitity() {
         System.out.println("==Quản Lý Cơ Sở==");

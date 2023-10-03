@@ -14,10 +14,8 @@ public class EmployeeRepoImpl implements IEmployeeRepo {
     @Override
     public void edit(Employee employee1) {
         List<Employee> employeeList = display();
-        Employee e = null;
         for (Employee employee : employeeList){
             if (employee.getId().equals(employee1.getId())){
-                e = employee;
                 employee.setName(employee1.getName());
                 employee.setdOB(employee1.getdOB());
                 employee.setGender(employee1.getGender());
@@ -29,7 +27,6 @@ public class EmployeeRepoImpl implements IEmployeeRepo {
                 employee.setSalary(employee1.getSalary());
             }
         }
-        System.out.println(e.toString());
         ReadAndWrite.writeFile(SOURCEFILE , convertToString(employeeList));
     }
     public boolean checkId(String id){

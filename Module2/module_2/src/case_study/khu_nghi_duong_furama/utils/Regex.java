@@ -1,20 +1,35 @@
 package case_study.khu_nghi_duong_furama.utils;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Regex {
     private static final String ID_REGEX  = "^NV-[0-9]{4}$";
     private static final String NAME_REGEX = "^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$";
-    private static final String DOB_REGEX = "";
+    private static final String DOB_REGEX = "^(((0+[1-9]|[12][0-9]|30)[/]((0+[4|6|9])|11)[/]\\d{4}))|(((0+[1-9]|[12][0-9]|[3][0|1])[/]((0+[1|3|5|7|8])|1+[0|2])[/]\\d{4}))|(((0+[1-9]|[12][0-9]))[/]02)[/]\\d{4}$";
     private static final String GENDER_REGEX = "(Male|Female|male|female)";
-    private static final String INDENTITYCARDNUMBER_REGEX = "([0-9]{9})";
+    private static final String INDENTITYCARDNUMBER_REGEX = "([0-9]{9,12})";
     private static final String PHONE_REGEX = "^0\\d{9}$";
     private static final String EMAIL_REGEX = "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$";
-    private static final String ACADEMICLEVEL_REGEX = "(Trung cấp)|(Cao đẳng)|(Đại học)|(Sau đại học)";
-    private static final String POSITION_REGEX = "(lễ tân)|(phục vụ)|(chuyên viên)|(giám sát)|(quản lý)|(giám đốc)";
+    private static final String ACADEMICLEVEL_REGEX = "(Intermediate Level)|(College)|(Unniversity)";
+    private static final String POSITION_REGEX = "(Receptionist)|(Serve)|(Expert)|(Supervisor)|(Manager )|(Direction)";
     private static final String SALARY_REGEX = "^([1-9]{1}[0-9]{1,})$";
+    private static final String CUSTOMER_ID_REGEX = "^KH-[0-9]{4}$";
+    public static boolean is18YearsOld(String birthday){
+        LocalDate localDate = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate currentDate = localDate.now();
+        Period period = Period.between(localDate,currentDate);
+        return period.getYears() >= 18;
+    }
 
+    public static boolean checkCustomerId(String id){
+        Pattern pattern = Pattern.compile(CUSTOMER_ID_REGEX);
+        Matcher matcher = pattern.matcher(id);
+        return matcher.matches();
+    }
     public static boolean checkRegexId(String id){
         Pattern pattern = Pattern.compile(ID_REGEX);
         Matcher matcher = pattern.matcher(id);
