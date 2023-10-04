@@ -1,6 +1,6 @@
 package case_study.khu_nghi_duong_furama.model.facility;
 
-public class Villa extends Furama{
+public class Villa extends Facility {
     private String roomStandards;
     private float poolArea;
     private int floors;

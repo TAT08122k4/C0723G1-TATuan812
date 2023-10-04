@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EmployeeRepoImpl implements IEmployeeRepo {
     private static final  String COMMA = ",";
-    private static final String SOURCEFILE = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\data\\employee.csv";
+    private static final String SOURCE_FILE = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\data\\employee.csv";
     private static final String EMPLOYEE_DATA_PATH = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\data\\employee.csv";
     @Override
     public void edit(Employee employee1) {
@@ -27,7 +27,7 @@ public class EmployeeRepoImpl implements IEmployeeRepo {
                 employee.setSalary(employee1.getSalary());
             }
         }
-        ReadAndWrite.writeFile(SOURCEFILE , convertToString(employeeList));
+        ReadAndWrite.writeFile(SOURCE_FILE, convertToString(employeeList));
     }
     public boolean checkId(String id){
         List<Employee> employeeList = new ArrayList<>();
@@ -45,7 +45,7 @@ public class EmployeeRepoImpl implements IEmployeeRepo {
         for (Employee employee1 : employeeList ){
             if (employee1.getId().equals(id)){
                 employeeList.remove(employee1);
-                ReadAndWrite.writeFile(SOURCEFILE,convertToString(employeeList));
+                ReadAndWrite.writeFile(SOURCE_FILE,convertToString(employeeList));
                 return true;
             }
         }
@@ -67,14 +67,14 @@ public class EmployeeRepoImpl implements IEmployeeRepo {
     public void add(Employee employee) {
         List<Employee>employeeList = display();
         employeeList.add(employee);
-        ReadAndWrite.writeFile(SOURCEFILE,convertToString(employeeList));
+        ReadAndWrite.writeFile(SOURCE_FILE,convertToString(employeeList));
     }
     public void writeEmployeeToFile(List<Employee> employeeList){
         List<String> data = convertToString(employeeList);
-        ReadAndWrite.writeFile(SOURCEFILE,data);
+        ReadAndWrite.writeFile(SOURCE_FILE,data);
     }
     public List<Employee> readEmployeeFromFile(){
-        List<String> data = ReadAndWrite.readFile(SOURCEFILE);
+        List<String> data = ReadAndWrite.readFile(SOURCE_FILE);
         return convertToObject(data);
     }
     public List<Employee> convertToObject(List<String> str){

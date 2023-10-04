@@ -20,9 +20,9 @@ public class FuramaView {
     public void runProgramming() {
         int choose;
         do {
-            hienThiMenuChinh();
             try {
                 do {
+                    hienThiMenuChinh();
                     System.out.println("Enter Management u wanna choose");
                     choose = Integer.parseInt(sc.nextLine());
                     switch (choose) {
@@ -104,7 +104,7 @@ public class FuramaView {
                     case 6:
                         return;
                     default:
-                        break;
+                        System.out.println("Enter 1->6");
                 }
             } catch (NumberFormatException e) {
                 System.err.println("Please Enter the numbers");

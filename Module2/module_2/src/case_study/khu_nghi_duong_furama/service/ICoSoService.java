@@ -1,17 +1,17 @@
 package case_study.khu_nghi_duong_furama.service;
 
-import case_study.khu_nghi_duong_furama.model.facility.Furama;
+import case_study.khu_nghi_duong_furama.model.facility.Facility;
 
 import java.util.List;
 
-public interface ICoSoService extends IFuramaService<Furama> {
+public interface ICoSoService extends IFuramaService<Facility> {
     @Override
-    List<Furama> display();
+    List<Facility> display();
 
     @Override
-    void add(Furama furama);
+    void add(Facility furama);
 
     @Override
-    void edit(Furama furama);
-    List<Furama> hienBaoTri();
+    void edit(Facility furama);
+    List<Facility> hienBaoTri();
 }

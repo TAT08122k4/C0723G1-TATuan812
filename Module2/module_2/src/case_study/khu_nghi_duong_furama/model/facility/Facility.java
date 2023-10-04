@@ -1,6 +1,6 @@
 package case_study.khu_nghi_duong_furama.model.facility;
 
-public abstract class Furama {
+public abstract class Facility {
     private int serviceCode;
     private String serviceName;
     private float usableArea;
@@ -8,10 +8,10 @@ public abstract class Furama {
     private int maximumQuantity;
     private String typeRental;
 
-    public Furama() {
+    public Facility() {
     }
 
-    public Furama(int serviceCode, String serviceName, float usableArea, float costs, int maximumQuantity, String typeRental) {
+    public Facility(int serviceCode, String serviceName, float usableArea, float costs, int maximumQuantity, String typeRental) {
         this.serviceCode = serviceCode;
         this.serviceName = serviceName;
         this.usableArea = usableArea;
