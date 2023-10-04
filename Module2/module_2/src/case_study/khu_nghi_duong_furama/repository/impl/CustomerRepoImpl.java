@@ -26,6 +26,7 @@ public class CustomerRepoImpl implements ICustomerRepo {
                 cus.setAddress(customer.getAddress());
             }
         }
+        ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER,convertToString(customerList));
     }
 
     @Override
@@ -54,7 +55,6 @@ public class CustomerRepoImpl implements ICustomerRepo {
         }
         return false;
     }
-
     @Override
     public void add(Customer customer) {
     List<Customer> customerList = display();

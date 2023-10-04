@@ -22,7 +22,6 @@ public class MakeArrayConsecutive2 {
             }
         }
         int count = 0;
-        boolean flag 
         for (int i = 0; i < statues.length; i++) {
             for (int j = min; j < max; j++) {
                 if (statues[i] != j) {

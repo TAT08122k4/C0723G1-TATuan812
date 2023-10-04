@@ -7,7 +7,6 @@ import case_study.khu_nghi_duong_furama.model.person.Employee;
 import case_study.khu_nghi_duong_furama.repository.impl.EmployeeRepoImpl;
 import case_study.khu_nghi_duong_furama.utils.Regex;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +21,7 @@ public class FuramaView {
         do {
             try {
                 do {
-                    hienThiMenuChinh();
+                    MainMenu();
                     System.out.println("Enter Management u wanna choose");
                     choose = Integer.parseInt(sc.nextLine());
                     switch (choose) {
@@ -49,13 +48,13 @@ public class FuramaView {
                             break;
                     }
                 } while (true);
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.err.println("Vui lòng chọn đúng chức năng như ở menu");
             }
         } while (true);
     }
 
-    public void hienThiMenuChinh() {
+    public void MainMenu() {
         System.out.println("==Menu==");
         System.out.println("1.Employee Management");
         System.out.println("2.Customer Management");
@@ -371,14 +370,13 @@ public class FuramaView {
     public Customer editCustomer(String id) {
         int choosenEdit = 0;
         String name = null;
-        String dob = null;
+        String doB = null;
         String gender = null;
         String indentityCardNumbers = null;
-        String phoneNumbers = null;
+        String phone = null;
         String email = null;
         String typeOfCustomer = null;
         String address = null;
-        Employee employee = null;
         do {
             System.out.println("Enter wat is the information u wanna edit:");
             System.out.println("1.Name");
@@ -397,7 +395,7 @@ public class FuramaView {
                     name = inputName();
                     break;
                 case 2:
-                    dob = inputDOB();
+                    doB = inputDOB();
                     break;
                 case 3:
                     gender = inputGender();
@@ -406,22 +404,22 @@ public class FuramaView {
                     indentityCardNumbers = inputIndentityCard();
                     break;
                 case 5:
-                    phoneNumbers = inputPhone();
+                    phone = inputPhone();
                     break;
                 case 6:
-                    email = inputEmail();
+                   email = inputEmail();
                     break;
                 case 7:
                     typeOfCustomer = inputTypeOfCustomer();
                     break;
                 case 8:
-                    address = inputPosition();
+                   address = inputAddress();
                     break;
                 default:
                     break;
             }
-        } while (choosenEdit > 0 && choosenEdit < 10);
-        return new Customer(id, name, dob, gender, indentityCardNumbers, phoneNumbers, email, typeOfCustomer, address);
+        } while (choosenEdit > 0 && choosenEdit < 9);
+        return new Customer(id,name,doB,gender,indentityCardNumbers,phone,email,typeOfCustomer,address);
     }
 
     public String inputIdCustomer() {
