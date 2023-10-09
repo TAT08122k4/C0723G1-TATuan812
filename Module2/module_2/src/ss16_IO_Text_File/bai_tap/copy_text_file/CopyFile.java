@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CopyFile {
     private static final String FILE_DICH = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\result.txt";
-    private static final String FILE_NGUON = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\data.txt";
+    private static final String FILE_NGUON = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\case_study.khu_nghi_duong_furama.data.txt";
     List<String> strings = new ArrayList<>();
 
     BufferedReader bufferedReader = null;

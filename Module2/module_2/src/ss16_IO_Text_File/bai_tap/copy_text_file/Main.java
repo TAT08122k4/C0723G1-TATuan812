@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         CopyFile copyFile = new CopyFile();
-        List<String> list = copyFile.readFileText("E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\data.txt");
+        List<String> list = copyFile.readFileText("E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\case_study.khu_nghi_duong_furama.data.txt");
         copyFile.writeFile("E:\\CodeGym FullTime\\Module2\\module_2\\src\\ss16_IO_Text_File\\bai_tap\\copy_text_file\\result.txt");
         System.out.println(copyFile.countStr());
 

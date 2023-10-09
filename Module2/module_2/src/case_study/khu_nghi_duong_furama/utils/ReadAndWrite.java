@@ -40,11 +40,11 @@ public class ReadAndWrite {
         return strings;
     }
 
-    public static void writeFile(String pathName, List<String> strings) {
+    public static void writeFile(String pathName, boolean flag, List<String> strings) {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(pathName);
+            fileWriter = new FileWriter(pathName , flag);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (String str : strings) {
                 bufferedWriter.write(str);

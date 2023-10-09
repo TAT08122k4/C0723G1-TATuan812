@@ -10,12 +10,13 @@ import java.util.List;
 
 public class CustomerRepoImpl implements ICustomerRepo {
     private static final String COMMS = ",";
-    private static final String SOURCE_FILE_CUSTOMER = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\data\\customer.csv";
+    private static final String SOURCE_FILE_CUSTOMER = "E:\\CodeGym FullTime\\Module2\\module_2\\src\\case_study\\khu_nghi_duong_furama\\data\\customer.csv";
+
     @Override
-    public void editCustomer(Customer customer){
+    public void editCustomer(Customer customer) {
         List<Customer> customerList = display();
-        for (Customer cus : customerList){
-            if (cus.getId().equals(customer.getId())){
+        for (Customer cus : customerList) {
+            if (cus.getId().equals(customer.getId())) {
                 cus.setName(customer.getName());
                 cus.setdOB(customer.getdOB());
                 cus.setGender(customer.getGender());
@@ -26,7 +27,7 @@ public class CustomerRepoImpl implements ICustomerRepo {
                 cus.setAddress(customer.getAddress());
             }
         }
-        ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER,convertToString(customerList));
+        ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER, false, convertToString(customerList));
     }
 
     @Override
@@ -34,50 +35,57 @@ public class CustomerRepoImpl implements ICustomerRepo {
         List<Customer> customers = display();
         List<Customer> strings = new ArrayList<>();
         boolean flag = false;
-        for (Customer cus: customers) {
-            if (cus.getName().contains(name)){
+        for (Customer cus : customers) {
+            if (cus.getName().contains(name)) {
                 strings.add(cus);
                 flag = true;
             }
         }
-      return strings;
+        return strings;
     }
 
     @Override
     public boolean delete(String id) {
         List<Customer> customers = display();
-        for (Customer cus:customers) {
-            if (cus.getId().equals(id)){
+        for (Customer cus : customers) {
+            if (cus.getId().equals(id)) {
                 customers.remove(cus);
-                ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER,convertToString(customers));
+                ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER, false, convertToString(customers));
                 return true;
             }
         }
         return false;
     }
+
     @Override
     public void add(Customer customer) {
-    List<Customer> customerList = display();
-    customerList.add(customer);
-    ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER,convertToString(customerList));
+//    List<Customer> customerList = display();
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(customer);
+        ReadAndWrite.writeFile(SOURCE_FILE_CUSTOMER, true, convertToString(customerList));
     }
-    public List<String> convertToString(List<Customer> customer){
+
+    public List<String> convertToString(List<Customer> customer) {
         List<String> data = new ArrayList<>();
-        for (Customer customer1 : customer){
+        for (Customer customer1 : customer) {
             data.add(customer1.getId() + COMMS
-            +customer1.getName() + COMMS + customer1.getdOB() + COMMS
-            +customer1.getGender() + COMMS + customer1.getIdentityCardNumber() + COMMS
-            + customer1.getPhoneNumbers() + COMMS + customer1.getEmail() + COMMS
-            +customer1.getTypeOfCustomer() + COMMS + customer1.getAddress());
+                    + customer1.getName() + COMMS + customer1.getdOB() + COMMS
+                    + customer1.getGender() + COMMS + customer1.getIdentityCardNumber() + COMMS
+                    + customer1.getPhoneNumbers() + COMMS + customer1.getEmail() + COMMS
+                    + customer1.getTypeOfCustomer() + COMMS + customer1.getAddress());
         }
         return data;
     }
-    public List<Customer> convertToObject(List<String> str){
+
+    public List<Customer> convertToObject(List<String> str) {
         List<Customer> customerList = new ArrayList<>();
-        String [] data = null;
-        for(String strings : str){
+        String[] data = null;
+        for (String strings : str) {
+            if (strings.isEmpty()){
+                continue;
+            }
             data = strings.split(COMMS);
-            customerList.add(new Customer(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]));
+            customerList.add(new Customer(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
         }
         return customerList;
     }
