@@ -49,4 +49,31 @@ from dich_vu dv
 join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
 join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
 where year(hd.ngay_lam_hop_dong) = 2020 and dv.ma_dich_vu not in (select ma_dich_vu from hop_dong where year(ngay_lam_hop_dong) =2021)
-group by dv.ma_dich_vu
+group by dv.ma_dich_vu;
+
+-- task 8 -- 
+ -- cách 1 -- 
+ select ho_ten
+from khach_hang 
+group by ho_ten;
+-- cách 2 -- 
+select distinct ho_ten
+FROM khach_hang;
+-- cách 3 -- 
+select ho_ten
+from khach_hang 
+union select ho_ten
+from khach_hang; 
+-- task 9 -- 
+select month(hd.ngay_lam_hop_dong) as thang,count(hd.ma_hop_dong) as so_luong_khach_hang
+from hop_dong hd
+where year(hd.ngay_lam_hop_dong) = '2021'
+group by month(hd.ngay_lam_hop_dong)
+order by thang;
+-- task 10 --
+select hd.ma_hop_dong,ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,sum(ifnull(so_luong, 0)) as 'so_luong_dich_vu_di_kem'
+from hop_dong hd
+left join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
+left join dich_vu_di_kem dvdk On hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+group by hd.ma_hop_dong;
+
