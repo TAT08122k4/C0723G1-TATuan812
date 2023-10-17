@@ -26,3 +26,4 @@ primary key(order_id,product_id),
 foreign key(order_id) references orders(order_id),
 foreign key(product_id) references product(product_id)  
 );
+select orders.order_id , orders.order_date , orders.order_total_price from orders;

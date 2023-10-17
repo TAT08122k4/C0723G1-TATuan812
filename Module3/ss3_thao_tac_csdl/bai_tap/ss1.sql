@@ -2,79 +2,79 @@ create database QuanLySinhVien;
 use QuanLySinhVien;
 
 create table class(
-ClassID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-ClassName VARCHAR(60) NOT NULL,
-StartDate DATETIME NOT NULL,
-Status BIT
+class_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+class_name VARCHAR(60) NOT NULL,
+start_date DATETIME NOT NULL,
+`status` BIT
 );
 create table student(
- StudentId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ student_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 
-          StudentName VARCHAR(30) NOT NULL,
+          student_name VARCHAR(30) NOT NULL,
 
-          Address VARCHAR(50),
+          address VARCHAR(50),
 
-          Phone VARCHAR(20),
+          phone VARCHAR(20),
 
-          Status BIT,
+          `status` BIT,
 
-          ClassId INT NOT NULL,
+          class_id INT NOT NULL,
 
-          FOREIGN KEY (ClassId) REFERENCES Class (ClassID)
+          FOREIGN KEY (class_id) REFERENCES class (class_id)
 );
 create table subject(
- SubId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ sub_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 
-         SubName VARCHAR(30) NOT NULL,
+         sub_name VARCHAR(30) NOT NULL,
 
-         Credit TINYINT NOT NULL DEFAULT 1 CHECK ( Credit >= 1 ),
+         credit TINYINT NOT NULL DEFAULT 1 CHECK ( credit >= 1 ),
 
-         Status BIT DEFAULT 1
+         `status` BIT DEFAULT 1
 );
-CREATE TABLE Mark(
+CREATE TABLE mark(
 
-        MarkId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        mark_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 
-        SubId INT NOT NULL,
+        sub_id INT NOT NULL,
 
-        StudentId INT NOT NULL,
+        student_id INT NOT NULL,
 
-        Mark FLOAT DEFAULT 0 CHECK ( Mark BETWEEN 0 AND 100),
+        mark FLOAT DEFAULT 0 CHECK ( mark BETWEEN 0 AND 100),
 
-        ExamTimes TINYINT DEFAULT 1,
+        exam_times TINYINT DEFAULT 1,
 
-        UNIQUE (SubId, StudentId),
+        UNIQUE (sub_id, student_id),
 
-        FOREIGN KEY (SubId) REFERENCES Subject (SubId),
+        FOREIGN KEY (sub_id) REFERENCES subject (sub_id),
 
-        FOREIGN KEY (StudentId) REFERENCES Student (StudentId)
+        FOREIGN KEY (student_id) REFERENCES student (student_id)
 );
-INSERT INTO Class
+INSERT INTO class
 VALUES (1, 'A1', '2008-12-20', 1);
-INSERT INTO Class
+INSERT INTO class
 VALUES (2, 'A2', '2008-12-22', 1);
-INSERT INTO Class
+INSERT INTO class
 VALUES (3, 'B3', current_date, 0);
-INSERT INTO Student (StudentName, Address, Phone, Status, ClassId)
+INSERT INTO student (student_name, address, phone, `status`, class_id)
 VALUES ('Hung', 'Ha Noi', '0912113113', 1, 1);
-INSERT INTO Student (StudentName, Address, Status, ClassId)
+INSERT INTO student (student_name, address, `status`, class_id)
 VALUES ('Hoa', 'Hai phong', 1, 1);
-INSERT INTO Student (StudentName, Address, Phone, Status, ClassId)
+INSERT INTO student (student_name, address, phone, `status`, class_id)
 VALUES ('Manh', 'HCM', '0123123123', 0, 2);
-INSERT INTO Subject
+INSERT INTO subject
 VALUES (1, 'CF', 5, 1),
  (2, 'C', 6, 1),
  (3, 'HDJ', 5, 1),
  (4, 'RDBMS', 10, 1);
- INSERT INTO Mark (SubId, StudentId, Mark, ExamTimes)
+ INSERT INTO mark (sub_id, student_id, mark, exam_times)
 VALUES (1, 1, 8, 1),
  (1, 2, 10, 2),
  (2, 1, 12, 1);
-select * from Student where SUBSTRING_INDEX(StudentName, " ",1) LIKE 'H%';
-select * from Class where (month(StartDate) = 12);
-select * from Subject where credit > 2 and credit < 6;
-update Student set ClassId = 2 where StudentName = "Hung"; 
+select * from student where SUBSTRING_INDEX(student_name, " ",1) LIKE 'H%';
+select * from class where (month(start_date) = 12);
+select * from subject where credit > 2 and credit < 6;
+update student set class_id = 2 where student_name = "Hung"; 
 set sql_safe_updates = 0;
-select m.mark , s.StudentName,sb.SubName from Student s join Mark m on s.StudentId = m.StudentId join Subject sb on m.SubID = sb.SubId order by m.mark desc , s.StudentName;
+select m.mark , s.student_name,sb.sub_name from student s join mark m on s.student_id = m.student_id join subject sb on m.sub_id = sb.sub_id order by m.mark desc , s.student_name;
 
  
