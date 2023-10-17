@@ -42,7 +42,7 @@ join products p on od.product_id = p.product_id;
  left join orders o on c.customer_id = o.customer_id
 --  where c.customer_id not in (select distinct customer_id
 --  from orders
--- );
+-- );	
 where o.customer_id is null;
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn. Giá bán của từng loại được tính = odQTY*pPrice) --
 select o.order_id , o.order_date , sum(order_quantity * p.product_price) from orders o 

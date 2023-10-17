@@ -64,7 +64,7 @@ CREATE TABLE loai_dich_vu (
     ten_loai_dich_vu VARCHAR(45)
 );
 CREATE TABLE dich_vu (
-    ma_dich_vu INT PRIMARY KEY,
+    ma_dich_vu INT PRIMARY KEY auto_increment,
     ten_dich_vu VARCHAR(45) NOT NULL,
     dien_tich INT,
     chi_phi_thue DOUBLE NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE dich_vu (
         REFERENCES loai_dich_vu (ma_loai_dich_vu)
 );
 CREATE TABLE hop_dong (
-    ma_hop_dong INT PRIMARY KEY,
+    ma_hop_dong INT PRIMARY KEY auto_increment,
     ngay_lam_hop_dong DATETIME NOT NULL,
     ngay_ket_thuc DATETIME NOT NULL,
     tien_dat_coc DOUBLE,
@@ -97,14 +97,14 @@ CREATE TABLE hop_dong (
         REFERENCES dich_vu (ma_dich_vu)
 );
 CREATE TABLE dich_vu_di_kem (
-    ma_dich_vu_di_kem INT PRIMARY KEY,
+    ma_dich_vu_di_kem INT PRIMARY KEY auto_increment,
     ten_dich_vu_di_kem VARCHAR(45) NOT NULL,
     gia DOUBLE NOT NULL,
     don_vi VARCHAR(10),
     trang_thai VARCHAR(45)
 );
 CREATE TABLE hop_dong_chi_tiet (
-    ma_hop_dong_chi_tiet INT PRIMARY KEY,
+    ma_hop_dong_chi_tiet INT PRIMARY KEY auto_increment,
     ma_hop_dong INT,
     ma_dich_vu_di_kem INT,
     so_luong INT NOT NULL,
