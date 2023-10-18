@@ -61,7 +61,7 @@ update products set product_price = p_price where id = p_id;
 update products set product_amount = p_amount where id = p_id;
 update products set product_description = p_des where id = p_id;
 update products set product_status = p_status where id = p_id;
-end //p_
+end //
 delimiter ;
 set sql_safe_updates =1;
 call update_product(5,'P-006','IP11',1200,14,"97%",true);
