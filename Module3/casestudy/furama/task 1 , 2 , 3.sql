@@ -86,9 +86,9 @@ select * from khach_hang;
 
 -- task 2 --
 select  * from nhan_vien where character_length(ho_ten) <= 15 
-and (SUBSTRING_INDEX(ho_ten," ",1) LIKE 'H%'
-or SUBSTRING_INDEX(ho_ten," ",1) LIKE 'T%'
-or SUBSTRING_INDEX(ho_ten," ",1) LIKE 'K%'
+and (SUBSTRING_INDEX(ho_ten," ",-1) LIKE 'H%'
+or SUBSTRING_INDEX(ho_ten," ",-1) LIKE 'T%'
+or SUBSTRING_INDEX(ho_ten," ",-1) LIKE 'K%'
 );
 -- task 3 -- 
 select * from khach_hang where (year(current_date())-year(ngay_sinh)) between 18 and 50 and (dia_chi like "%Đà Nẵng" or dia_chi like "%Quảng Trị");

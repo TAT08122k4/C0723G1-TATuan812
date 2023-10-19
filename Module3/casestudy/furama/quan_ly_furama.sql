@@ -109,7 +109,8 @@ CREATE TABLE hop_dong_chi_tiet (
     ma_dich_vu_di_kem INT,
     so_luong INT NOT NULL,
     FOREIGN KEY (ma_hop_dong)
-        REFERENCES hop_dong (ma_hop_dong),
+        REFERENCES hop_dong (ma_hop_dong), 
+        /* on update cascade on delete cascade để xoá khoá chính mà ko bị lỗi ở khoá phụ */
     FOREIGN KEY (ma_dich_vu_di_kem)
         REFERENCES dich_vu_di_kem (ma_dich_vu_di_kem)
 );
