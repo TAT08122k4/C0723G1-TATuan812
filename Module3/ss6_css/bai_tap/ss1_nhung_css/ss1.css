@@ -1,0 +1,9 @@
+#part3{
+    background-color: aquamarine;
+}
+#part3,h1{
+    color: whitesmoke;
+}
+#part3,p{
+    color: black;
+}
