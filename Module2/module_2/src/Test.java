@@ -5,4 +5,5 @@ public class Test {
         int c = (a + b) % 5 * 2;
         System.out.println(c);
     }
+
 }
