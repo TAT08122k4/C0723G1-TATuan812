@@ -40,7 +40,8 @@ public class ProductsController extends HttpServlet {
         }
     }
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id1"));
+        System.out.println("edit form");
+        int id = Integer.parseInt(request.getParameter("idEdit"));
         Products editProduct = findById(id);
         request.setAttribute("id" , id);
         request.setAttribute("name" , editProduct.getName());
@@ -145,6 +146,7 @@ public class ProductsController extends HttpServlet {
     }
 
     private void edit(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("edit");
     int id = Integer.parseInt(request.getParameter("idEdit"));
     String name = request.getParameter("nameEdit");
     Float price = Float.parseFloat(request.getParameter("priceEdit"));

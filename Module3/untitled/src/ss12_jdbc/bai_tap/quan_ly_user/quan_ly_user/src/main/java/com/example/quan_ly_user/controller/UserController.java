@@ -48,8 +48,8 @@ public class UserController extends HttpServlet {
     private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("country");
         List<User> userList = userService.searchByCountry(country);
-        request.setAttribute("ListSearch",userList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/search.jsp");
+        request.setAttribute("listUser",userList);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/list.jsp");
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -62,14 +62,14 @@ public class UserController extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<User> listUser = userService.sortByName();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
     }
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> listUser = userService.selectAllUsers();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
     }
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
@@ -79,7 +79,7 @@ public class UserController extends HttpServlet {
         String country = request.getParameter("country");
         User newUser = new User(name, email, country);
         userService.insertUser(newUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/create.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -117,7 +117,7 @@ public class UserController extends HttpServlet {
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/create.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -125,7 +125,7 @@ public class UserController extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         User existingUser = userService.selectUser(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
 
@@ -142,7 +142,7 @@ public class UserController extends HttpServlet {
 
         User book = new User(id, name, email, country);
         userService.updateUser(book);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/edit.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -153,7 +153,7 @@ public class UserController extends HttpServlet {
 
         List<User> listUser = userService.selectAllUsers();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
     }
 }

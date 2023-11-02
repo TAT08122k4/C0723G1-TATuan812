@@ -18,7 +18,7 @@ public class UserRepoImpl implements IUserRepo {
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
-    private static final String SEARCH_BY_COUNTRY = "select * from users where country = ?";
+    private static final String SEARCH_BY_COUNTRY = "select * from users where country like ?";
     private static final String SORT_BY_NAME = "SELECT * FROM users order by name";
 
     public UserRepoImpl() {
@@ -42,14 +42,15 @@ public class UserRepoImpl implements IUserRepo {
         try {
            Connection connection = baseRepository.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BY_COUNTRY);
-            preparedStatement.setString(1, country);
+            preparedStatement.setString(1, "%" + country + "%");
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()){
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
-               User user = new User( id,name, email, country);
+                String countryDB = rs.getString("country");
+               User user = new User( id,name, email, countryDB);
                userList.add(user);
             }
        } catch (SQLException e) {

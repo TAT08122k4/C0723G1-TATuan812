@@ -14,12 +14,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
+<script>
+    function handleEdit(url) {
+        const formSubmit = document.getElementById("form");
+        formSubmit.setAttribute("action", url);
+        setTimeout(()=>{
+            formSubmit.submit();
+        },1000)
+    }
+</script>
 <a href="/products?action=add">Add</a>
 <a href="/products?action=remove">Remove</a>
 <a href="/products?action=edit">Edit</a>
+<button type="button" onclick="handleEdit('/products?action=edit')">Button</button>
 <a href="/products?action=getDetail">GetDetail</a>
-
-<input type="text" name="id1">
+<form method="get" id="form">
+    <label for="input-id">ID: </label>
+    <input type="text" name="idEdit" id="input-id">
+</form>
 <table class="table-striped">
     <thead>
     <tr>
