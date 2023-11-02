@@ -20,6 +20,9 @@ public class UserRepoImpl implements IUserRepo {
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
     private static final String SEARCH_BY_COUNTRY = "select * from users where country like ?";
     private static final String SORT_BY_NAME = "SELECT * FROM users order by name";
+    private static final String DISPLAY_PROCEDURE = "CALL display_all()";
+    private static final String UPDATE_PROCEDURE = "CALL update_all(?,?,?,?)";
+    private static final String DELETE_PROCEDURE = "CALl detele_all(?)";
 
     public UserRepoImpl() {
     }
@@ -36,6 +39,43 @@ public class UserRepoImpl implements IUserRepo {
 //        }
 //        return connection;
 //    }
+public boolean updateUser_procedure(User user) {
+    boolean rowUpdated;
+    BaseRepository baseRepository = new BaseRepository();
+    try (Connection connection = baseRepository.getConnection(); CallableStatement callableStatement = connection.prepareCall(UPDATE_PROCEDURE)) {
+        callableStatement.setInt(1, user.getId());
+        callableStatement.setString(2, user.getName());
+        callableStatement.setString(3, user.getEmail());
+        callableStatement.setString(4, user.getCountry());
+        rowUpdated = callableStatement.executeUpdate() > 0;
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    return rowUpdated;
+}
+
+    public List<User> displayProcedure(){
+        BaseRepository baseRepository = new BaseRepository();
+        List<User> userList = new ArrayList<>();
+        try {
+            Connection connection = baseRepository.getConnection();
+            CallableStatement callableStatement = connection.prepareCall(DISPLAY_PROCEDURE);
+            ResultSet rs = callableStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                User user = new User( id,name, email, country);
+                userList.add(user);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return userList;
+
+    }
     public List<User> searchByCountry(String country){
         BaseRepository baseRepository = new BaseRepository();
         List<User> userList = new ArrayList<>();
@@ -87,6 +127,7 @@ public class UserRepoImpl implements IUserRepo {
         BaseRepository baseRepository = new BaseRepository();
         try (
                 Connection connection = baseRepository.getConnection();
+        
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
@@ -141,7 +182,19 @@ public class UserRepoImpl implements IUserRepo {
         }
         return users;
     }
-
+    public boolean deleteProcedure(int id){
+        boolean rowDeleted;
+        BaseRepository baseRepository = new BaseRepository();
+        Connection connection = baseRepository.getConnection();
+        try {
+            CallableStatement callableStatement = connection.prepareCall(DELETE_PROCEDURE);
+            callableStatement.setInt(1,id);
+            rowDeleted = callableStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowDeleted;
+    }
     public boolean deleteUser(int id) throws SQLException {
         boolean rowDeleted;
         BaseRepository baseRepository = new BaseRepository();
@@ -166,6 +219,7 @@ public class UserRepoImpl implements IUserRepo {
         }
         return rowUpdated;
     }
+
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {

@@ -65,9 +65,11 @@ public class UserController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
     }
+
+
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        List<User> listUser = userService.selectAllUsers();
+        List<User> listUser = userService.displayProcedure();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
@@ -139,9 +141,8 @@ public class UserController extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
-
         User book = new User(id, name, email, country);
-        userService.updateUser(book);
+        userService.updateUser_procedure(book);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/edit.jsp");
         dispatcher.forward(request, response);
     }
@@ -149,7 +150,7 @@ public class UserController extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        userService.deleteUser(id);
+        userService.deleteProcedure(id);
 
         List<User> listUser = userService.selectAllUsers();
         request.setAttribute("listUser", listUser);

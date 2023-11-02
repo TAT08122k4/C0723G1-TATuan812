@@ -17,4 +17,7 @@ public interface IUserService {
     public boolean updateUser(User user) throws SQLException;
     public List<User> searchByCountry(String country);
     public List<User> sortByName();
+    public List<User> displayProcedure();
+    public boolean updateUser_procedure(User user);
+    public boolean deleteProcedure(int id);
 }

@@ -44,4 +44,14 @@ public class UserServiceImpl implements IUserService {
     public List<User> sortByName() {
         return userRepo.sortByName();
     }
+    public List<User> displayProcedure(){
+        return userRepo.displayProcedure();
+    }
+    public boolean updateUser_procedure(User user){
+        return userRepo.updateUser_procedure(user);
+    }
+    public boolean deleteProcedure(int id){
+        return userRepo.deleteProcedure(id);
+    }
+
 }
