@@ -127,13 +127,17 @@ public boolean updateUser_procedure(User user) {
         BaseRepository baseRepository = new BaseRepository();
         try (
                 Connection connection = baseRepository.getConnection();
-        
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getCountry());
             System.out.println(preparedStatement);
-            preparedStatement.executeUpdate();
+           int rowChange  = preparedStatement.executeUpdate();
+           if (rowChange > 0){
+               connection.commit();
+           }else {
+               connection.rollback();
+           }
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -190,6 +194,12 @@ public boolean updateUser_procedure(User user) {
             CallableStatement callableStatement = connection.prepareCall(DELETE_PROCEDURE);
             callableStatement.setInt(1,id);
             rowDeleted = callableStatement.executeUpdate() > 0;
+            connection.setAutoCommit(false);
+            if (rowDeleted == true){
+                connection.commit();
+            }else {
+                connection.rollback();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
