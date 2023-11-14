@@ -58,6 +58,13 @@ public class UserController extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+    private void listUser(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        List<User> listUser = userService.displayProcedure();
+        request.setAttribute("listUser", listUser);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
+        dispatcher.forward(request, response);
+    }
     private void sortByName(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> listUser = userService.sortByName();
@@ -67,13 +74,7 @@ public class UserController extends HttpServlet {
     }
 
 
-    private void listUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        List<User> listUser = userService.displayProcedure();
-        request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
-        dispatcher.forward(request, response);
-    }
+
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         String name = request.getParameter("name");

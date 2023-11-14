@@ -84,7 +84,6 @@ public boolean updateUser_procedure(User user) {
            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BY_COUNTRY);
             preparedStatement.setString(1, "%" + country + "%");
             ResultSet rs = preparedStatement.executeQuery();
-
             while (rs.next()){
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
