@@ -7,8 +7,9 @@ import java.util.List;
 
 
 @Repository
-public class CondimentRepositoryImpl implements ICondimentRepository{
+public class CondimentRepositoryImpl implements ICondimentRepository {
     private static final List<String> condimentList = new ArrayList<>();
+
     @Override
     public void save(String condiments) {
         condimentList.add(condiments);
