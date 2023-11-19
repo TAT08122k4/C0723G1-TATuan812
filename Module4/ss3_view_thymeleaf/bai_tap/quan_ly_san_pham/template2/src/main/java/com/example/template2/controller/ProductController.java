@@ -50,14 +50,15 @@ public class ProductController {
         model.addAttribute("product",productService.findById(id));
         return "/detail";
     }
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id){
+    @GetMapping("/delete")
+    public String delete(@RequestParam int id){
         productService.remove(id);
         return "redirect:/product";
     }
     @GetMapping("/search")
     public String search(@RequestParam(name = "searchName") String searchName , Model model){
        List<Product> products = productService.searchByName(searchName);
+       model.addAttribute("searchName",searchName);
         model.addAttribute("products",products);
         return "/list";
 }
