@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="'/blog/add'" th:object="${blog}" method="post">
+  <table>
+    <tr>
+      <td>
+        Tên
+      </td>
+      <td>
+        <input th:field="*{name}" name="name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Nội dung
+      </td>
+      <td>
+        <input th:field="*{content}" name="content">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Image
+      </td>
+      <td>
+        <input th:field="*{img}" name="img">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Giới Thiệu
+      </td>
+      <td>
+        <input th:field="*{introduce}" name="introduce">
+      </td>
+    </tr>
+    <tr><td><input type="submit" value="Thêm Mới"></td></tr>
+  </table>
+</form>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>
