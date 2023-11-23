@@ -39,7 +39,18 @@
         <input th:field="*{introduce}" name="introduce">
       </td>
     </tr>
-    <tr><td><input type="submit" value="Thêm Mới"></td></tr>
+    <tr>
+      <td>Danh Mục</td>
+      <td>
+        <select th:field="*{category}">
+          <option th:each="category,status:${categorys}" th:value="${category.getId()}" th:text="${category.getName()}"></option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Thêm Mới"></td>
+    </tr>
   </table>
 </form>
 <footer th:replace="/layout::footer"></footer>

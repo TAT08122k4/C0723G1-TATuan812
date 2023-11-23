@@ -7,26 +7,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-
+import java.util.Set;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Blog {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String introduce;
-    private String img;
-    @Column(columnDefinition = "LongText")
-    private String content;
-    private LocalDateTime timeToCreateBlog;
+    @OneToMany(mappedBy = "category")
+    private Set<Blog> blogSet;
 
-    @ManyToOne
-    @JoinColumn(name = "category")
-    private Category category;
 }

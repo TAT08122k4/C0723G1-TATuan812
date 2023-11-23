@@ -40,6 +40,16 @@
                 <input th:field="*{introduce}" name="introduce" th:value="${blogEdit.getIntroduce()}">
             </td>
         </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <select th:field="*{category}">
+                    <option th:each="category,status:${categorys}" th:value="${category.getId()}" th:text="${category.getName()}"></option>
+                </select>
+            </td>
+        </tr>
         <tr><td><input type="submit" value="Sửa"></td></tr>
     </table>
 </form>

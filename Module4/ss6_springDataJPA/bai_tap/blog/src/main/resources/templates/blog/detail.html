@@ -32,6 +32,7 @@
 </div>
 <h5 th:text="${blogDetail.getIntroduce()}"></h5>
 <p th:text="${blogDetail.getContent()}"></p>
+<p th:text="${blogDetail.getCategory().getName()}"></p>
 <a th:href="'/blog'">Quay Lại trang chủ</a>
 <footer th:replace="/layout::footer"></footer>
 </body>
