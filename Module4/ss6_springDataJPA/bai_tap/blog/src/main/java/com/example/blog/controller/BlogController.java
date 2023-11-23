@@ -29,7 +29,7 @@ public class BlogController {
     public String showList(@RequestParam(defaultValue = "0") int page,
                            @RequestParam(defaultValue =  "") String searchName,
                            Model model){
-        Pageable pageable =  PageRequest.of(page,2, Sort.by("time_to_create_blog").ascending());
+        Pageable pageable =  PageRequest.of(page,1, Sort.by("time_to_create_blog").ascending());
 
         Page<Blog> blogPage = blogService.displayAllBlog(searchName,pageable);
         model.addAttribute("blogPage",blogPage);
