@@ -1,4 +1,4 @@
-package com.example.blog.modal;
+package com.example.blog.model;
 
 
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.blog.controller;
 
-import com.example.blog.modal.Blog;
-import com.example.blog.modal.Category;
+import com.example.blog.model.Blog;
+import com.example.blog.model.Category;
 import com.example.blog.service.IBlogService;
 import com.example.blog.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,8 +28,7 @@ public class BlogController {
     public String showList(@RequestParam(defaultValue = "0") int page,
                            @RequestParam(defaultValue =  "") String searchName,
                            Model model){
-        Pageable pageable =  PageRequest.of(page,1, Sort.by("time_to_create_blog").ascending());
-
+        Pageable pageable =  PageRequest.of(page,2, Sort.by("time_to_create_blog").ascending());
         Page<Blog> blogPage = blogService.displayAllBlog(searchName,pageable);
         model.addAttribute("blogPage",blogPage);
         model.addAttribute("searchName",searchName);

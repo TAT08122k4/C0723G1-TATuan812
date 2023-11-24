@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="19fba3c5-89ad-481a-b7d9-7440ac2a4cae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/modal/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/modal/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/IBlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/ICategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/ICategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/BlogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/BlogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/IBlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/ICategoryService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2YbYNqWJ0fbKmzUkqIqbWvfwymq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/CodeGym_FullTime/C0723G1-TATuan812/Module4/ss8_validation/thuc_hanh/validate_input",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "MTConfigurable"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="ValidateInputApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="validate_input.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.validate_input.ValidateInputApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19fba3c5-89ad-481a-b7d9-7440ac2a4cae" name="Changes" comment="" />
+      <created>1700795710167</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700795710167</updated>
+      <workItem from="1700795711529" duration="1385000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

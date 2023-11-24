@@ -1,7 +1,6 @@
 package com.example.blog.service;
 
-import com.example.blog.modal.Blog;
-import com.example.blog.modal.Category;
+import com.example.blog.model.Category;
 
 import java.util.List;
 
