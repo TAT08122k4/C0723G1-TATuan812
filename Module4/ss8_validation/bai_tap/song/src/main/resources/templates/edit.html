@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Cập Nhật Bài Hát</h2>
+<form method="post" th:object="${songDto}" action="/song/edit">
+  <table>
+    <tr>
+      <td>Tên Bài Hát</td>
+      <td>
+        <input type="text" th:field="*{nameSong}" required>
+        <span th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Ca Sĩ</td>
+      <td>
+        <input type="text" th:field="*{singer}" required>
+        <span th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Thể Loại</td>
+      <td>
+        <input type="text" th:field="*{typeOfMusic}" required>
+        <span th:if="${#fields.hasErrors('typeOfMusic')}" th:errors="*{typeOfMusic}"></span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Sửa">
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
