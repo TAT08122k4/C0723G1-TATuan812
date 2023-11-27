@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3>Thêm Mới</h3>
-<form th:object="${user}" method="post" action="/user">
+<form th:object="${userDTO}" method="post" action="/user">
    FirstName<br>
     <input th:field="*{firstName}"><br>
     <small style="color:red;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small><br>

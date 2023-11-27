@@ -1,6 +1,7 @@
 package com.example.form_sign_up.controller;
 
 
+import com.example.form_sign_up.dto.UserDTO;
 import com.example.form_sign_up.model.User;
 import com.example.form_sign_up.service.IUserService;
 import jakarta.validation.Valid;
@@ -22,18 +23,18 @@ public class UserController {
     IUserService iUserService;
     @GetMapping("")
     public String showForm(Model model){
-        User user = new User();
-        model.addAttribute("user",user);
+        UserDTO userDTO = new UserDTO();
+        model.addAttribute("userDTO",userDTO);
         return "/index";
     }
     @PostMapping("")
-    public String save(@Valid @ModelAttribute User user, BindingResult bindingResult, RedirectAttributes attributes){
+    public String save(@Valid @ModelAttribute UserDTO userDTO, BindingResult bindingResult, RedirectAttributes attributes){
         User user1 = new User();
-        new User().validate(user,bindingResult);
-        if (bindingResult.hasErrors()){
-            return "/index";
+        new UserDTO().validate(userDTO,bindingResult);
+        if (bindingResult.hasFieldErrors()){
+            return "index";
         }
-        BeanUtils.copyProperties(user,user1);
+        BeanUtils.copyProperties(userDTO,user1);
         iUserService.save(user1);
         attributes.addFlashAttribute("mess","add new Success");
         return "/result";
