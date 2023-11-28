@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Introduce</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book,status:${books}">
+        <th th:text="${status.count}"></th>
+        <th th:text="${book.getBookName()}"></th>
+        <th th:text="${book.getIntroduce()}"></th>
+        <th th:text="${book.getQuantity()}"></th>
+        <th><a th:href="'/book/details'+${book.getBookId()}">details</a></th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

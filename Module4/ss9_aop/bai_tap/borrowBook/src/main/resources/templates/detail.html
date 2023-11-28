@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${book}" th:action="'/book/borrow'" method="post">
+    <input th:field="*{bookId}" type="hidden">
+    <table>
+        <tr>
+            <th>Ảnh:</th>
+            <th><img th:src="${book.getImg()}"></th>
+            <th><input th:field="*{img}" th:text="${book.getImg()}" type="hidden"></th>
+        </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                 <h4 th:text="${book.getBookName()}"></h4>
+            </th>
+            <th><input th:field="*{bookName}" th:text="${book.getBookName()}" type="hidden"></th>
+
+
+        </tr>
+        <tr>
+            <th>
+                Introduce
+            </th>
+            <th>
+               <h6 th:text="${book.getIntroduce()}"></h6>
+            </th>
+            <th><input th:field="*{introduce}" th:text="${book.getIntroduce()}" type="hidden"></th>
+
+        </tr>
+        <tr>
+            <th>
+                Content
+            </th>
+            <th>
+                <p  th:text="${book.getContent()}"></p>
+            <th><input th:field="*{content}" th:text="${book.getContent()}" type="hidden"></th>
+            </th>
+
+        </tr>
+        <tr>
+            <th>
+                Quantity
+            </th>
+            <th>
+               <p th:text="${book.getQuantity()}"></p>
+            </th>
+            <th><input th:field="*{quantity}" th:text="${book.getQuantity()}" type="hidden"></th>
+        </tr>
+        <tr>
+            <th><input type="submit" value="Mượn Sách"></th>
+            <th><a th:href="'/book'">Quay lại thư viện</a></th>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>
