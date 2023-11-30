@@ -1,6 +1,7 @@
 package com.example.blog.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,8 +26,8 @@ public class Blog {
     @Column(columnDefinition = "LongText")
     private String content;
     private LocalDateTime timeToCreateBlog;
-
     @ManyToOne
     @JoinColumn(name = "category")
+    @JsonBackReference
     private Category category;
 }
