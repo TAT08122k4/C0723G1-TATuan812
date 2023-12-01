@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api-blog")
 public class RestBlogController {
@@ -65,4 +65,5 @@ public class RestBlogController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
 }

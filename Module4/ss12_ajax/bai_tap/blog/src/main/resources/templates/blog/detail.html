@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+     Căn giữa ảnh
+    .image-container {
+        text-align: center;
+    }
+
+    /* Hiệu ứng hover */
+    .image-container img {
+        width: 300px;
+        height: 200px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Khi hover, làm phóng to ảnh */
+    .image-container img:hover {
+        transform: scale(1.1);
+    }
+</style>
+<body>
+<h3 th:text="${blogDetail.getName()}"></h3>
+<div class="image-container">
+    <img th:src="${blogDetail.getImg()}" alt="ảnh">
+</div>
+<h5 th:text="${blogDetail.getIntroduce()}"></h5>
+<p th:text="${blogDetail.getContent()}"></p>
+<p th:text="${blogDetail.getCategory().getName()}"></p>
+<a th:href="'/blog'">Quay Lại trang chủ</a>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

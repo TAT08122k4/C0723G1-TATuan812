@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="/jquery.js"> </script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>
+Tìm Kiếm
+    </h2>
+   
+<input id="searchName" placeholder="Enter title u wanna find out">
+<button id="btn-search">Tim kiem</button>
+  
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Introduce</th>
+            <th scope="col">timeToCreateBlog</th>
+          </tr>
+        </thead>
+        <tbody id="contentOfTable">
+           
+            
+        </tbody>
+      </table>
+      <button id="btn-more">More</button>
+      <script>
+        let searchName = "";
+            let page =0;
+        $(document).ready(function (){
+            displayBlogs();
+            $("#btn-search").click(function(){
+                page = 0;
+               searchName = $("#searchName").val();
+               displayBlogs();
+            })
+            $(".btn-more").click(function(){
+               page++;
+               displayBlogs();
+            })
+        })
+         function displayBlogs(){
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                method: "get",
+                url: `http://localhost:8080/api-blog/?page=${page}&searchName=${searchName}`,
+                success: function (datas){
+          let content = "";
+                    console.log(datas);
+                    let data1 = datas.content;
+                    for(let i = 0 ; i < data1.length ;i++){
+                        content += `<tr>
+                            <td>${i + 1}</td>
+                            <td><img src="${data1[i].img}"></td>
+                            <td>${data1[i].name}</td>
+                            <td>${data1[i].introduce}</td>
+                            <td>${data1[i].timeToCreateBlog}</td>
+                            </tr>`
+                    }
+                    $("#contentOfTable").html(content)
+                }
+            })
+         }
+    </script>
+</body>
+
+</html>
