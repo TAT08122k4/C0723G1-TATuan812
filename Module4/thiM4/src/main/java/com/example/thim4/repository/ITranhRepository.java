@@ -1,8 +1,7 @@
-package com.example.demo.repository;
+package com.example.thim4.repository;
 
-import com.example.demo.model.Tranh;
+import com.example.thim4.model.Tranh;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository

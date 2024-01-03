@@ -1,10 +1,7 @@
-package com.example.demo.model;
+package com.example.thim4.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,12 +16,13 @@ import java.util.Set;
 @AllArgsConstructor
 public class Tranh {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String tenTacPham;
     private String hoaSi;
     private String namVe;
     private String kichThuoc;
-    @OneToMany(mappedBy = "idTheLoai")
-    private Set<TheLoai> theLoai;
+    @ManyToOne
+    @JoinColumn(name = "theLoai_id")
+    private TheLoai theLoai;
 }

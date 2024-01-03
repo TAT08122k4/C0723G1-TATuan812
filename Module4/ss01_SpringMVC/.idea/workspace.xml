@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d02f2abc-7778-4f29-801b-dc187ca2ec3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/Utils/BaseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/modal/ChiTietDonHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/modal/HangHoa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/modal/LoaiHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/modal/ThongTinGiaoHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/repository/IDanhSachMatHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/thuc_hanh/demo/src/main/java/com/example/demo/repository/Impl/DanhSachMatHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/bai_tap/quan_ly_user/quan_ly_user/src/main/java/com/example/quan_ly_user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/bai_tap/quan_ly_user/quan_ly_user/src/main/java/com/example/quan_ly_user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/bai_tap/quan_ly_user/quan_ly_user/src/main/java/com/example/quan_ly_user/repository/impl/UserRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module3/untitled/src/ss12_jdbc/bai_tap/quan_ly_user/quan_ly_user/src/main/java/com/example/quan_ly_user/repository/impl/UserRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/ThiM4Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/controller/TranhController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/dto/TranhDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/model/TheLoai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/model/Tranh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/repository/ITheLoaiRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/repository/ITranhRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/service/ITheLoaiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/service/ITranhService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/service/TheLoaiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/java/com/example/thim4/service/TranhService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/resources/templates/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thiM4/src/main/resources/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/CodeGym_FullTime/C0723G1-TATuan812/Module4/ss1/bai_tap/ss01_SpringMVC",
+    "last_opened_file_path": "E:/CodeGym_FullTime/C0723G1-TATuan812/Module4/ss1/bai_tap/simple_dictionary",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -173,6 +178,7 @@
       <updated>1699870747166</updated>
       <workItem from="1699870748888" duration="270000" />
       <workItem from="1699932205616" duration="1009000" />
+      <workItem from="1702864216004" duration="22000" />
     </task>
     <servers />
   </component>

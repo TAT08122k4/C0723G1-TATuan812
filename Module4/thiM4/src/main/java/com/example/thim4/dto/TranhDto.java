@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TeacherDto {
+public class TranhDto {
     @Id
     @GeneratedValue
     private int id;

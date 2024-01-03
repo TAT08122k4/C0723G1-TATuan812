@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.thim4.service;
 
-import com.example.demo.model.Tranh;
+import com.example.thim4.model.Tranh;
 
 import java.util.List;
 

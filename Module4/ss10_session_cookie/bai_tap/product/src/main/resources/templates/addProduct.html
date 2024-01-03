@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>
+  Add New Product
+</h2>
+<form th:object="${productDto}" th:action="@{/addNewProduct}" method="post">
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text">Name Product</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{name}">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+    </span>
+  </div>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text">Description Product</span>
+    <textarea type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{description}"></textarea>
+    <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}">
+    </small>
+  </div>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text">Price</span>
+    <input type="number" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{price}">
+    <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+    </small>
+  </div>
+  <div class="input-group flex-nowrap">
+    <label for="formFile" class="form-label">Image</label>
+    <input class="form-control" type="file" id="formFile" th:field="*{image}">
+  </div>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" >Category</span>
+    <select th:field="*{category}">
+      <option th:each="c,status : ${categories}" th:text="${c.getName()}" th:value="${c.getId()}">
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Add</button>
+</form>
+</body>
+</html>

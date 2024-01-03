@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<form th:object="${tranh}" method="post" th:action="'/tranh/add'">
+<table class="table" >
+  <tr>
+    <td>
+      Tên Tác Phẩm
+    </td>
+    <td>
+      <input th:field="*{tenTacPham}" placeholder="Nhập Tên Tác Phẩm" required>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hoạ Sĩ
+    </td>
+    <td>
+      <input th:field="*{hoaSi}" placeholder="Nhập Tên Hoạ Sĩ" required>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Năm Vẽ
+    </td>
+    <td>
+      <input th:field="*{namVe}" placeholder="Nhập Năm Vẽ" required>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Kích Thước
+    </td>
+    <td>
+      <input th:field="*{kichThuoc}" placeholder="Nhập Kích Thước" required>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Thể Loại
+    </td>
+    <td>
+      <select th:field="*{theLoai}">
+        <option th:each="theloai , status : ${theLoai}" th:text="${theloai.getTenTheLoai()}" th:value="${theloai.getIdTheLoai}">
+        </option>
+      </select>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      <button type="submit">Thêm</button>
+      <a th:href="'/tranh'"><button>Huỷ</button></a>
+    </td>
+  </tr>
+</table>
+</form>
 </body>
 </html>

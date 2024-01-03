@@ -1,14 +1,13 @@
-package com.example.demo.model;
+package com.example.thim4.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,9 +16,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TheLoai {
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idTheLoai;
     private String tenTheLoai;
-    @ManyToOne()
-    private Tranh tranh;
+    @OneToMany(mappedBy = "theLoai")
+    private Set<Tranh> tranhs;
 }

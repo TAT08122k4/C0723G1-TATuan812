@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${product}" th:action="@{/product/add}" method="post">
+    <input hidden th:field="*{id}">
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text">Name Product</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{nameProduct}">
+    </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text">Detail</span>
+        <textarea class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{detail}"></textarea>
+    </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" >Price</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{price}">
+    </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" >Manufacturer</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{manufacturer}">
+    </div>
+    <div class="input-group flex-nowrap">
+        <label for="formFile" class="form-label">Default file input example</label>
+        <input class="form-control" type="file" id="formFile" th:field="*{img}">
+    </div>
+    <div class="input-group flex-nowrap">
+      <select th:field="*{category}">
+          <option th:each="c,status : ${categories}" th:value="${c.getId()}" th:text="${c.getNameCategory()}">
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+</form>
+</body>
+</html>

@@ -48,8 +48,18 @@
         </li>
       </ul>
       <div>
-        <form class="d-flex" >
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="/shop" class="d-flex" method="get" >
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="content" th:value="${content}"/>
+<!--          <button type="submit" class="input-group-text border-0" data-mdb-ripple-init><i class="fas fa-search"></i>-->
+<!--          </button>-->
+<!--          <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Enter content" name="content" th:value="${content}"/>-->
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="categoryId">
+            <option selected value="-1">Chọn danh mục</option>
+            <div th:each="category, loop : ${categories}">
+              <option th:if="${categoryId == category.id}" th:value="${category.id}" th:text="${category.name}" selected></option>
+              <option th:unless="${categoryId == category.id}" th:value="${category.id}" th:text="${category.name}"></option>
+            </div>
+          </select>
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
@@ -70,16 +80,102 @@
   </div>
 </nav>
 <h1>Shop ></h1>
+<a class="btn btn-outline-primary" th:href="@{addNewProduct}" role="button">Add New Product</a>
 <div class="card row" style="display: flex ; flex-direction: row ; justify-content: space-around">
   <div th:each="product,status : ${products}" class="card col-lg-3" style="width: 18rem;">
     <img th:src="${product.getImage()}" class="card-img-top" alt="...">
     <div class="card-body" style="display: grid">
       <h5 class="card-title" th:text="${product.name}"></h5>
+      <p class="card-text" th:text="${product.category.getName()}"></p>
       <p class="card-text" th:text="${product.getDescription()}"></p>
       <p class="card-text" th:text="${product.getPrice()}"></p>
       <div><a th:href="@{/add/__${product.id}__(action='list')}" class="btn btn-primary">Add To Cart</a></div>
+      <div>  <a th:href="@{/blog/delete(id=${product.getId()})}"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                th:attr="data-id=${product.getId()}, data-name=${product.getName()}"
+                onclick="deleteBlog(this)">
+        <button type="button" class="btn btn-sm btn-outline-danger">
+          Xoá
+        </button>
+      </a></div>
+      <div><a th:href="@{/editProduct/__${product.id}__}" class="btn btn-primary">Edit</a></div>
     </div>
   </div>
 </div>
+<nav  aria-label="..." th:if="${products.totalPages > 1}">
+  <ul class="pagination pagination-circle">
+    <li class="page-item" th:if="${products.hasPrevious()}">
+        <a class="page-link"  th:href="@{/shop(page=${products.number - 1})}">Previous</a>
+    </li>
+  <div th:each="item , loop :${#numbers.sequence(1,products.totalPages)}">
+         <div th:if="${products.number + 1 == item}">
+           <li class="page-item active" aria-current="page">
+               <a class="page-link" th:href="@{/shop(page = ${item - 1})}" th:text="${item}">
+                 <span  class="visually-hidden">
+                   (current)
+                 </span>
+               </a>
+           </li>
+         </div>
+    <div th:unless="${products.number + 1 == item}">
+      <li class="page-item">
+        <a class="page-link" th:href="@{/shop(page = ${item - 1})}" th:text="${item}">
+        </a>
+      </li>
+    </div>
+  </div>
+    <li class="page-item"  th:if="${products.hasNext()}">
+      <a class="page-link" th:href="@{/shop(page=${products.number + 1})}">
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="/deleteProduct" method="get">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Product:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure want to delete  <span id="nameDelete"></span>?
+          <input type="hidden" id="idDelete" name="idDelete">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="..." class="rounded me-2" alt="...">
+    <strong class="me-auto">Announcement</strong>
+    <small>Now</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    <p th:if="${addSuccess}"></p>
+  </div>
+</div>
 </body>
+<script>
+  function deleteBlog(element){
+    let id = element.getAttribute('data-id');
+    let name = element.getAttribute('data-name');
+    document.getElementById("idDelete").value = id;
+    document.getElementById("nameDelete").innerText = name;
+    console.log(name);
+  }
+</script>
 </html>

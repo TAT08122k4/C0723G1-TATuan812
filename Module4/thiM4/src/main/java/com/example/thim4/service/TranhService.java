@@ -1,7 +1,8 @@
-package com.example.demo.service;
+package com.example.thim4.service;
 
-import com.example.demo.model.Tranh;
-import com.example.demo.repository.ITranhRepository;
+
+import com.example.thim4.model.Tranh;
+import com.example.thim4.repository.ITranhRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

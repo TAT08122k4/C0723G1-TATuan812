@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/student/edit}" method="post" th:object="${student}">
+    <input hidden th:value="${student.id}" th:field="*{id}">
+<table border="1">
+    <tr>
+        <td>
+            Tên
+        </td>
+        <td>
+       <input th:value="${student.name}" th:field="*{name}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Giới Tính
+        </td>
+        <td>
+            <select th:field="*{gender}">
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+                <option value="Other">Other</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tuổi
+        </td>
+        <td>
+            <input th:value="${student.age}" th:field="*{age}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Địa Chỉ
+        </td>
+        <td>
+            <input th:value="${student.address}" th:field="*{address}">
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button type="submit">Sửa</button></td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>

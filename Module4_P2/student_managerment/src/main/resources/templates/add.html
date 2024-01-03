@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Student</title>
+</head>
+<body>
+<h2>Thêm Mới Học Viên</h2>
+<form th:object="${StudentDTO}" th:action="@{student/add}" method="post">
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" id="basic-addon1">Họ Và Tên</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{name}">
+  </div>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" id="basic-addon2">Giới Tính</span>
+
+  </div>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" id="basic-addon3">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+  </div>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" id="basic-addon4">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+  </div>
+</form>
+</body>
+</html>
