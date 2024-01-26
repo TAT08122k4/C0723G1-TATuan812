@@ -38,6 +38,7 @@ const students = [
         country: 'Italy'
       }
 ]
+console.log(students);
 function DisplayStudent() {
   return (
     <>
