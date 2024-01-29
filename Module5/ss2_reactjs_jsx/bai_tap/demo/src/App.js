@@ -6,6 +6,8 @@ import DisplayFormLogin from './components/formLogin';
 import { ListStudent } from './components/Ss3Student';
 import { Todo } from './components/Todo';
 import { Counter } from './components/Ss4ComponentCounter';
+import { FormLienHe } from './components/Ss5FormLienHe';
+import { FormYTe } from './components/Ss5FormYTe';
 
 function App() {
   
@@ -59,7 +61,11 @@ function App() {
   // ss3 Todo List
   <div>
     {/* <Todo>  </Todo> */}
-    <Counter></Counter>
+    {/* ss4 Bài Đếm */}
+    {/* <Counter></Counter> */}
+    {/* <FormLienHe></FormLienHe> */}
+    <FormYTe></FormYTe>
+    
   </div>
   );
 }
