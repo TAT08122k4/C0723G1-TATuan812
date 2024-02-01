@@ -47,7 +47,7 @@ export function FormYTe(){
         setTimeout(() => {
             setSubmitting(false)
             toast(`Add Form ${values.name} OK`)
-        },10000)
+        },2000)
         }}
         >
 {
