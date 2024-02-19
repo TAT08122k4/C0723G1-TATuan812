@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ed21a94c-d9d4-4f13-8746-b1a5a298d487" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Module4_P2/demo/src/main/java/com/example/demo/controller/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/java/com/example/product/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/java/com/example/product/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/java/com/example/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/java/com/example/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/java/com/example/product/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/java/com/example/product/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/resources/templates/managerCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/resources/templates/managerCategory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/resources/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss10_session_cookie/bai_tap/product/src/main/resources/templates/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4/ss8_validation/bai_tap/song/src/main/java/com/example/song/dto/SongDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4/ss8_validation/bai_tap/song/src/main/java/com/example/song/dto/SongDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4/src/main/resources/templates/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4/src/main/resources/templates/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/controller/ThanhPhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/controller/ThanhPhoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/dto/ThanhPhoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/dto/ThanhPhoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/model/QuocGia.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/model/QuocGia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/model/ThanhPho.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/model/ThanhPho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/repository/IQuocGiaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/repository/IQuocGiaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/repository/IThanhPhoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/repository/IThanhPhoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/IQuocGiaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/IQuocGiaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/IThanhPhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/IThanhPhoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/QuocGiaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/QuocGiaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/ThanhPhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/java/com/example/thim4p2/service/ThanhPhoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/ThiM4P2/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/controller/MonHocController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/controller/MonHocController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/dto/MonHocDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/dto/MonHocDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/dto/StudentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/model/MonHoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/model/MonHoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/repository/IMonHocRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/repository/IMonHocRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/repository/IStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/repository/IStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/IMonHocService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/IMonHocService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/IStudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/MonHocService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/MonHocService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/java/com/example/monhoc_sinhvien/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/addNew.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/addNew.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/listStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/monhoc_sinhvien/src/main/resources/templates/listStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/student_managerment/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/student_managerment/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/student_managerment/src/main/java/com/example/student_managerment/config/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/student_managerment/src/main/java/com/example/student_managerment/config/WebSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module4_P2/student_managerment/src/main/java/com/example/student_managerment/config/WebSecurityConfigurerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module4_P2/student_managerment/src/main/java/com/example/student_managerment/config/WebSecurityConfigurerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/components/Ss7CrudBook.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/components/Ss7CrudBook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/components/Ss7CrudBook3.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/components/Ss7CrudBook3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/data/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/service/BookService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_reactjs_jsx/bai_tap/demo/src/service/BookService.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2cZhMptILv5UsDYIwt64illIso1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/CodeGym_FullTime/C0723G1-TATuan812/Module5/thi&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed21a94c-d9d4-4f13-8746-b1a5a298d487" name="Changes" comment="" />
+      <created>1708324962527</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708324962527</updated>
+      <workItem from="1708324965622" duration="54000" />
+      <workItem from="1708329422437" duration="78000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

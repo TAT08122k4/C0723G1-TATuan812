@@ -1,0 +1,58 @@
+{
+  "music": [
+    {
+      "id": "1",
+      "baiHat": "baiHat1",
+      "caSi": "caSi1",
+      "tacGia": "tacGia1",
+      "thoiGianPhat": "04:50",
+      "soLuotThich": 10,
+      "trangThai": false
+    },
+    {
+      "id": "2",
+      "baiHat": "baiHat2",
+      "caSi": "caSi2",
+      "tacGia": "tacGia2",
+      "thoiGianPhat": "14:50",
+      "soLuotThich": 13,
+      "trangThai": false
+    },
+    {
+      "id": "3",
+      "baiHat": "baiHat3",
+      "caSi": "caSi3",
+      "tacGia": "tacGia3",
+      "thoiGianPhat": "07:50",
+      "soLuotThich": 20,
+      "trangThai": true
+    },
+    {
+      "id": "4",
+      "baiHat": "baiHat4",
+      "caSi": "caSi4",
+      "tacGia": "tacGia4",
+      "thoiGianPhat": "05:50",
+      "soLuotThich": 12,
+      "trangThai": true
+    },
+    {
+      "id": "edff",
+      "baiHat": " cx",
+      "caSi": " zcxz",
+      "tacGia": "vbvbv",
+      "thoiGianPhat": "00:00",
+      "soLuotThich": 0,
+      "trangThai": false
+    },
+    {
+      "id": "2ae2",
+      "baiHat": " dsa",
+      "caSi": "dsadasdasdas",
+      "tacGia": " dsa",
+      "thoiGianPhat": "00:00",
+      "soLuotThich": 0,
+      "trangThai": false
+    }
+  ]
+}

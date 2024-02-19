@@ -29,11 +29,25 @@
   ],
   "book": [
     {
-      "name": "book name",
+      "id": 1,
+      "name": "Solo Leveling ",
+      "author": "Ai mà Biết",
+      "description": "ko bik nốt",
+      "quanlity": 5
+    },
+    {
+      "name": "One Piece",
       "author": "Ai mà Biết",
       "description": "ko bik nốt",
       "quanlity": 5,
-      "id": 1
+      "id": 2
+    },
+    {
+      "name": "Boruto",
+      "author": "Ai mà Biết",
+      "description": "ko bik nốt",
+      "quanlity": 5,
+      "id": 3
     }
   ]
 }

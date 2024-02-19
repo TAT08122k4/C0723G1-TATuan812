@@ -1,0 +1,28 @@
+{
+  "theLoai": [
+    {
+      "id": "1",
+      "name": "Điện Thoại"
+    },
+    {
+      "id": "2",
+      "name": "LapTop"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "tenSanPham": "Iphone 13",
+      "ngayNhap": "12/2/2021",
+      "soLuong": 1,
+      "loaiSanPham": "Điện Thoại"
+    },
+    {
+      "id": "2",
+      "tenSanPham": "Xiaomi",
+      "ngayNhap": "2024-02-08",
+      "soLuong": 7,
+      "loaiSanPham": "Điện Thoại"
+    }
+  ]
+}

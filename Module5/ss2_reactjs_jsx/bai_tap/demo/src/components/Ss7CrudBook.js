@@ -8,9 +8,10 @@ import { useEffect, useState } from "react";
 import { getAll } from "../service/BookService";
 import { addNewBook } from "../service/BookService";
 import { deleteBook } from "../service/BookService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
 import { ModalDelete } from "./ModalBook";
+import InputGroup from 'react-bootstrap/InputGroup'
 
 export function CrudBook() {
   const [books, setBooks] = useState([]);
@@ -18,6 +19,7 @@ export function CrudBook() {
   const [showModal,setShowModal] = useState(false);
   const [objectDelete,setObjectDelete] = useState({})
   const nagivate = useNavigate();
+  const [search,setSearch] = useState('')
   useEffect(() => {
     const displayBook = async () => {
       try {
@@ -35,7 +37,7 @@ export function CrudBook() {
       alert("Add New Book Successs");
       setBooks(await getAll());
     } else {
-      console.error("Can not Create a new Book");
+      console.error("Can not Create a new Book"); 
     }
   }
 //   const deleteABook = (id) => {
@@ -59,6 +61,12 @@ const openModal = (book) =>{
   return (
     <>
       <h1>Library</h1>
+      {/* Search  */}
+      {/* <Form>
+        <InputGroup>
+      <Form.Control onChange={(e) => setSearch(e.target.value)}  type="text" />
+        </InputGroup>
+      </Form> */}
       <table className="table table-hover table-bordered">
         <thead>
           <th>#</th>
@@ -67,11 +75,21 @@ const openModal = (book) =>{
           <th colSpan="2">Action</th>
         </thead>
         <tbody>
-          {books.map((item, index) => (
-            <tr key={item.id}>
-              <th>{index}</th>
-              <th>{item.name}</th>
-              <th>{item.quanlity}</th>
+
+          {
+            // Search
+            // books.filter((item) => {
+            //   return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search);
+            // }).map((item, index) => (
+            // <tr key={item.id}>
+            //   <th>{index}</th>
+            //   <th>{item.name}</th>
+            //   <th>{item.quanlity}</th>
+            books.map((item, index) => (
+              <tr key={item.id}>
+                <th>{index}</th>
+                <th>{item.name}</th>
+                <th>{item.quanlity}</th>
               {/* <th> */}
                 {/* <button
                   onClick={() => {
@@ -81,6 +99,9 @@ const openModal = (book) =>{
                   Delete
                 </button> */}
               {/* </th> */}
+              <th><Link to={"update/" + item.id}>
+                <button className="btn btn-success">Update</button>
+                </Link></th>
               <th><button onClick={() => {openModal(item)}}>Delete</button></th>
             </tr>
           ))}

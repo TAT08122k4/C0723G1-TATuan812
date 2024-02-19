@@ -13,6 +13,7 @@ import { TodoList } from './components/Ss7TodoList';
 import { CrudBook } from './components/Ss7CrudBook';
 import { FormCreate } from './components/Ss7CrudBook2';
 import {toast,ToastContainer} from "react-toastify";
+import { EditBook } from './components/Ss7CrudBook3';
 
 
 
@@ -80,6 +81,7 @@ function App() {
    <Routes>
     <Route path='/' element={<CrudBook />}></Route>
     <Route path='/create' element={<FormCreate></FormCreate>}></Route>
+    <Route path='update/:id' element={<EditBook></EditBook>}   ></Route>
    </Routes>
    <ToastContainer></ToastContainer>
   

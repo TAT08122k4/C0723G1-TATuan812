@@ -26,9 +26,18 @@ export const deleteBook = async (id) => {
         console.log(error)
     }
 }
-export const updateBook = async () => {
+export const updateBook = async (book) => {
     try {
-        
+        const response = await axios.patch("http://localhost:8080/book/" + book.id , book)
+        return response.status
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const findById = async (id) => {
+    try {
+        const response = await axios.get(`http://localhost:8080/book/${id}`)
+        return response.data        
     } catch (error) {
         console.log(error);
     }
