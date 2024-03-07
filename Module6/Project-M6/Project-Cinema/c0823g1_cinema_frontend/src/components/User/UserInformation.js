@@ -18,7 +18,7 @@ import Footer from "../Home/Footer";
 
 export default function UserInformation() {
     const [historyBooking, setHistoryBooking] = useState([]);
-    const id = 17;
+    const id = 1;
     const date = new Date().toISOString().slice(0, 19);
     const dateTest = new Date().toISOString().slice(0, 10);
     console.log(date);
@@ -135,6 +135,8 @@ export default function UserInformation() {
                 `Đã Cập Nhật Mật Khẩu Thành Công , Bạn có thể đăng xuất sau đó đăng nhập lại để kiểm tra mật khẩu`,
                 "success"
             );
+            sessionStorage.clear();
+            navigator("/login")
         } catch (error) {
             setErrors(error.data);
             await SweetAlert(
