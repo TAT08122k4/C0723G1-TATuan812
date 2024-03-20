@@ -1,0 +1,343 @@
+
+<!--Website: wwww.codingdung.com-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingDung | Profile Template</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family:  roboto condensed, sans-serif;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="container light-style flex-grow-1 container-p-y">
+        <h4 class="font-weight-bold py-3 mb-4">
+            Thông Tin Tài Khoản
+        </h4>
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="#account-general">Thông Tin Tài Khoản</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-change-password">Đổi Mật Khẩu</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-info">Lịch Sử</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-social-links">Vé đã đặt</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-connections">Vé đã huỷ</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-notifications">Thông Tin Liên Hệ</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="card-body media align-items-center">
+                                <figure class="image-container">
+                                    <img id="chosen-image">
+                                </figure>
+                                <div class="media-body ml-4">
+                                    <div class="container">
+                                        <div class="form-group">
+                                            <label class="form-label">Username</label>
+                                            <input disabled type="text" class="form-control mb-1" value="nmaxwell">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Name</label>
+                                            <input disabled type="text" class="form-control" value="Nelle Maxwell">
+                                        </div>
+                                        <span>Điểm Tích Luỹ : 120</span><br>
+                                        <!-- <label class="label-upload" for="upload-button">
+                                            <i class="fas fa-upload"></i> &nbsp; Choose A Photo
+                                        </label> -->
+                                        <input class="input-upload" type="file" id="upload-button" accept="image/*">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                               
+                                <div class="form-group">
+                                    <label class="form-label">E-mail</label>
+                                    <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Ngày Sinh</label>
+                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Giới Tính : </label>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline1">Nam</label>
+                                      </div>
+                                      <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline2">Nữ</label>
+                                      </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CMND</label>
+                                    <input type="text" class="form-control" placeholder="Chứng minh nhân dân">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Số Điện Thoại</label>
+                                    <input type="text" class="form-control" placeholder="Số Điện Thoại">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Địa Chỉ</label>
+                                    <input type="text" class="form-control" placeholder="Địa Chỉ">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-change-password">
+                            <div class="card-body pb-2">
+                                <div class="form-group">
+                                    <label class="form-label">Mật Khẩu Hiện Tại</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Mật Khẩu Mới</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Xác Nhận Mật Khẩu Mới</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-info">
+                            <div class="card-body pb-2">
+                                <table>
+                                    <tr>
+                                        <td>Từ Ngày :</td>
+                                        <td><input type="text" placeholder="01/02/2017"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Từ Ngày :</td>
+                                        <td><input type="text" placeholder="01/02/2017"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><radio name="search"></radio></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="radio" id="html" name="fav_language" value="HTML"> <label for="html">Lịch sử cộng điểm</label><br></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="radio" id="html" name="fav_language" value="HTML"> <label for="html">Lịch sử dùng điểm</label><br></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Ngày Tạo</th>
+                                        <th scope="col">Tên Phim</th>
+                                        <th scope="col">Điểm Cộng</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">21/01/2017 8:08</th>
+                                        <td>Harry Potter và Bảo bối tử thần</td>
+                                        <td>120000</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">21/01/2017 8:08</th>
+                                        <td>Harry Potter và Bảo bối tử thần</td>
+                                        <td>120000</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">21/01/2017 8:08</th>
+                                        <td>Harry Potter và Bảo bối tử thần</td>
+                                        <td>120000</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-social-links">
+                            <div class="card-body pb-2">
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Tên Phim</th>
+                                        <th scope="col">Ngày Đặt</th>
+                                        <th scope="col">Tổng Tiền</th>
+                                        <th scope="col">Trạng Thái</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">Harry Potter và Bảo bối tử thần</th>
+                                        <td>21/01/2017 8:08</td>
+                                        <td>120000</td>
+                                        <td>Đợi Nhận Vé</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Harry Potter và Bảo bối tử thần</th>
+                                        <td>21/01/2017 8:08</td>
+                                        <td>120000</td>
+                                        <td>Đã Nhận Vé</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Harry Potter và Bảo bối tử thần</th>
+                                        <td>21/01/2017 8:08</td>
+                                        <td>120000</td>
+                                        <td>Đợi Nhận Vé</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-connections">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Ngày Huỷ</th>
+                                        <th scope="col">Tên Phim</th>
+                                        <th scope="col">Trạng Thái</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">21/01/2017 8:08</th>
+                                        <td>Harry Potter và Bảo bối tử thần</td>
+                                        <td>Đã Huỷ</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">21/01/2017 8:08</th>
+                                        <td>Harry Potter và Bảo bối tử thần</td>
+                                        <td>Đang Chờ Xác Nhận</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">21/01/2017 8:08</th>
+                                        <td>Harry Potter và Bảo bối tử thần</td>
+                                        <td>Đang Chờ Xác Nhận</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-notifications">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Activity</h6>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Email me when someone comments on my article</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Email me when someone answers on my forum
+                                            thread</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input">
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Email me when someone follows me</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body pb-2">
+                                <h6 class="mb-4">Application</h6>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">News and announcements</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input">
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Weekly product updates</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="switcher">
+                                        <input type="checkbox" class="switcher-input" checked>
+                                        <span class="switcher-indicator">
+                                            <span class="switcher-yes"></span>
+                                            <span class="switcher-no"></span>
+                                        </span>
+                                        <span class="switcher-label">Weekly blog digest</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            
+        </div>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+    </script>
+ <script>
+    let uploadButton = document.getElementById("upload-button");
+let chosenImage = document.getElementById("chosen-image");
+let fileName = document.getElementById("file-name");
+
+uploadButton.onchange = () => {
+    let reader = new FileReader();
+    reader.readAsDataURL(uploadButton.files[0]);
+    reader.onload = () => {
+        chosenImage.setAttribute("src",reader.result);
+    }
+    fileName.textContent = uploadButton.files[0].name;
+}
+ </script>
+
+</body>
+
+</html>

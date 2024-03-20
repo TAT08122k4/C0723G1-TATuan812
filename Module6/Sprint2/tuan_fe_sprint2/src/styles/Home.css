@@ -1,0 +1,382 @@
+html {
+    font-family: Tahoma, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #EBEBEB;
+}
+
+/* Header */
+.header {
+  background-color: #721799;
+  transition: background-color 0.3s ease;
+  height: 80px; /* Set the desired height */
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ffcc00;
+}
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.log-in a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.log-in a:hover {
+  color: #ffcc00;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-nav li {
+  margin: 0 10px;
+  padding: 0;
+}
+
+.navbar-nav li:hover {
+  background-color: #b8c7d0;
+}
+
+.navbar-nav li:hover a {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .navbar-nav li {
+      margin: 10px 0;
+  }
+}
+
+article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #e5e4e2;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+  }
+  
+  article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: "";
+  }
+  
+  /* basic article elements styling */
+  article h2 {
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+  }
+  figure img { 
+    width: 100%;
+  }
+  
+  figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  
+  article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .article-body {
+    padding: 24px;
+  }
+  
+  article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #28666e;
+  }
+  
+  article a:focus {
+    outline: 1px dotted #28666e;
+  }
+  
+  article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+  }
+  
+  /* using the has() relational pseudo selector to update our custom properties */
+  article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #28666e;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+  
+  
+  /************************ 
+  Generic layout (demo looks)
+  **************************/
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* margin: 0;
+    padding: 48px 0;
+    font-family: "Figtree", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    background-image: linear-gradient(45deg, #7c9885, #b5b682);
+    min-height: 100vh; */
+  }
+  
+  .articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  @media screen and (max-width: 960px) {
+    article {
+      container: card/inline-size;
+    }
+    .article-body p {
+      display: none;
+    }
+  }
+  
+  @container card (min-width: 380px) {
+    .article-wrapper {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+    }
+    .article-body {
+      padding-left: 0;
+    }
+    figure {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    figure img {
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+  
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
+
+
+
+ 
+.carousel-item__trailer span {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    line-height: 50px;
+}
+
+.carousel-item__trailer .btn-playTrailer {
+  background: linear-gradient(to right, #8a2be2, #9400d3);
+    border-radius: 40px;
+    font-size: 14px;
+    padding: 2px 40px;
+    letter-spacing: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.carousel-item__trailer .btn-playTrailer span:nth-child(2),
+.playtrailer {
+    position: relative;
+    z-index: 1;
+    color: white;
+    border: none;
+}
+
+#movieNavbar li.nav-item::after,
+#hideNavbar li.nav-item::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    display: block;
+    background: linear-gradient(to right, #8a2be2, #9400d3);
+    transition: all 0.3s;
+}
+
+#movieNavbar li.nav-item:hover::after,
+#hideNavbar li.nav-item:hover::after {
+    width: 100%;
+}
+
+#movieNavbar li.nav-item.active::after,
+#hideNavbar li.nav-item.active::after {
+    width: 100%;
+}
+
+/* CAROUSEL */
+#movieCarousel .carousel-item {
+    height: 600px;
+}
+
+.hero1 {
+    background: url(https://th.bing.com/th/id/OIP.tA6s2-otvv2eC5QC2JXeGwHaFL?w=289&h=203&c=7&r=0&o=5&pid=1.7) no-repeat center center;
+    background-size: cover;
+}
+
+.hero2 {
+    background: url(https://th.bing.com/th/id/OIP.eSDGQSE37DbuIwpwmwpa8QHaEI?rs=1&pid=ImgDetMain) no-repeat center center;
+    background-size: cover;
+}
+
+.hero3 {
+    background: url(https://firebasestorage.googleapis.com/v0/b/newfirebase-1fe01.appspot.com/o/images%2Fhero-3.jpg?alt=media&token=50443ad7-e4fc-4e37-8bf3-06400a9a49b5) no-repeat center center;
+    background-size: cover;
+}
+
+#movieCarousel .carousel-caption {
+    text-align: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 40px;
+}
+
+#movieCarousel .carousel-caption p:nth-child(1) {
+    font-size: 14px;
+    color: #fbbd61;
+    letter-spacing: 2px;
+}
+
+#movieCarousel .carousel-caption p:nth-child(3) {
+    font-size: 18px;
+    padding-right: 25%;
+}
+
+#movieCarousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+    opacity: 1;
+}
+
+#movieCarousel .carousel-indicators li.active {
+    background-color: white;
+}
+
+#movieCarousel .carousel-indicators {
+    justify-content: flex-start;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 15px;
+}
+
+.carousel-item__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, black, transparent);
+}
+
+.btn__overlay {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    transform: skewX(45deg) translateX(-130%);
+    background: #ec7532;
+    transition: all 0.5s;
+}
+
+.carousel-item__trailer .btn-playTrailer:hover .btn__overlay {
+    opacity: 0.7;
+    transform: skewX(45deg) translateX(-20%);
+}

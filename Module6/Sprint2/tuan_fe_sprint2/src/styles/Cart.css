@@ -1,0 +1,141 @@
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Block Heading */
+.block-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Content */
+/* .content {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* Items */
+.items {
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* Product */
+.product {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between; /* Add this line to space items apart */
+    align-items: center; /* Add this line to vertically center items */
+}
+
+/* Product Image */
+.product .image {
+    width: 591px; /* Reset width */
+    height: 245px; /* Set desired height */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+
+/* Product Info */
+.product .info {
+    padding-left: 20px;
+    flex: 1; /* Đảm bảo chiều dài bằng nhau với phần Summary */
+    display: flex;
+    flex-direction: column;
+}
+
+.product .info .product-name {
+    width: 100%; /* Ensure the product name takes full width */
+}
+
+.product .info .product-info {
+    margin-top: 10px;
+    width: 100%; /* Ensure the product info section takes full width */
+}
+
+.product .info .product-info div {
+    margin-bottom: 5px;
+}
+
+/* Quantity */
+.product .info .quantity {
+    margin-top: auto; /* Push quantity section to bottom */
+}
+
+.product .info .quantity label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.product .info .quantity-input {
+    width: 70px;
+}
+a{
+    color: blue;
+}
+
+/* Price */
+.product .info .price {
+    margin-top: auto; /* Move price section to bottom */
+    font-weight: bold;
+    color: #8a2be2; /* Màu tím */
+    text-align: right; /* Align price to the right */
+}
+
+
+/* Summary */
+.summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    width: 100%; /* Chiều rộng tối đa */
+}
+
+.summary h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.summary-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-item .text {
+    font-weight: bold;
+}
+
+/* Checkout Button */
+.btn-checkout {
+    margin-top: 20px;
+    background-color: #8a2be2; /* Màu tím */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-checkout:hover {
+    background-color: #6a1d9a; /* Tối màu tím khi rê chuột qua */
+}
+div .product-info{
+    width: 330px;
+}
+div .col-md-8{
+    width: 441px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+}
