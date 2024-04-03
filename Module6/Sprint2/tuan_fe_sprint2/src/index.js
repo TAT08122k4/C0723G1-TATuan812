@@ -7,12 +7,14 @@ import { RegisterAccount } from './components/Register';
 import { HomePage } from './components/Home';
 import { LoginAccount } from './components/Login';
 import { CartBook } from './components/Cart';
+import { DetailOfBook } from './components/DetailBook';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <CartBook/>
-  </React.StrictMode>
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

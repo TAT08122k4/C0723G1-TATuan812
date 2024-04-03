@@ -4,7 +4,7 @@ package com.example.tuan_be_sprint2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @NoArgsConstructor
@@ -14,14 +14,17 @@ import java.util.Date;
 public class DetailBuyBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     Date buyDate;
-    @ManyToOne
-    @JoinColumn(name = "book_id",referencedColumnName = "id")
-    private BookProduct book;
+    int priceOfProduct;
+    int quantity;
+    boolean statusPayment;
     @ManyToOne
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
+    @ManyToOne
+    @JoinColumn(name = "cart_id" , referencedColumnName = "id")
+    private CartItems cartItems;
 
 //    public DetailBorrowCard() {
 //    }

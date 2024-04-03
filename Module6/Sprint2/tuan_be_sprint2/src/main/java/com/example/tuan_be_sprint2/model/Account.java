@@ -3,30 +3,70 @@ package com.example.tuan_be_sprint2.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Account {
+public class Account implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Integer id;
+   private int id;
     String accountName;
     String fullName;
-    String passWord;
+    String password;
     String avatarUser;
     boolean gender;
     String phoneNumber;
+    String address;
     String email;
     String idCard;
     Date birthday;
+    String verificationCode;
     @ManyToOne
     @JoinColumn(name = "role_id",referencedColumnName = "id")
     private Role role;
+
+ @Override
+ public Collection<? extends GrantedAuthority> getAuthorities() {
+  List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+  authorityList.add(new SimpleGrantedAuthority("ROLE_" + getRole().getNameRole()));
+  return authorityList;
+ }
+
+ @Override
+ public String getUsername() {
+  return accountName;
+ }
+
+ @Override
+ public boolean isAccountNonExpired() {
+  return true;
+ }
+
+ @Override
+ public boolean isAccountNonLocked() {
+  return true;
+ }
+
+ @Override
+ public boolean isCredentialsNonExpired() {
+  return true;
+ }
+
+ @Override
+ public boolean isEnabled() {
+  return true;
+ }
 
 //    public Account() {
 //    }

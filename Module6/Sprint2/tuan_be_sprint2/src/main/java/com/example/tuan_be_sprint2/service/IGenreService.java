@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IGenreService {
     List<Genre> getAll();
+    Genre findGenreById(int id);
 }

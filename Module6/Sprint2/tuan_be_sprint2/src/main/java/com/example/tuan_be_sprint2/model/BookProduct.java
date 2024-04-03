@@ -12,8 +12,9 @@ import lombok.*;
 public class BookProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     String nameBook;
+    @Column(columnDefinition = "LONGTEXT")
     String introduceBook;
     String yearOfPublication;
     int amountBook;
@@ -22,13 +23,15 @@ public class BookProduct {
     String publisher;
     int price;
     int likeBook;
+    String imageOfBook;
+
     @ManyToOne
     @JoinColumn(name = "genre_id",referencedColumnName = "id")
     private Genre genre;
 
     @ManyToOne
-    @JoinColumn(name = "language_id",referencedColumnName = "id")
-    private Language language;
+    @JoinColumn(name = "languageBook_id",referencedColumnName = "id")
+    private LanguageBook languageBook;
 
     @ManyToOne
     @JoinColumn(name = "author_id",referencedColumnName = "id")

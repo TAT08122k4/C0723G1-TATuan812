@@ -15,7 +15,7 @@ import lombok.*;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     String nameAuthor;
 
 //    public Author() {

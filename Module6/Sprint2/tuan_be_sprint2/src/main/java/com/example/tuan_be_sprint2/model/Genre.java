@@ -15,7 +15,7 @@ import lombok.*;
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Integer id;
+     private int id;
     String nameGenre;
 
 //    public Genre() {

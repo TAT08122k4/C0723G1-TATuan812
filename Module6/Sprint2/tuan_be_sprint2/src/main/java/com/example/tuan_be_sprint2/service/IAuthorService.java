@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IAuthorService {
     List<Author> getAll();
+    Author findAuthorById(int id);
 }

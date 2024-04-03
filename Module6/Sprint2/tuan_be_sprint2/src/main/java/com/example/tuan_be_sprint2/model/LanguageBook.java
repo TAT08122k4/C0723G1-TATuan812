@@ -12,11 +12,19 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Language {
+public class LanguageBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Integer id;
+   private int id;
     String nameLanguage;
+
+
+
+
+
+
+
+
 //    public Language() {
 //    }
 //

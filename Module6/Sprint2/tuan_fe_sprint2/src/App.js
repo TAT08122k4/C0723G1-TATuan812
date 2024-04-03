@@ -1,24 +1,27 @@
 import logo from './logo.svg';
+import {Route, Routes} from "react-router-dom";
 import './App.css';
+import { HomePage } from './components/Home';
+import { LoginAccount } from './components/Login';
+import { RegisterAccount } from './components/Register';
+import { CartBook } from './components/Cart';
+import { DetailOfBook } from './components/DetailBook';
+import { ManageDetailAccount } from './components/DetailAccount';
+import { ManagerAdmin } from './components/Admin';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+  <Routes>
+   <Route path='/home' element={<HomePage></HomePage>}></Route>
+   <Route path='/login' element={<LoginAccount></LoginAccount>}></Route>
+   <Route path='/register' element={<RegisterAccount></RegisterAccount>}></Route>
+   <Route path='/cart' element={<CartBook></CartBook>}></Route>
+   <Route path='/book/:id' element={<DetailOfBook></DetailOfBook>}></Route>
+   <Route path='/account/:id' element={<ManageDetailAccount></ManageDetailAccount>}></Route>
+   <Route path='/admin' element={<ManagerAdmin></ManagerAdmin>}></Route>
+  </Routes>
+  </>
   );
 }
 
