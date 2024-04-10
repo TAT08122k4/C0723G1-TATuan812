@@ -9,6 +9,7 @@ import { editAccount, getAccount } from "../service/AccountService";
 import {getDownloadURL, ref, uploadBytes} from 'firebase/storage'
 import {v4} from "uuid";
 import {imageDb, storage} from '../config/FirebaseUpload';
+import { FooterBook } from "./Footer";
 export function ManageDetailAccount() {
     const [img,setImg] =useState(null)
     const [imgUrl,setImgUrl] =useState([])
@@ -319,6 +320,7 @@ const validateObject = {
 </div>
 </div>
 </div> */}
+<FooterBook></FooterBook>
     </>
   );
 }

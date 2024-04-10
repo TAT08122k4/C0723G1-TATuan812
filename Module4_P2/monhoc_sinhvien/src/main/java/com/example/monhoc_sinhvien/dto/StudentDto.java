@@ -1,2 +1,4 @@
-package com.example.monhoc_sinhvien.dto;public class StudentDto {
+package com.example.monhoc_sinhvien.dto;
+
+public class StudentDto {
 }

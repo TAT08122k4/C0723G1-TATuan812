@@ -13,6 +13,7 @@ int getAccountId();
 int getCartId();
 int getPrice();
 int getQuantityBook();
+int getModeOfPayment();
 String getImageOfBook();
 String getNameBook();
 String getNameAuthor();

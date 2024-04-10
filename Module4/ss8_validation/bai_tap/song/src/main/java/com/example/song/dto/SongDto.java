@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SongDto {
 
-
+    // có thêm mấy cái Max , min NotNull với NotBlank đồ rk tuỳ vô đề anh xài cái nào
     @Size(max = 800,message = "Tối đa 800 ký tự")
     @Pattern(regexp = "^[a-zA-Z0-9]{1,}$",message = "Không được nhập kí tự đặc biệt")
     private String nameSong;

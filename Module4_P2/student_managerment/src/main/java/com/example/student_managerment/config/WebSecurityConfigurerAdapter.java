@@ -1,2 +1,4 @@
-package com.example.student_managerment.config;public class WebSecurityConfigurerAdapter {
+package com.example.student_managerment.config;
+
+public class WebSecurityConfigurerAdapter {
 }

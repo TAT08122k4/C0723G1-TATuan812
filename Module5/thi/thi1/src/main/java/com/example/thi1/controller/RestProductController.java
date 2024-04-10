@@ -23,7 +23,7 @@ public class RestProductController {
     public ResponseEntity<Page<Product>> showListProduct(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "") String tenSanPham, Model model){
         Pageable pageable = PageRequest.of(page,2,Sort.by("so_luong").ascending());
         Page<Product> productPage = iProductService.search(tenSanPham,pageable);
-        if (!productPage.isEmpty()){
+        if (productPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(productPage,HttpStatus.OK);

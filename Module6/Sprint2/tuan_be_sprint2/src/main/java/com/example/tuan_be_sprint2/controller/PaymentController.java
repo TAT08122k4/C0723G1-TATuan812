@@ -1,6 +1,11 @@
 package com.example.tuan_be_sprint2.controller;
 
 import com.example.tuan_be_sprint2.config.ConfigVNP;
+import com.example.tuan_be_sprint2.dto.DetailBuyBookDTO;
+import com.example.tuan_be_sprint2.model.BookProduct;
+import com.example.tuan_be_sprint2.model.DetailBuyBook;
+import com.example.tuan_be_sprint2.service.IBookService;
+import com.example.tuan_be_sprint2.service.IDetailBuyBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,15 +14,22 @@ import org.springframework.web.bind.annotation.*;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/payment")
 public class PaymentController {
+    @Autowired
+    IDetailBuyBookService iDetailBuyBookService;
+    @Autowired
+    IBookService bookService;
+
+
 
 
     @GetMapping("/createPay")
@@ -89,7 +101,7 @@ public class PaymentController {
 
     @GetMapping("/payment_infor/{idAccount}")
     public void handlePaymentInfo(
-            @PathVariable Long idAccount,
+            @PathVariable int idAccount,
             @RequestParam(value = "vnp_Amount", required = false) String amount,
             @RequestParam(value = "vnp_BankCode", required = false) String bankCode,
             @RequestParam(value = "vnp_BankTranNo", required = false) String bankTranNo,
@@ -117,6 +129,41 @@ public class PaymentController {
         System.out.println("Transaction Status: " + transactionStatus);
         System.out.println("Transaction Ref: " + txnRef);
         System.out.println("Secure Hash: " + secureHash);
+        List<DetailBuyBookDTO> detailBuyBookDTOS = iDetailBuyBookService.displayListItemsInCart(idAccount);
+        List<DetailBuyBook> detailBuyBookList = iDetailBuyBookService.DetailBuyBookDisplay(idAccount);
+        LocalDateTime now = LocalDateTime.now();
+        Date date = Date.valueOf(now.toLocalDate());
+        for (int i = 0; i < detailBuyBookDTOS.size(); i++) {
+            BookProduct bookProduct = bookService.findBookByName(detailBuyBookDTOS.get(i).getNameBook());
+            bookProduct.setAmountBook(bookProduct.getAmountBook() - detailBuyBookDTOS.get(i).getQuantity());
+            bookProduct.setLikeBook(bookProduct.getLikeBook() + 1);
+            bookService.save(bookProduct);
+            detailBuyBookList.get(i).setStatusPayment(true);
+            detailBuyBookList.get(i).setBuyDate(date);
+            detailBuyBookList.get(i).setPriceOfProduct(detailBuyBookDTOS.get(i).getQuantityBook() * detailBuyBookDTOS.get(i).getPrice());
+            detailBuyBookList.get(i).setModeOfPayment(1);
+            iDetailBuyBookService.saveToCart(detailBuyBookList.get(i));
+        }
+    }
+    @GetMapping("/paymentAfter/{idAccount}")
+    public ResponseEntity<?> paymentAfterReceive(@PathVariable int idAccount){
+           List<DetailBuyBookDTO> detailBuyBookDTOList = iDetailBuyBookService.displayListItemsInCart(idAccount);
+        List<DetailBuyBook> detailBuyBookList = iDetailBuyBookService.DetailBuyBookDisplay(idAccount);
+        LocalDateTime now = LocalDateTime.now();
+        Date date = Date.valueOf(now.toLocalDate());
+        for (int i = 0; i < detailBuyBookDTOList.size(); i++) {
+            BookProduct bookProduct = bookService.findBookByName(detailBuyBookDTOList.get(i).getNameBook());
+            bookProduct.setAmountBook(bookProduct.getAmountBook() - detailBuyBookDTOList.get(i).getQuantity());
+            bookProduct.setLikeBook(bookProduct.getLikeBook() + 1);
+            bookService.save(bookProduct);
+            detailBuyBookList.get(i).setStatusPayment(true);
+            detailBuyBookList.get(i).setBuyDate(date);
+            detailBuyBookList.get(i).setPriceOfProduct(detailBuyBookDTOList.get(i).getQuantityBook() * detailBuyBookDTOList.get(i).getPrice());
+            detailBuyBookList.get(i).setModeOfPayment(2);
+            iDetailBuyBookService.saveToCart(detailBuyBookList.get(i));
+        }
+    return new ResponseEntity<>(HttpStatus.OK);
+
 
     }
 }

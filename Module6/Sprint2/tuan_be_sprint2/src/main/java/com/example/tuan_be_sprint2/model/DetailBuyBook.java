@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -19,6 +20,7 @@ public class DetailBuyBook {
     int priceOfProduct;
     int quantity;
     boolean statusPayment;
+    int modeOfPayment;
     @ManyToOne
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;

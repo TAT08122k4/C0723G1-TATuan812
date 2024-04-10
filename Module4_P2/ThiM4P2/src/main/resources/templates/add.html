@@ -65,12 +65,49 @@
   </style>
 </head>
 <body>
-<h2>Thêm Mới cái gì đó mao phát </h2>
-<form>
-  <input type="text" >
-  <input type="number" >
-  <input type="date" >
-  <input type="submit" value="Gửi">
+<h2>Thêm Mới Thành Phố </h2>
+<form th:action="@{/thanhPho/them}" method="post" th:object="${thanhPhoDto}">
+  <table>
+    <tr>
+      <td>Tên:</td>
+      <td>  <input type="text"  placeholder="Thêm Mới Tên Thành Phố" th:field="*{tenThanhPho}">
+        <span style="color: red" th:if="${#fields.hasErrors('tenThanhPho')}" th:errors="*{tenThanhPho}"></span></td>
+    </tr>
+    <tr>
+      <td>Quốc Gia:</td>
+      <td>
+        <select th:field="*{quocGia}">
+        <option th:each="qg , loop : ${quocGias}" th:value="${qg.getId()}" th:text="${qg.getTenQuoc()}"></option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Diện Tích:</td>
+      <td>  <input type="number" th:field="*{dienTich}">
+        <span style="color: red" th:if="${#fields.hasErrors('dienTich')}" th:errors="*{dienTich}"></span></td>
+    </tr>
+    <tr>
+      <td>Dân Số:</td>
+      <td>  <input type="number" th:field="*{danSo}">
+        <span style="color: red" th:if="${#fields.hasErrors('danSo')}" th:errors="*{danSo}"></span></td>
+    </tr>
+    <tr>
+      <td>GDP:</td>
+      <td> <input type="number" th:field="*{GDP}">
+        <span style="color: red" th:if="${#fields.hasErrors('GDP')}" th:errors="*{GDP}"></span></td>
+    </tr>
+    <tr>
+      <td>Giới Thiệu</td>
+      <td><textarea th:field="*{gioiThieu}"></textarea>
+        <span style="color: red" th:if="${#fields.hasErrors('gioiThieu')}" th:errors="*{gioiThieu}"></span></td>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>  <input type="submit" value="Gửi">
+        <a style="margin-left: 5px" class="btn btn-light" th:href="@{/thanhPho}">Thoát</a></td>
+    </tr>
+  </table>
+
 </form>
 </body>
 </html>

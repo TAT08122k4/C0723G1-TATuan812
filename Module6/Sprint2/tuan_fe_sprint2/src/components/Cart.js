@@ -1,4 +1,4 @@
-import { deleteItemInCart, getListCart, payment, setQuantity, showMoneyToPay } from '../service/CartService';
+import { deleteItemInCart, getListCart, payment, paymentAfter, setQuantity, showMoneyToPay } from '../service/CartService';
 import '../styles/Cart.css'
 import { FooterBook } from './Footer'
 import { HeaderBook } from './Header'
@@ -25,9 +25,54 @@ export function CartBook (){
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
   const paymentBook =  async() => {
+    for (let index = 0; index < cartItems.length; index++) {
+      if(cartItems[index].quantity <= 0 ){
+       return SweetAlert({
+          title: "Sản Phẩm Đã Hết",
+          text: `Sách ` + `${cartItems.nameBook}` +  "Đã Hết Hàng",
+          icon: "warning",
+          dangerMode: true,
+        })
+      }
+      
+    }
+    SweetAlert({
+      title: "Lựa chọn thanh toán",
+      text: "Vui lòng chọn phương thức thanh toán:",
+      buttons: {
+        traSau: {
+          text: "Thanh toán trả sau",
+          value: "traSau",
+        },
+        online: {
+          text: "Thanh toán online",
+          value: "online",
+        },
+      },
+    }).then((value) => {
+      // Xử lý khi người dùng chọn một trong hai phương thức thanh toán
+      switch (value) {
+        case "traSau":
+          console.log("hallo");
+          paymentAfter(idUser);
+           SweetAlert(
+            "Đặt Hàng Thành Công",
+            `Vui Lòng Kiểm Tra Đơn Hàng Của Bạn`,
+            "success"
+        );          break;
+        case "online":
     payment(totalPriceBook,idUser).then((url) => {
       window.location.href = url;
     })
+          console.log("Chọn thanh toán online");
+          break;
+        default:
+          console.log("Đã đóng hộp thoại hoặc không có lựa chọn nào được chọn.");
+          break;
+      }
+    });
+
+
   }
   const isLogin = localStorage.getItem("isLogin");
 
@@ -44,7 +89,7 @@ export function CartBook (){
   <section className="shopping-cart dark">
     <div className="container">
       <div className="block-heading">
-        <h2>Giỏ Hàng</h2>
+        <h2 style={{fontSize : "4em" , color : "Black"}}>Giỏ Hàng</h2>
       </div>
       <div className="content">
         <div className="row">
@@ -124,7 +169,7 @@ export function CartBook (){
                                   setQuantity(items.quantity + 1 , items.id)
                                 }else{
                                    SweetAlert(
-                                    "Thêm vào giỏ hàng thất bại!",
+                                    "Thêm Sách Thất Bại!",
                                     `Sách này đã hết hàng!`,
                                     "error"
                                 );

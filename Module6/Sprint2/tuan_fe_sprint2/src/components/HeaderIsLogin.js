@@ -22,6 +22,7 @@ export function HeaderBookIsLogin(props) {
   const [account , setAccount] = useState({});
   const [role,setRole] = useState();
   const back = useNavigate();
+  const idAccount =localStorage.getItem("idAccount");
 
   useEffect(() => {
     const displayDropDown = async () => {
@@ -99,15 +100,16 @@ export function HeaderBookIsLogin(props) {
       <div id="header">
         {/* Header*/}
         <nav className="navbar navbar-light header">
+       
           <div className="container">
-            <a className="navbar-brand py-0" href="#">
-              <img
-                src="https://w7.pngwing.com/pngs/347/174/png-transparent-book-icon-teacher-s-day-on-september-10-teacher-book-angle-white-rectangle-thumbnail.png"
-                alt="logo"
-                width="100%"
-                height={25}
+          <img style={{width: "60px", height: "60px"}}
+src="https://img.upanh.tv/2024/04/08/Logo-removebg-preview.png" alt="Logo-removebg-preview.png" border="0" width={100} height={65}
+style={{cursor: "pointer"}}
+            onClick={() => {
+    
+              back("/home")
+            }}
               />
-            </a>
             <form className="d-flex w-50">
               <input
                 className="form-control"
@@ -152,7 +154,7 @@ export function HeaderBookIsLogin(props) {
             </form>
             <ul className="navbar-nav mb-2 mb-lg-0"></ul>
             <a class="d-flex align-items-center cart-icon-wrapper" href="#">
-              <Link to={"/cart"} class="btn cart-button">
+              <Link to={`/cart/list/${idAccount}`} class="btn cart-button">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count-badge">{numberInCart}</span>
                 <span class="ps-2 cart-text">Giỏ hàng</span>
@@ -168,9 +170,9 @@ export function HeaderBookIsLogin(props) {
                     />
                   </li> */}
                 <li className="px-2">
-                  <p style={{color : 'white' , fontSize : "17px"}} to={"/login"} className="nav-link">
+                  <Link  to={`/account/${idAccount}`} style={{color : 'white' , fontSize : "17px"}} className="nav-link">
                     Hi , {account.fullName}
-                  </p>
+                  </Link>
                 </li>
               </a>
               <a className="d-flex" href="#">
@@ -258,9 +260,9 @@ export function HeaderBookIsLogin(props) {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link to={`/historyBooking`} className="nav-link" href="#">
                     Đơn Hàng Của Tôi
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -23,7 +23,6 @@ export function HomePage(){
   const authorId = location.state ?.authorId || "";
   const genreId = location.state ?.genreId || "";
   const languageId = location.state ?.languageId || "";
-  const [countCart,setCountCart] = useState();
   const [props, setProps] = useState(false);
   console.log(nameBook,authorId,genreId,languageId);
   var idUser = localStorage.getItem("idAccount");
@@ -37,6 +36,7 @@ export function HomePage(){
         setBookList(rs.content);
         setTotalPages(rs.totalPages)
         document.title = "Home"
+        
       } catch (error) {
         console.log(error);
       }

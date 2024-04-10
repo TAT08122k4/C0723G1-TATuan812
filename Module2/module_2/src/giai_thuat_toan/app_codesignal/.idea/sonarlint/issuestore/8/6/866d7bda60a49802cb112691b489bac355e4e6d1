@@ -1,0 +1,9 @@
+
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ë»Î8Ù²’å1
+S
+java:S1153"1Directly append the argument of String.valueOf().(ıŸöÓùÿÿÿÿ8Ú²’å1
+K
+java:S1940")Use the opposite operator ("!=") instead.(Æ£’¨úÿÿÿÿ8ŒŸ²’å1
+L	java:S106"+Replace this use of System.out by a logger.(ıŸöÓùÿÿÿÿ8Ÿ²’å1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Ÿ²’å1

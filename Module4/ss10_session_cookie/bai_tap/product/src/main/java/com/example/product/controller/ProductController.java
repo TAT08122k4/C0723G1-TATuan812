@@ -37,7 +37,7 @@ public class ProductController {
     @GetMapping("/shop")
     public ModelAndView showShop(Cart cart,
                                  @RequestParam(value = "page", defaultValue = "0") Integer page,
-                                 @RequestParam(value = "size", defaultValue = "2") Integer size,
+                                 @RequestParam(value = "size", defaultValue = "4") Integer size,
                                  @RequestParam(value = "content", required = false, defaultValue = "") String content,
                                  @RequestParam(value = "categoryId", required = false, defaultValue = "-1") Integer categoryId,
                                  @RequestParam(value = "sortBy", required = false, defaultValue = "id") String sortBy,

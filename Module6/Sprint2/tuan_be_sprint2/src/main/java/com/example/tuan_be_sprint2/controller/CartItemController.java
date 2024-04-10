@@ -10,10 +10,14 @@ import com.example.tuan_be_sprint2.service.IAccountService;
 import com.example.tuan_be_sprint2.service.ICartItemsService;
 import com.example.tuan_be_sprint2.service.IDetailBuyBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -73,6 +77,42 @@ public class CartItemController {
         }
         return new ResponseEntity<>(sum,HttpStatus.OK);
     }
+    @GetMapping("/historyBooking")
+    ResponseEntity<?> displayHistoryBookingBook(@RequestParam(defaultValue = "0") int page,
+                                                @RequestParam(defaultValue = "0") int id,
+                                                @RequestParam(defaultValue = "") String nameBook,
+                                                @RequestParam(defaultValue = "") String startDayStr,
+                                                @RequestParam(defaultValue = "") String endDayStr) {
+
+        Date startDay = null;
+        Date endDay = null;
+
+        if (!startDayStr.isEmpty()) {
+            try {
+                startDay = Date.valueOf(startDayStr);
+            } catch (IllegalArgumentException e) {
+                // Handle invalid date format
+            }
+        }
+
+        if (!endDayStr.isEmpty()) {
+            try {
+                endDay = Date.valueOf(endDayStr);
+            } catch (IllegalArgumentException e) {
+                // Handle invalid date format
+                // tăt
+            }
+        }
+        Pageable pageable = PageRequest.of(page, 2);
+        Page<DetailBuyBookDTO> detailBuyBookDTOPage = detailBuyBookService.displayHistoryBooking(id, startDay, endDay, nameBook, pageable);
+
+        if (detailBuyBookDTOPage.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(detailBuyBookDTOPage, HttpStatus.OK);
+        }
+    }
+
 
 
 }

@@ -11,6 +11,7 @@ export function LoginAccount() {
   const [paramAccount, setParamAccount] = useState("");
   const [paramPassword, setParamPassword] = useState("");
   const [error, setError] = useState("");
+  
   const navigate = useNavigate();
   useEffect(() => {
     const isLogin = localStorage.getItem("isLogin");

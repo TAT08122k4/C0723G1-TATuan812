@@ -8,7 +8,7 @@
 </head>
 <style>
    /*css toast*/
-  #toast-container {
+  .toast-container {
     position: fixed;
     top: 20px;
     left: 50%;
@@ -56,12 +56,12 @@
      text-align: center;
    }
 
-   form {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-bottom: 20px;
-   }
+   /*form {*/
+   /*  display: flex;*/
+   /*  justify-content: space-between;*/
+   /*  align-items: center;*/
+   /*  margin-bottom: 20px;*/
+   /*}*/
 
    input[name="nameSearch"] {
      flex: 1;
@@ -128,74 +128,55 @@
    tbody th button:hover, tbody td button:hover {
      background-color: #0056b3;
    }
-
-
-
-
 </style>
 <body>
-<div id="toast-container">
+<div th:if="${msg == 1}" class="toast-container">
   <div id="toast" class="show" >
     <span > Đã Thêm Mới Thành công</span>
     <span class="icon">&#10004;</span>
   </div>
 </div>
+<div th:if="${msg == 2}" class="toast-container">
+  <div id="toast2" class="show2" >
+    <span > Đã Sửa Thành công</span>
+    <span class="icon">&#10004;</span>
+  </div>
+</div>
+<div th:if="${msg == 3}" class="toast-container">
+  <div id="toast3" class="show3" >
+    <span > Đã Xoá Thành công</span>
+    <span class="icon">&#10004;</span>
+  </div>
+</div>
 
-<h2>Tìm Kiếm</h2>
-<form method="get">
-  <input name="nameSearch">
-  <select>
-    <option>cc</option>
-    <option>HEHE</option>
-  </select>
-  <input type="submit">
-</form>
-<a class="btn btn-success">Thêm Mới</a>
+<!--<h2>Tìm Kiếm</h2>-->
+<!--<form method="get">-->
+<!--  <input name="nameSearch">-->
+<!--  <select>-->
+<!--    <option>cc</option>-->
+<!--    <option>HEHE</option>-->
+<!--  </select>-->
+<!--  <input type="submit">-->
+<!--</form>-->
+<a class="btn btn-success" th:href="@{/thanhPho/them}">Thêm Mới</a>
 <table>
   <thead>
   <tr>
     <th>#</th>
-    <th>#</th>
-    <th>#</th>
-    <th>#</th>
-    <th colspan="2" style="text-align: center">action</th>
+    <th>Thành Phố</th>
+    <th>Quốc Gia</th>
+    <th colspan="2" style="text-align: center">Hành Động</th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th>demo</th>
-    <th>demo</th>
-    <th>demo</th>
-    <th>demo</th>
-    <th><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button></th>
-    <th><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button></th>
-  </tr>
-  <tr>
-    <th>demo</th>
-    <th>demo</th>
-    <th>demo</th>
-    <th>demo</th>
-    <th><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button></th>
-    <th><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button></th>
-  </tr>
-  <tr>
-    <th>demo</th>
-    <th>demo</th>
-    <th>demo</th>
-    <th>demo</th>
-    <th><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button></th>
-    <th><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
+  <tr th:each="tp , loop : ${thanhPhos}">
+    <th th:text="${loop.count}"></th>
+    <th><a th:text="${tp.getTenThanhPho()}" th:href="'/thanhPho/chiTiet/' + ${tp.getId()}"></a></th>
+    <th th:text="${tp.getQuocGia().getTenQuoc()}"></th>
+    <th><a class="btn btn-primary" th:href="'/thanhPho/chinhSua/' + ${tp.getId()}"> Chỉnh Sửa</a></th>
+    <th>
+      <button type="button" class="btn btn-primary"  th:attr="data-id=${tp.getId()} , data-name = ${tp.getTenThanhPho()}" onclick="deleteModal(this)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     Xoá
     </button></th>
   </tr>
   </tbody>
@@ -204,17 +185,15 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="" method="post">
+      <form action="/thanhPho/xoa" method="get">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Bạn Có Chắc Chắn Muốn Xoá Thành Phố <span id="nameDelete"></span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <input type="text" placeholder="">
-      </div>
+        <input  type="hidden" name="id" id="idDelete">
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+        <button type="submit" class="btn btn-primary">Xoá</button>
       </div>
       </form>
 
@@ -233,4 +212,26 @@
       }, 5000);
     }
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    var toast = document.getElementById('toast2');
+    if (toast && toast.classList.contains('show2')) {
+      setTimeout(function() {
+        toast.classList.remove('show2');
+      }, 5000);
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var toast = document.getElementById('toast3');
+    if (toast && toast.classList.contains('show3')) {
+      setTimeout(function() {
+        toast.classList.remove('show3');
+      }, 5000);
+    }
+  });
+  function deleteModal(element){
+    let id =  element.getAttribute('data-id');
+    let name = element.getAttribute('data-name');
+    document.getElementById('idDelete').value = id;
+    document.getElementById('nameDelete').innerText = name;
+  }
 </script>

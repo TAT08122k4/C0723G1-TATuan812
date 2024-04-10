@@ -3,7 +3,7 @@ import { deleteProduct, getAll } from "../service/ProductService";
 import { Form, Link, NavLink, Route, Routes } from "react-router-dom";
 
 export function DisplayProduct() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState({});
   // const [searchProductName, setSearchProductName] = useState("");
   // const [searchCategory, setSearchCategory] = useState("");
   const [objectDelete,setObjectDelete] = useState(0)
@@ -33,6 +33,9 @@ export function DisplayProduct() {
   //   );
   //   return filteredProducts;
   // };
+  if(!products.content){
+    return "Loadinggg";
+  }
   return (
     <>
       <div className="search">
@@ -51,7 +54,7 @@ export function DisplayProduct() {
           // onChange={(event) => {setSearchCategory(event.target.value)}}
         />
         -
-        <button onClick={handleSearch} className=" btn btn-outline-primary">Tìm Kiếm</button>
+        {/* <button onClick={handleSearch} className=" btn btn-outline-primary">Tìm Kiếm</button> */}
       </div>
       <h1>Danh Sách Sản Phẩm</h1>
       <table className="table table-hover table-bordered">
@@ -66,8 +69,9 @@ export function DisplayProduct() {
           </tr>
         </thead>
         <tbody>
-          {handleSearch().length > 0 ? (
-            handleSearch().map((item, index) => (
+          {
+
+            products.content.map((item, index) => (
               <tr key={item.id}>
                 <th>{index + 1}</th>
                 <th>{item.tenSanPham}</th>
@@ -84,13 +88,9 @@ export function DisplayProduct() {
                 </th>
               </tr>
             ))
-          ) : (
-            <tr>
-              <td colSpan="6">
-                <p>Không tìm thấy sản phẩm.</p>
-              </td>
-            </tr>
-          )}
+          }
+
+          
         </tbody>
       </table>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -115,4 +115,5 @@ export function DisplayProduct() {
             </div>
     </>
   );
+
 }

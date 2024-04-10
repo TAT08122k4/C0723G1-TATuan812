@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Columns;
 
 import java.util.Objects;
 
@@ -21,6 +22,7 @@ public class Product {
     private String name;
     private double price;
     private String description;
+    @Column(columnDefinition = "https://th.bing.com/th/id/OIP.aCBiZ8CcYacSOerStJWlIgAAAA?rs=1&pid=ImgDetMain")
     private String image;
 
     @ManyToOne

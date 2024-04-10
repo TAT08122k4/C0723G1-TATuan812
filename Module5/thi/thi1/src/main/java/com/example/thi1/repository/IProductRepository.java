@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product, Integer> {
-    @Query(value = "select * from product where ten_san_pham like :tenSanPham",nativeQuery = true)
+    @Query(value = "SELECT * FROM product WHERE ten_san_pham LIKE %:tenSanPham%",nativeQuery = true)
     Page<Product> search(@Param("tenSanPham")String tenSanPham, Pageable pageable);
 }

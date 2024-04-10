@@ -58,6 +58,8 @@ public class WebSecurityConfig {
                             .requestMatchers(HttpMethod.GET , ("/account/find/**")).hasAnyRole("USER" , "ADMIN")
                             .requestMatchers(HttpMethod.PATCH , ("/account/edit")).hasAnyRole("USER","ADMIN")
                             .requestMatchers(HttpMethod.POST , ("/admin/**")).hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.GET,("/cart/historyBooking/**")).hasAnyRole("USER","ADMIN")
+                            .requestMatchers(HttpMethod.GET , ("/payment/**")).hasAnyRole("USER","ADMIN")
                             .anyRequest().permitAll()
 
 
