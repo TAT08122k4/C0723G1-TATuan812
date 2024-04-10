@@ -66,7 +66,7 @@ export function LoginAccount() {
         <div className="form_wrapper">
           <div className="form_container">
             <div className="title_container">
-              <h2>Đăng Nhập</h2>
+              <h2 style={{color : "black"}}>Đăng Nhập</h2>
             </div>
             <div className="row clearfix">
               <Formik
@@ -79,7 +79,8 @@ export function LoginAccount() {
                 }}
               >
                 <Form>
-                  <div className="">
+                  <div className="" style={{textAlign :"center" , marginLeft : "30px"}}>
+                    <div className="icon-and-input" >
                     <div className="input_field">
                       {" "}
                       <span>
@@ -93,6 +94,9 @@ export function LoginAccount() {
                         }}
                       />
                     </div>
+                    </div>
+                    <div className="icon-and-input">
+
                     <div className="input_field">
                       {" "}
                       <span>
@@ -116,6 +120,8 @@ export function LoginAccount() {
                         </ul>
                       </div>
                     )}
+                    </div>
+
                     <button className="btn" type="submit" onClick={handleLogin}>
                       Đăng nhập
                     </button>

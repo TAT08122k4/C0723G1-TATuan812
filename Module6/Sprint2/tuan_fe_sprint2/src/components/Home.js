@@ -245,8 +245,6 @@ export function HomePage(){
 ) : (
   <h3 style={{color: 'red'}}>Sách đã hết</h3>
 )}
-
-       
       </div>
     </div>
   </article>

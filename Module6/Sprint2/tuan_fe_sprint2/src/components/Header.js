@@ -209,14 +209,14 @@ export function HeaderBook(props){
                   </li>
                   */}
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link to={"/login"} className="nav-link" href="#">
                       Quản Lý Tài Khoản
-                    </a>
+                    </Link>
                   </li> 
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link to={"/login"} className="nav-link" href="#">
                       Lịch Sử Mua Hàng
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

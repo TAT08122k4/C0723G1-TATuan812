@@ -100,7 +100,7 @@ const validateObject = {
     <div className="form_container">
          <Form >
       <div className="title_container">
-        <h2>Đăng Kí</h2>
+        <h2 style={{color : "black"}}>Đăng Kí</h2>
       </div>
       <div className="row clearfix">
         <div className="">

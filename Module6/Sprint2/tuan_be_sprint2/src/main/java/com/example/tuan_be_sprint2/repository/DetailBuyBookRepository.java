@@ -20,7 +20,7 @@ import java.util.List;
 @Repository
 public interface DetailBuyBookRepository extends JpaRepository<DetailBuyBook, Integer> {
 
-    @Query(value = "select  dbb.id as id , dbb.buy_date as buyDate , dbb.quantity as quantity ,dbb.mode_of_payment as modeOfPayment , dbb.price_of_product as priceOfProduct , dbb.status_payment as statusPayment , dbb.account_id as accountId , dbb.cart_id as cartId , bp.name_book as nameBook , ath.name_author as nameAuthor , g.name_genre as nameGenre , bp.price as price  , lg.name_language as nameLanguage , bp.image_of_book as imageOfBook , bp.amount_book as quantityBook\n" +
+    @Query(value = "select  dbb.id as id , dbb.buy_date as buy  Date , dbb.quantity as quantity ,dbb.mode_of_payment as modeOfPayment , dbb.price_of_product as priceOfProduct , dbb.status_payment as statusPayment , dbb.account_id as accountId , dbb.cart_id as cartId , bp.name_book as nameBook , ath.name_author as nameAuthor , g.name_genre as nameGenre , bp.price as price  , lg.name_language as nameLanguage , bp.image_of_book as imageOfBook , bp.amount_book as quantityBook\n" +
             " from detail_buy_book dbb join account a on a.id = dbb.account_id \n" +
             " join cart_items ci on ci.id = dbb.cart_id \n" +
             " join book_product bp on bp.id = ci.book_id \n" +
