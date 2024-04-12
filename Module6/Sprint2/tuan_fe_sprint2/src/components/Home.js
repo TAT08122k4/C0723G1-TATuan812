@@ -153,65 +153,80 @@ export function HomePage(){
           </div>
           {/*        Carousel*/}
           <section className="movieCarousel">
-                <div id="movieCarousel" className="carousel slide" data-ride="carousel">
-                    <ol className="carousel-indicators container">
-                        <li data-target="#movieCarousel" data-slide-to={0} className="active" />
-                        <li data-target="#movieCarousel" data-slide-to={1} />
-                        <li data-target="#movieCarousel" data-slide-to={2}  />
-                    </ol>
-                    <div className="carousel-inner">
-                        <div className="carousel-item active hero1">
-                            <div className="carousel-item__overlay" />
-                            <div className="container carousel-caption d-md-block">
-                                <p>Tiểu Thuyết</p>
-                                <h2 className="display-4">Nhà Giả Kim</h2>
-                                <p>
-                                Trong Nhà Giả Kim, nhân vật chính là Santiago, một người chăn cừu. Cuộc hành trình của Santiago đưa anh từ vùng quê Andaluisa ở phía nam Tây Ban Nha đến Kim tự tháp Ai Cập. Trong hành trình này, Santiago gặp nhiều người và trải qua nhiều thử thách, tìm kiếm kho tàng bí mật và khám phá ý nghĩa của cuộc sống.
-                                </p>
-                                <div className="carousel-item__trailer mt-4">
-                                    <span className="d-inline-block mr-2 text-white rounded-circle text-center">CO8</span> 
+    <div id="movieCarousel" className="carousel slide" data-ride="carousel">
+        <ol className="carousel-indicators">
+            <li data-target="#movieCarousel" data-slide-to="0" className="active"></li>
+            <li data-target="#movieCarousel" data-slide-to="1"></li>
+            <li data-target="#movieCarousel" data-slide-to="2"></li>
+        </ol>
+        <div className="carousel-inner">
+            <div className="carousel-item active hero1">
+            <div className="carousel-item__overlay"></div>
+    <div className="container carousel-caption d-md-block">
+        <p>Thể loại: Văn Học</p>
+        <h2 className="display-4" style={{color : "white"}}>Tuổi Thơ Dữ Dội</h2>
+        <p>
+        Tuổi thơ dữ dội là một tiểu thuyết dài tám phần xuất bản năm 1988 của nhà văn Phùng Quán, có nội dung xoay quanh cuộc sống chiến đấu và sự hy sinh của những thiếu niên 13, 14 tuổi trong hàng ngũ Đội thiếu niên trinh sát của trung đoàn Trần Cao Vân. Năm 1990, tiểu thuyết Tuổi thơ dữ dội đã được trao giải thưởng Văn học Thiếu nhi của Hội Nhà văn Việt Nam cũng như được dựng thành phim cùng tên.
+        </p>
+        <div className="carousel-item__trailer mt-4">
+            <span className="d-inline-block mr-2 text-white rounded-circle text-center">Binggg</span> 
+            <button className="btn-playTrailer">
+                <i className="fa fa-play mr-2 playtrailer"></i>
+                <span style={{fontSize: "1rem"}}> <Link to={`/book/${1}`}>Xem Thêm</Link> </span>
+                <div className="btn__overlay"></div>
+            </button>
+        </div>
+    </div>
+            </div>
+            <div className="carousel-item hero2">
+            <div className="container carousel-caption d-md-block">
+        <p>Thể loại: Cổ Tích</p>
+        <h2 className="display-4"  style={{color : "white"}}>Cô Bé Quàng Khăn Đỏ</h2>
+        <p>
+        Câu chuyện kể về một cô bé trẻ tên là Little Red Riding Hood (Cô bé Quàng khăn Đỏ) hoặc Little Red Cap (Mũi cừu đỏ) do màu sắc của chiếc mũ cô bé thường đội. Một ngày nọ, mẹ của cô bé gửi cô đến thăm bà nội ở trong rừng, mang theo thức ăn và đồng hồ để gặp bà. Trên đường đi, cô gặp một con sói, người hỏi về nơi bà nội ở. Little Red Riding Hood không nghĩ là có gì đáng sợ, và cho biết bà nội ở sâu trong rừng. Sói thì nhanh chóng đi đến nhà của bà nội và nuốt chửng bà nội. Sau đó, sói mặc trang phục bà nội và đợi Little Red Riding Hood đến. Khi cô bé đến, sói ăn thịt cô bé hoặc là giết cô bé, tùy theo phiên bản của câu chuyện. Trong một số phiên bản, chú chó sủa cứu cô bé và những con sói nhưng trong một số phiên bản khác, không có ai cứu cô bé.
+        </p>
+        <div className="carousel-item__trailer mt-4">
+            <span className="d-inline-block mr-2 text-white rounded-circle text-center">Binggg</span> 
+            <button className="btn-playTrailer">
+                <i className="fa fa-play mr-2 playtrailer"></i>
+                <span style={{fontSize: "1rem"}}> <Link to={`/book/${10}`}>Xem Thêm</Link></span>
+                <div className="btn__overlay"></div>
+            </button>
+        </div>
+    </div>
+              
 
-                                    <button className="btn-playTrailer"><i className="fa fa-play mr-2 playtrailer" /><span style={{fontSize: "1rem"}}> Mượn</span>
-                                        <div className="btn__overlay" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-item hero2">
-                            <div className="carousel-item__overlay" />
-                            <div className="container carousel-caption d-md-block">
-                                <p>Hành động, thám hiểm, tình cảm</p>
-                                <h2 className="display-4">End of the World: Part II</h2>
-                                <p>Rõ ràng là một quy trình động, theo sau sự biến đổi của thói quen của người đọc. Điều đáng
-                                    ngạc nhiên là chúng ta chú ý rằng chữ Gothic, mà chúng ta hiện nay cho là ít quan trọng
-                                </p>
-                                <div className="carousel-item__trailer mt-4">
-                                    <span className="d-inline-block mr-2 text-white rounded-circle text-center">C08</span>
-                                    <button className="btn-playTrailer"><i className="fa fa-play mr-2 playtrailer" /><span style={{fontSize: "1rem"}}>Xem trailer</span>
-                                        <div className="btn__overlay" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="carousel-item hero3">
-                            <div className="carousel-item__overlay" />
-                            <div className="container carousel-caption d-md-block">
-                                <p>Hành động, thám hiểm, tình cảm</p>
-                                <h2 className="display-4">End of the World: Part III</h2>
-                                <p>Rõ ràng là một quy trình động, theo sau sự biến đổi của thói quen của người đọc. Điều đáng
-                                    ngạc nhiên là chúng ta chú ý rằng chữ Gothic, mà chúng ta hiện nay cho là ít quan trọng
-                                </p>
-                                <div className="carousel-item__trailer mt-4">
-                                    <span className="d-inline-block mr-2 text-white rounded-circle text-center">C08</span>
-                                    <button className="btn-playTrailer"><i className="fa fa-play mr-2 playtrailer" /><span style={{fontSize: "1rem"}}>Xem trailer</span>
-                                        <div className="btn__overlay" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+              
+            </div>
+            <div className="carousel-item hero3">
+            <div className="container carousel-caption d-md-block">
+        <p>Thể loại: Văn Học</p>
+        <h2 className="display-4"  style={{color : "white"}}>Dế mèn phiêu lưu kí</h2>
+        <p>
+        "Dế Mèn Phiêu Lưu Ký" là một truyện dài của nhà văn Tô Hoài, được viết vào năm 1941. Tác phẩm mang tính chất giáo dục, kể về cuộc phiêu lưu của chú dế thông minh tên là Mèn.
+        </p>
+        <div className="carousel-item__trailer mt-4">
+            <span className="d-inline-block mr-2 text-white rounded-circle text-center">Binggg</span> 
+            <button className="btn-playTrailer">
+                <i className="fa fa-play mr-2 playtrailer"></i>
+                <span style={{fontSize: "1rem"}}><Link to={`/book/${3}`}>Xem Thêm</Link></span>
+                <div className="btn__overlay"></div>
+            </button>
+        </div>
+    </div>
+            </div>
+        </div>
+        <a className="carousel-control-prev" href="#movieCarousel" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+        </a>
+        <a className="carousel-control-next" href="#movieCarousel" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
           {/*        Kho sách*/}
           <div className="row mt-5">
             <div className="col-lg-9 left px-0">

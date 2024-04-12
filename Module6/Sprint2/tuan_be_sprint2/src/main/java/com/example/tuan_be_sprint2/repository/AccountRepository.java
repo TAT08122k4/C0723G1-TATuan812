@@ -25,7 +25,7 @@ public interface AccountRepository extends JpaRepository<Account,Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO account (account_name, avatar_user, birthday, email, full_name, gender, id_card, password, phone_number, role_id) " +
-            "values (:#{#account.accountName},:#{#account.avatarUser},:#{#account.birthday},:#{#account.email},:#{#account.fullName},:#{#account.gender},:#{#account.idCard},:#{#account.password},:#{#account.phoneNumber} , :role)",nativeQuery = true)
+    @Query(value = "INSERT INTO account (account_name, avatar_user, birthday, email, full_name, gender, id_card, password, phone_number,address, role_id) " +
+            "values (:#{#account.accountName},:#{#account.avatarUser},:#{#account.birthday},:#{#account.email},:#{#account.fullName},:#{#account.gender},:#{#account.idCard},:#{#account.password},:#{#account.phoneNumber} ,:#{#account.address}, :role)",nativeQuery = true)
     void register(@Param("account") Account account,@Param("role") int role);
 }

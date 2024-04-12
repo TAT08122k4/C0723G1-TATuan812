@@ -24,6 +24,7 @@ function App() {
    <Route path='/admin' element={<ManagerAdmin></ManagerAdmin>}></Route>
    <Route path='/payOk/:id' element={<PaymentSuccessfully></PaymentSuccessfully>}></Route>
    <Route path='/historyBooking' element={<DisplayHistoryBooking></DisplayHistoryBooking>}></Route>
+
   </Routes>
   </>
   );

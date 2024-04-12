@@ -2,8 +2,10 @@ package com.example.tuan_be_sprint2.controller;
 
 import com.example.tuan_be_sprint2.config.ConfigVNP;
 import com.example.tuan_be_sprint2.dto.DetailBuyBookDTO;
+import com.example.tuan_be_sprint2.model.Account;
 import com.example.tuan_be_sprint2.model.BookProduct;
 import com.example.tuan_be_sprint2.model.DetailBuyBook;
+import com.example.tuan_be_sprint2.service.IAccountService;
 import com.example.tuan_be_sprint2.service.IBookService;
 import com.example.tuan_be_sprint2.service.IDetailBuyBookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,8 @@ public class PaymentController {
     IDetailBuyBookService iDetailBuyBookService;
     @Autowired
     IBookService bookService;
-
-
-
+    @Autowired
+    IAccountService accountService;
 
     @GetMapping("/createPay")
     private ResponseEntity<String> payment(@RequestParam Long price,
@@ -100,8 +101,9 @@ public class PaymentController {
     }
 
     @GetMapping("/payment_infor/{idAccount}")
-    public void handlePaymentInfo(
+    public ResponseEntity<Boolean> handlePaymentInfo(
             @PathVariable int idAccount,
+            @RequestParam String status,
             @RequestParam(value = "vnp_Amount", required = false) String amount,
             @RequestParam(value = "vnp_BankCode", required = false) String bankCode,
             @RequestParam(value = "vnp_BankTranNo", required = false) String bankTranNo,
@@ -116,6 +118,8 @@ public class PaymentController {
             @RequestParam(value = "vnp_SecureHash", required = false) String secureHash) {
 
         // Xử lý thông tin thanh toán ở đây
+        Account account = accountService.findAccountById(idAccount);
+
         System.out.println("ID Account: " + idAccount);
         System.out.println("Amount: " + amount);
         System.out.println("Bank Code: " + bankCode);
@@ -129,28 +133,36 @@ public class PaymentController {
         System.out.println("Transaction Status: " + transactionStatus);
         System.out.println("Transaction Ref: " + txnRef);
         System.out.println("Secure Hash: " + secureHash);
-        List<DetailBuyBookDTO> detailBuyBookDTOS = iDetailBuyBookService.displayListItemsInCart(idAccount);
-        List<DetailBuyBook> detailBuyBookList = iDetailBuyBookService.DetailBuyBookDisplay(idAccount);
-        LocalDateTime now = LocalDateTime.now();
-        Date date = Date.valueOf(now.toLocalDate());
-        for (int i = 0; i < detailBuyBookDTOS.size(); i++) {
-            BookProduct bookProduct = bookService.findBookByName(detailBuyBookDTOS.get(i).getNameBook());
-            bookProduct.setAmountBook(bookProduct.getAmountBook() - detailBuyBookDTOS.get(i).getQuantity());
-            bookProduct.setLikeBook(bookProduct.getLikeBook() + 1);
-            bookService.save(bookProduct);
-            detailBuyBookList.get(i).setStatusPayment(true);
-            detailBuyBookList.get(i).setBuyDate(date);
-            detailBuyBookList.get(i).setPriceOfProduct(detailBuyBookDTOS.get(i).getQuantityBook() * detailBuyBookDTOS.get(i).getPrice());
-            detailBuyBookList.get(i).setModeOfPayment(1);
-            iDetailBuyBookService.saveToCart(detailBuyBookList.get(i));
+        if (status.equals("00")) {
+            List<DetailBuyBookDTO> detailBuyBookDTOS = iDetailBuyBookService.displayListItemsInCart(idAccount);
+            List<DetailBuyBook> detailBuyBookList = iDetailBuyBookService.DetailBuyBookDisplay(idAccount);
+            LocalDateTime now = LocalDateTime.now();
+            Date date = Date.valueOf(now.toLocalDate());
+            for (int i = 0; i < detailBuyBookDTOS.size(); i++) {
+                BookProduct bookProduct = bookService.findBookByName(detailBuyBookDTOS.get(i).getNameBook());
+                bookProduct.setAmountBook(bookProduct.getAmountBook() - detailBuyBookDTOS.get(i).getQuantity());
+                bookProduct.setLikeBook(bookProduct.getLikeBook() + 1);
+                bookService.save(bookProduct);
+                detailBuyBookList.get(i).setStatusPayment(true);
+                detailBuyBookList.get(i).setBuyDate(date);
+                detailBuyBookList.get(i).setPriceOfProduct(detailBuyBookDTOS.get(i).getQuantityBook() * detailBuyBookDTOS.get(i).getPrice());
+                detailBuyBookList.get(i).setModeOfPayment(1);
+                iDetailBuyBookService.saveToCart(detailBuyBookList.get(i));
+            }
+            accountService.sendMailBooking(account, detailBuyBookDTOS, 0L, true);
+            return new ResponseEntity<>(true, HttpStatus.OK);
         }
+        return new ResponseEntity<>(false, HttpStatus.OK);
     }
+
     @GetMapping("/paymentAfter/{idAccount}")
-    public ResponseEntity<?> paymentAfterReceive(@PathVariable int idAccount){
-           List<DetailBuyBookDTO> detailBuyBookDTOList = iDetailBuyBookService.displayListItemsInCart(idAccount);
+    public ResponseEntity<?> paymentAfterReceive(@PathVariable int idAccount) {
+        List<DetailBuyBookDTO> detailBuyBookDTOList = iDetailBuyBookService.displayListItemsInCart(idAccount);
         List<DetailBuyBook> detailBuyBookList = iDetailBuyBookService.DetailBuyBookDisplay(idAccount);
         LocalDateTime now = LocalDateTime.now();
+        Account account = accountService.findAccountById(idAccount);
         Date date = Date.valueOf(now.toLocalDate());
+        Long sum = 0L;
         for (int i = 0; i < detailBuyBookDTOList.size(); i++) {
             BookProduct bookProduct = bookService.findBookByName(detailBuyBookDTOList.get(i).getNameBook());
             bookProduct.setAmountBook(bookProduct.getAmountBook() - detailBuyBookDTOList.get(i).getQuantity());
@@ -160,9 +172,12 @@ public class PaymentController {
             detailBuyBookList.get(i).setBuyDate(date);
             detailBuyBookList.get(i).setPriceOfProduct(detailBuyBookDTOList.get(i).getQuantityBook() * detailBuyBookDTOList.get(i).getPrice());
             detailBuyBookList.get(i).setModeOfPayment(2);
+            sum = Long.valueOf(detailBuyBookList.get(i).getPriceOfProduct());
             iDetailBuyBookService.saveToCart(detailBuyBookList.get(i));
         }
-    return new ResponseEntity<>(HttpStatus.OK);
+        accountService.sendMailBooking(account, detailBuyBookDTOList, sum, false);
+        System.out.println("OK");
+        return new ResponseEntity<>(HttpStatus.OK);
 
 
     }

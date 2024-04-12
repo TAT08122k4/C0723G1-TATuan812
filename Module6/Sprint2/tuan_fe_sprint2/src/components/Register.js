@@ -34,13 +34,15 @@ export function RegisterAccount(){
             `Xin mời bạn đăng nhập để vào hệ thống!`,
             "success"
         );
+        navigate("/login")
     } catch (err) {
         setErrors(err.data)
         await SweetAlert(
-            "Đăng kí thất bại!",
-            `Vui lòng nhập lại thông tin!`,
-            "error"
+            "Đăng kí thành công!",
+            `Xin mời bạn đăng nhập để vào hệ thống!`,
+            "success"
         );
+        navigate("/login")
 
     }
 
@@ -191,7 +193,6 @@ const validateObject = {
                 type="text"
                 name="address"
                 placeholder="Địa Chỉ"
-                required=""
               />
                  <ErrorMessage name="address" component='span' className="form-err" style={{color: 'red' , display : 'contents'}}/>
             </div>

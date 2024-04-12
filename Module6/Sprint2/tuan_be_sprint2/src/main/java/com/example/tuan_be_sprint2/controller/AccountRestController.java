@@ -92,7 +92,7 @@ public class AccountRestController {
             account.setPassword(encode);
             accountService.register(account,2);
 
-            return new ResponseEntity<>(account,HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
 
     }

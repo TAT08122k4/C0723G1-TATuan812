@@ -38,7 +38,7 @@ public class BookRestController {
                                       @RequestParam(defaultValue = "0") int authorId,
                                       @RequestParam(defaultValue = "0") int languageId,
                                       @RequestParam(defaultValue = "0") int genreId ){
-        Pageable pageable = PageRequest.of(page,2);
+        Pageable pageable = PageRequest.of(page,6);
         Page<BookProduct> bookProductPage = iBookService.searchAndDisplayProducts(nameBook,authorId,languageId,genreId,pageable);
         if (bookProductPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

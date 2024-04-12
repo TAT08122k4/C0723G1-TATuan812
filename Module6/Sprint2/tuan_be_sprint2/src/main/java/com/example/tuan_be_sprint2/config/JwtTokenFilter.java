@@ -77,6 +77,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 Pair.of("/book/listAuthor" , "GET"),
 //                Pair.of("/cart/list/1" , "GET"),
                 Pair.of("book/list", "GET"),
+                Pair.of("book/list/**", "GET"),
                 Pair.of("/book/listGenre","GET"),
                 Pair.of("/book/listLanguage","GET"),
                 Pair.of("/book/topBooks","GET")

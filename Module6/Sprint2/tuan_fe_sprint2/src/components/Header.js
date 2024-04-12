@@ -75,7 +75,14 @@ export function HeaderBook(props){
           <nav className="navbar navbar-light header">
             <div className="container">
               <a className="navbar-brand py-0" href="#">
-                <img src="https://w7.pngwing.com/pngs/347/174/png-transparent-book-icon-teacher-s-day-on-september-10-teacher-book-angle-white-rectangle-thumbnail.png" alt="logo" width="100%" height={25} />
+              <img style={{width: "60px", height: "60px"}}
+src="https://img.upanh.tv/2024/04/08/Logo-removebg-preview.png" alt="Logo-removebg-preview.png" border="0" width={100} height={65}
+style={{cursor: "pointer"}}
+            onClick={() => {
+    
+              back("/home")
+            }}
+              />
               </a>
               <form className="d-flex w-50">
                 <input

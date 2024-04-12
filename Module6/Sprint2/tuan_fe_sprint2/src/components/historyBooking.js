@@ -44,8 +44,15 @@ export function DisplayHistoryBooking() {
 				  "Thanh Toán Thành Công",
 				  `Vui Lòng Check Kĩ Lại Thông Tin Hàng Bạn Đã Đặt`,
 				  "success"
-			  );     
-			  }  
+			  );}
+			  if(checkPayment == "NO"){
+				setCheckPayment("");
+				await SweetAlert(
+				  "Thanh Toán Không Thành Công",
+				  `Vui Lòng Check Kĩ Lại Thông Tin Hàng Bạn Đã Đặt`,
+				  "errors"
+			  );
+			  } 
 		} catch (error) {
 			console.log(error);
 			
@@ -199,7 +206,7 @@ onSubmit={(values) => {
 			<td>{booking.nameGenre}</td>
 			<td>{formatNumber(booking.price)}đ</td>
 			<td>{booking.quantity}</td>
-			<td>{formatNumber(booking.priceOfProduct)}đ</td>
+			<td>{formatNumber(booking.price * booking.quantity)}đ</td>
 			<td>
 			{booking.modeOfPayment === 1 ? (
     "Đã Thanh Toán Online"
