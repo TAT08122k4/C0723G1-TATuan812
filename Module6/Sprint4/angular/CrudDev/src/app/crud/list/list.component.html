@@ -1,0 +1,31 @@
+<h1>Quản Lý Dev</h1>
+<button routerLink="/create">Thêm Mới Dev</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Lương</th>
+            <th>Ngày Tháng Năm Sinh</th>
+            <th>Giới Tính</th>
+            <th>Vị Trí</th>
+        </tr>
+    </thead>
+    <tbody>
+      @for (item of devs; track $index) {
+        <tr>
+            <th>{{$index}}</th>
+            <th><img style="height: 100px; width: 70px;" src="{{item.img}}"></th>
+            <th>{{item.name}}</th>
+            <th>{{item.salary}}</th>
+            <th>{{item.birthday}}</th>
+            <th>{{item.gender == true ? "Nam" : "Nữ" }}</th>
+            <th>{{item.positions.name}}</th>
+        </tr>
+      }@empty {
+        <h1>Rỗng</h1>
+      }
+    </tbody>
+
+</table>

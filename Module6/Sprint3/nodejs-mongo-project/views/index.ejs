@@ -1,0 +1,47 @@
+<%- include('layouts/header') %>
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <% if (message) { %>
+        <div class="alert alert-dismissible fade show alert- <%= message.type %>" role="alert" style="background-color: rgb(83, 255, 83);"  >
+    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    <strong><%= message.message %></strong>
+        </div>
+        <% } %>
+        
+        <% if (users != '') { %>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <% users.forEach((row,index) => { %>
+                    <tr>
+                        <th scope="row"><%= index %></th>
+                        <td><img src="<%= row.image %>" width="50" class="img-thumbnail" alt=""></td>
+                        <td><%= row.name %></td>
+                        <td><%= row.email %></td>
+                        <td><%= row.phone %></td>
+                        <td>
+                            <a href="/edit/<%= row._id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                            <a href="/delete/<%= row._id %>" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <% }  else { %>
+                <h1 class="text-center text-secondary mt-5">No Users found in the database ! </h1>
+        <% } %>
+
+
+    <%- include('layouts/footer') %>
